@@ -1,12 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +19,10 @@ public class Server {
             ServerSocket serverSocket = new ServerSocket(portNumber);
 
             List<Thread> clientThreads = new ArrayList<Thread>();
+
             while (true) {
                 ClientHandler clientHandler = new ClientHandler(serverSocket.accept());
+                System.out.println("SERVER: Connection established");
                 Thread clientThread = new Thread(clientHandler);
                 clientThreads.add(clientThread);
                 clientThread.start();
