@@ -1,6 +1,45 @@
-.text-test {
+.logo {
   color: green;
   text-align: center;
   font-size: 100px;
   font: bolder;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+}
+.searchBar {
+  margin-top: 10px;
+  width: 300px;
+  height: 20px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.plantImage {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+.plantImage:hover {
+  cursor: pointer;
+  transition: 300ms ease;
+  width: 120px;
+  height: 120px;
+}
+.plantName {
+  display: flex;
+  justify-content: center;
+  color: rgb(203, 18, 18);
+}
+
+.plantName:hover {
+  cursor: pointer;
+
 }
