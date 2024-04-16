@@ -18,13 +18,14 @@ function MainView(props) {
             className="plantImage" 
             src="./assets/Strawberry transparent.png" 
             alt="Strawberry"
-            onclick="location.href='https://www.facebook.com/'"
+            onClick="location.href='https://www.facebook.com/'"
             />
         </div>
         <div class="plantName" 
-            onclick = "location.href = 'https://www.facebook.com/'">
+            onClick = "location.href = 'https://www.facebook.com/'">
             Strawberry
         </div>
+        <div></div>
     </nav>
     )
 }
