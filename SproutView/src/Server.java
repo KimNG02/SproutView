@@ -6,11 +6,15 @@ import java.util.List;
 
 public class Server {
 
+    public static Server INSTANCE = new Server(8888);
+
     static String BadRequest = "HTTP/1.1 400 Bad Request\r\n";
 
     int portNumber;
 
-    public Server(int portNumber) {
+    public static Server getInstance() {return INSTANCE;}
+
+    private Server(int portNumber) {
         this.portNumber = portNumber;
     }
 
