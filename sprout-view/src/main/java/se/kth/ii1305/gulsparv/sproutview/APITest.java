@@ -3,6 +3,8 @@ package se.kth.ii1305.gulsparv.sproutview;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +30,13 @@ public class APITest {
             System.out.println("ERROR");
         }
         return new ResponseEntity<byte[]>(fileBytes, HttpStatusCode.valueOf(200));
+    }
+
+    @PostMapping
+    public ResponseEntity<byte[]> postTest(@RequestBody String string)
+    {
+        System.out.println(string);
+        return Test();
     }
 
     // IMAGE MAPPING
