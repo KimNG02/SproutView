@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprout View :O</title> 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="test">
+import React from 'react';
+
+function MainView(props) {
+    return (
     <nav>
-        <div class="logo">
+        <div className="logo">
             Sprout View 🪴    
         </div>
-        <div class="searchBarContainer">
+        <div className="searchBarContainer">
             <input
-            class="searchBar"
+            className="searchBar"
             type="text"
             placeholder="Search plants..."
             />
         </div>
-        <div class="imageContainer">
+        <div className="imageContainer">
             <img 
-            class="plantImage" 
+            className="plantImage" 
             src="./assets/Strawberry transparent.png" 
             alt="Strawberry"
             onclick="location.href='https://www.facebook.com/'"
@@ -31,7 +26,5 @@
             Strawberry
         </div>
     </nav>
-
-</body>
-
-</html>
+    )
+}
