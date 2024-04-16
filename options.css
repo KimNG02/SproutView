@@ -1,7 +1,4 @@
 
-.rangebox {
-  
-}
 
 .temp {
     margin-left: 20px;
@@ -36,6 +33,15 @@ div.radio1{
     Color: rgb(156, 67, 146)
 
 }
+.slider-value {
+  display: inline; /* Ensures it's displayed inline */
+}
+
+.place {
+  display: inline; /* Ensures it's displayed inline */
+  margin-left: 2px; /* Adds some space between the slider value and "grader Celsius" */
+}
+
 
 
 
@@ -56,7 +62,7 @@ div.radio1{
   width: 20px; 
   height: 20px; 
   border-radius: 50%;
-  background: red;
+  background: rgb(45, 161, 224);
   cursor: pointer;
 }
 
@@ -64,7 +70,7 @@ div.radio1{
   width: 20px; 
   height: 20px; 
   border-radius: 50%;
-  background: #04AA6D;
+  background: #0a8b5c;
   cursor: pointer;
 }
 
@@ -100,47 +106,39 @@ div.radio1{
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-div. {
-  
-}
 
 
 
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
 
-/* The slider itself */
+
+
+
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
   transition: opacity .2s;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #04AA6D;
+  cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
 }
