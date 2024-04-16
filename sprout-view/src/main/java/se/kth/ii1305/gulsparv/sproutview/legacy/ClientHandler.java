@@ -1,3 +1,4 @@
+package se.kth.ii1305.gulsparv.sproutview.legacy;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;

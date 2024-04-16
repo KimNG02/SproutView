@@ -1,3 +1,4 @@
+package se.kth.ii1305.gulsparv.sproutview.legacy;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
