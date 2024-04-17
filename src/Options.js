@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './options.css'; // Import your CSS file
 import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant}) => {
+const Options = ({selectedPlant, onConfirmOptions}) => {
   const [temperature, setTemperature] = useState(50);
   const [waterFrequency, setWaterFrequency] = useState('');
   const [waterAmount, setWaterAmount] = useState('');

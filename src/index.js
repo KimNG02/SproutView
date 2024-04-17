@@ -26,15 +26,15 @@ const Root = () => {
   return (
     <React.StrictMode>
       {showOptions ? (
-        <Options onConfirmOptions={handleConfirmOptions} />
+        <Options onConfirmOptions={handleConfirmOptions} 
+        selectedPlant={selectedPlant}/>
       ) : showTimeline ? (
         <Timeline />
       ) : (
-        <App onConfirmPlanting={handleConfirmPlanting} />
+        <App onConfirmPlanting={handleConfirmPlanting} 
+        onPlantChange={handleSelectedPlant}
+        selectedPlant={selectedPlant}/>
       )}
-      {showOptions ? <Options selectedPlant={selectedPlant}/> : <App onConfirmPlanting={handleConfirmPlanting} 
-      onPlantChange={handleSelectedPlant}
-      selectedPlant={selectedPlant}/>}
     </React.StrictMode>
   );
 };
