@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './options.css'; // Import your CSS file
 import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant, onConfirmOptions}) => {
+const Options = ({selectedPlant}) => {
   const [temperature, setTemperature] = useState(50);
   const [waterFrequency, setWaterFrequency] = useState('');
   const [waterAmount, setWaterAmount] = useState('');
@@ -13,18 +13,20 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
   };
 
   const confirmOptionsCB = () => {
-    const data = document.getElementById("waterFreq").value;
-    const promise = sendData(data);
-    onConfirmOptions(promise); // Call the function passed from the parent component
+    onConfirmOptions(); // Call the function passed from the parent component
   };
 
-  async function sendData(data)
+  const test = () => {
+    testtest();
+  }
+
+  async function testtest()
   {
-    return new Promise(ApiServiceHandler.getTimeline(data).then((result) => { 
-      return result.data;
+    await ApiServiceHandler.getTimeline(selectedPlant).then((result) => { 
+      document.getElementById("test").innerHTML = result.data;
     }).catch((err) => {
-      return "Error"
-    }));
+      document.getElementById("test").innerHTML = err;
+    });
   }
 
   return (
@@ -76,7 +78,7 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
       <div className="water">
         <p style={{ fontSize: "20px" }}><b>Watering</b></p>
         <label htmlFor="water2"><b>How often will you water your plant?</b></label><br />
-        <select name="Water" id="waterFreq">
+        <select name="Water" id="vatten">
           <option value="1">Never</option>
           <option value="2">Once per day</option>
           <option value="3">3 to 4 times a week</option>
@@ -84,7 +86,7 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
         </select>
 
         <label htmlFor="water1"><b>How much will you water your plant?</b></label><br />
-        <select name="Water" id="waterAmount">
+        <select name="Water" id="vatten">
           <option value="1">1 gallon blabla</option>
           <option value="2">2</option>
           <option value="3">3</option>

@@ -9,7 +9,6 @@ const Root = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState(null);
-  const [optionsPromise, setOptionsPromise] = useState(null);
 
   const handleSelectedPlant = (plant) => {
     setSelectedPlant(plant)
@@ -19,8 +18,7 @@ const Root = () => {
     setShowOptions(true);
   };
 
-  const handleConfirmOptions = (promise) => {
-    setOptionsPromise(promise)
+  const handleConfirmOptions = () => {
     setShowTimeline(true);
     setShowOptions(false);
   };
@@ -28,15 +26,15 @@ const Root = () => {
   return (
     <React.StrictMode>
       {showOptions ? (
-        <Options onConfirmOptions={handleConfirmOptions()} 
-        selectedPlant={selectedPlant}/>
+        <Options onConfirmOptions={handleConfirmOptions} />
       ) : showTimeline ? (
-        <Timeline optionsPromise={optionsPromise}/>
+        <Timeline />
       ) : (
-        <App onConfirmPlanting={handleConfirmPlanting} 
-        onPlantChange={handleSelectedPlant}
-        selectedPlant={selectedPlant}/>
+        <App onConfirmPlanting={handleConfirmPlanting} />
       )}
+      {showOptions ? <Options selectedPlant={selectedPlant}/> : <App onConfirmPlanting={handleConfirmPlanting} 
+      onPlantChange={handleSelectedPlant}
+      selectedPlant={selectedPlant}/>}
     </React.StrictMode>
   );
 };

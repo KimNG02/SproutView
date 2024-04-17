@@ -7,17 +7,7 @@ import full from "./images/pot4.webp";
 import withered from "./images/pot5.webp";
 
 
-async function AwaitData(promise)
-{
-  return await promise;
-}
-
-function Timeline({optionsPromise}) {
-
-  const data = AwaitData(optionsPromise);
-
-  document.getElementById("test").innerHTML = data;
-
+function Timeline() {
   const [stage, setStage] = useState(0);
 
   const handlePrev = () => {
@@ -51,7 +41,6 @@ function Timeline({optionsPromise}) {
   return (
     <div className='timeline-container'>
       <div className="App">
-      <div><b id="test">stuff</b></div>
         <div id="prev">
           <button onClick={handlePrev}>prev</button>
         </div>
