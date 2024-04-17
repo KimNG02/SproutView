@@ -3,41 +3,20 @@ package se.kth.ii1305.gulsparv.sproutview;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/api/test")
 public class APITest {
 
     @GetMapping
-    public ResponseEntity<byte[]> Test()
+    public ResponseEntity<String> Test(@RequestParam String data)
     {
-        byte[] fileBytes = {};
-        String userDirectory = new File("").getAbsolutePath();
-        System.out.println(userDirectory);
-        Path path = Paths.get("sprout-view/src/main/resources/static/test.html"); 
-        try {
-            fileBytes = Files.readAllBytes(path);
-        } catch (Exception e) {
-            System.out.println("ERROR");
-        }
-        return new ResponseEntity<byte[]>(fileBytes, HttpStatusCode.valueOf(200));
+        return new ResponseEntity<String>(data, HttpStatusCode.valueOf(200));
     }
 
-    @PostMapping
-    public ResponseEntity<byte[]> postTest(@RequestBody String string)
-    {
-        System.out.println(string);
-        return Test();
-    }
 
     // IMAGE MAPPING
     // @GetMapping(value = "/strawberryTransparent.png", produces = "image/png")

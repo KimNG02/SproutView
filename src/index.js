@@ -8,6 +8,11 @@ import Timeline from './Timeline';
 const Root = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
+  const [selectedPlant, setSelectedPlant] = useState(null);
+
+  const handleSelectedPlant = (plant) => {
+    setSelectedPlant(plant)
+  }
 
   const handleConfirmPlanting = () => {
     setShowOptions(true);
@@ -27,6 +32,9 @@ const Root = () => {
       ) : (
         <App onConfirmPlanting={handleConfirmPlanting} />
       )}
+      {showOptions ? <Options selectedPlant={selectedPlant}/> : <App onConfirmPlanting={handleConfirmPlanting} 
+      onPlantChange={handleSelectedPlant}
+      selectedPlant={selectedPlant}/>}
     </React.StrictMode>
   );
 };

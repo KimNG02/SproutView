@@ -5,19 +5,20 @@ import cactusImage from "./Cactus 209133001.png";
 import jalapenoImage from "./Jalapeno Chili 3 Stk.png";
 import strawberryImage from "./Strawberry transparent.png";
 
-const App = ({ onConfirmPlanting }) => {
+
+const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [selectedLetter, setSelectedLetter] = useState("");
 
   const handleImageClick = (plantType) => {
     setModalOpen(true);
-    setSelectedPlant(plantType);
+    onPlantChange(plantType)
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
-    setSelectedPlant(null);
+    onPlantChange(null);
   };
 
   const handleConfirmPlantingClick = () => {
