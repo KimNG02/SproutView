@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './options.css'; // Import your CSS file
 import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant}) => {
+const Options = ({selectedPlant, onConfirmOptions}) => {
   const [temperature, setTemperature] = useState(50);
   const [waterFrequency, setWaterFrequency] = useState('');
   const [waterAmount, setWaterAmount] = useState('');
@@ -13,20 +13,18 @@ const Options = ({selectedPlant}) => {
   };
 
   const confirmOptionsCB = () => {
-    onConfirmOptions(); // Call the function passed from the parent component
+    const data = document.getElementById("waterFreq").value;
+    const promise = sendData(data);
+    onConfirmOptions(promise); // Call the function passed from the parent component
   };
 
-  const test = () => {
-    testtest();
-  }
-
-  async function testtest()
+  async function sendData(data)
   {
-    await ApiServiceHandler.getTimeline(selectedPlant).then((result) => { 
-      document.getElementById("test").innerHTML = result.data;
+    return new Promise(ApiServiceHandler.getTimeline(data).then((result) => { 
+      return result.data;
     }).catch((err) => {
-      document.getElementById("test").innerHTML = err;
-    });
+      return "Error"
+    }));
   }
 
   return (
@@ -78,7 +76,7 @@ const Options = ({selectedPlant}) => {
       <div className="water">
         <p style={{ fontSize: "20px" }}><b>Watering</b></p>
         <label htmlFor="water2"><b>How often will you water your plant?</b></label><br />
-        <select name="Water" id="vatten">
+        <select name="Water" id="waterFreq">
           <option value="1">Never</option>
           <option value="2">Once per day</option>
           <option value="3">3 to 4 times a week</option>
@@ -86,7 +84,7 @@ const Options = ({selectedPlant}) => {
         </select>
 
         <label htmlFor="water1"><b>How much will you water your plant?</b></label><br />
-        <select name="Water" id="vatten">
+        <select name="Water" id="waterAmount">
           <option value="1">1 gallon blabla</option>
           <option value="2">2</option>
           <option value="3">3</option>

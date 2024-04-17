@@ -8,7 +8,6 @@ import strawberryImage from "./Strawberry transparent.png";
 
 const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlant, setSelectedPlant] = useState(null);
   const [selectedLetter, setSelectedLetter] = useState("");
 
   const handleImageClick = (plantType) => {
