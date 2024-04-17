@@ -1,7 +1,12 @@
 import React from 'react';
 import './options.css';
 
-const Options = () => {
+const Options = ({ onConfirmOptions }) => {
+
+  const confirmOptionsCB = () => {
+    onConfirmOptions(); // Call the function passed from the parent component
+  };
+
   return (
     <div>
       <div className="temp">
@@ -117,6 +122,9 @@ const Options = () => {
           </div>
           {/* Add other maintenance checkboxes here */}
         </fieldset>
+      </div>
+      <div>
+      <button onClick={confirmOptionsCB}>Confirm Options</button>
       </div>
     </div>
   );
