@@ -1,22 +1,17 @@
-
-.rangebox {
-  
-}
-
 .temp {
-    margin-left: 20px;
-    justify-content: center;
-    Color: rgb(156, 67, 146)
+  margin-left: 20px;
+  justify-content: center;
+  color: rgb(156, 67, 146);
 }
 
 div.indoor {
-    margin-left: 54px;
-    line-height: 10%;
+  margin-left: 54px;
+  line-height: 10%;
 }
 
-div.outdoor{
-    margin-left: 54px;
-    line-height:10%;
+div.outdoor {
+  margin-left: 54px;
+  line-height: 10%;
 }
 
 div.radio2 {
@@ -24,47 +19,52 @@ div.radio2 {
   line-height: 10%;
 }
 
-div.radio1{
-   margin-left:75px;
-   line-height: 10%;
+div.radio1 {
+  margin-left: 75px;
+  line-height: 10%;
 }
 
 .soiltype {
-    margin-left: 20px;
-    margin-top: 40px;
-    justify-content: center;
-    Color: rgb(156, 67, 146)
-
+  margin-left: 20px;
+  margin-top: 40px;
+  justify-content: center;
+  color: rgb(156, 67, 146);
+}
+.slider-value {
+  display: inline; /* Ensures it's displayed inline */
 }
 
-
+.place {
+  display: inline; /* Ensures it's displayed inline */
+  margin-left: 2px; /* Adds some space between the slider value and "grader Celsius" */
+}
 
 .tempSlider {
   -webkit-appearance: none;
   width: 400px;
-  height: 10px; 
-  border-radius: 10px; 
+  height: 10px;
+  border-radius: 10px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  transition: opacity 0.2s, background 0.2s; 
+  transition: opacity 0.2s, background 0.2s;
 }
 
 .tempSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: red;
+  background: rgb(45, 161, 224);
   cursor: pointer;
 }
 
 .tempSlider::-moz-range-thumb {
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: #0a8b5c;
   cursor: pointer;
 }
 
@@ -100,47 +100,33 @@ div.radio1{
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-div. {
-  
-}
 
-
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
-
-/* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
 }

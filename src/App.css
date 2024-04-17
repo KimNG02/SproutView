@@ -1,23 +1,10 @@
 .logo {
-  color: green;
+  background-color: rgb(115, 220, 115);
+  color: white;
   text-align: center;
   font-size: 100px;
-  font: bolder;
-}
-
-.searchBarContainer {
-  display: flex;
-  justify-content: center;
-}
-.searchBar {
-  margin-top: 10px;
-  width: 300px;
-  height: 20px;
-}
-
-.imageContainer {
-  display: flex;
-  justify-content: center;
+  font-weight: bolder;
+  padding: 20px 0; /* Add padding to top and bottom for spacing */
 }
 
 .plantImage {
@@ -72,7 +59,7 @@
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgb(115, 220, 115);
   color: white;
   border: none;
   border-radius: 5px;
@@ -81,5 +68,40 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #217b17;
+}
+
+.intro-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.image-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.garden-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10%;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.explore-button {
+  padding: 10px 20px;
+  background-color: rgb(115, 220, 115);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #167222;
 }

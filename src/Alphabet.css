@@ -1,0 +1,36 @@
+.alphabet-container {
+  display: flex; /* Align buttons in a row */
+  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap; /* Allow wrapping to next line */
+  margin: 20px 0; /* Add vertical spacing */
+}
+
+.letter {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  font-size: 24px; /* Larger font size */
+  font-weight: bold; /* Bold font weight */
+  width: 40px; /* Width of the buttons */
+  height: 40px; /* Height of the buttons */
+  margin: 5px; /* Space between buttons */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flex container for centering text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions for hover effects */
+}
+
+.letter:hover,
+.letter:focus {
+  background-color: #45a049; /* Darker green on hover/focus */
+  transform: scale(1.1); /* Slightly scale up the button */
+}
+
+.letter-section {
+  padding: 20px; /* Padding around each letter section */
+  border-bottom: 1px solid #ccc; /* Border to separate sections */
+  font-size: 32px; /* Larger font size for section headings */
+  text-align: left; /* Center-align text */
+}
