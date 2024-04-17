@@ -6,6 +6,11 @@ import Options from './Options';
 
 const Root = () => {
   const [showOptions, setShowOptions] = useState(false);
+  const [selectedPlant, setSelectedPlant] = useState(null);
+
+  const handleSelectedPlant = (plant) => {
+    setSelectedPlant(plant)
+  }
 
   const handleConfirmPlanting = () => {
     setShowOptions(true);
@@ -13,7 +18,9 @@ const Root = () => {
 
   return (
     <React.StrictMode>
-      {showOptions ? <Options /> : <App onConfirmPlanting={handleConfirmPlanting} />}
+      {showOptions ? <Options selectedPlant={selectedPlant}/> : <App onConfirmPlanting={handleConfirmPlanting} 
+      onPlantChange={handleSelectedPlant}
+      selectedPlant={selectedPlant}/>}
     </React.StrictMode>
   );
 };

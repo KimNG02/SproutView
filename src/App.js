@@ -3,10 +3,10 @@ import './App.css';
 import strawberryImage from './Strawberry transparent.png';
 import cactusImage from './Cactus 209133001.png';
 import jalapenoImage from './Jalapeno Chili 3 Stk.png';
+import ApiServiceHandler from './apiServiceHandler.js';
 
-const App = ({ onConfirmPlanting }) => {
+const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlant, setSelectedPlant] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (query) => {
@@ -15,12 +15,12 @@ const App = ({ onConfirmPlanting }) => {
 
   const handleImageClick = (plantType) => {
     setModalOpen(true);
-    setSelectedPlant(plantType);
+    onPlantChange(plantType)
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
-    setSelectedPlant(null);
+    onPlantChange(null);
   };
 
   const handleConfirmPlantingClick = () => {
