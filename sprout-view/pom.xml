@@ -45,6 +45,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<archive>
+            			<manifest>
+              				<addClasspath>true</addClasspath>
+              				<mainClass>se.kth.ii1305.gulsparv.sproutview.SproutViewApplication</mainClass>
+            			</manifest>
+          			</archive>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
