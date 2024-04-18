@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 
+
 const Options = ({selectedPlant, onConfirmOptions}) => {
 
   const [showChoices, setShowChoices] = useState({
@@ -82,83 +83,96 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
       document.getElementById("test").innerHTML = err;
     });
   }
+  
+
   return (
   
-    <div>
+    <div> 
+      <div className="font-container"> 
+      
+      <p className="text"> 
 
-        <div className="checkbox">
-        <div className="indoor">
-          <label htmlFor="indoor">
-            <p style={{ fontSize: "20px" }}><b>Indoor</b></p>
-          </label>
-        </div>
-        <div className="radio1">
-          <input type="radio" id="radio1" name="location" value="indoor" className="radio" />
-        </div>
-      </div>
+  <header className = "topic" > Environment options</header>
+  </p> 
 
-      <div className="checkbox">
-        <div className="greenhouse">
-          <label htmlFor="greenhouse">
-            <p style={{ fontSize: "20px" }}><b>Greenhouse</b></p>
-          </label>
-        </div>
-        <div className="radio2">
-          <input type="radio" id="radio" name="location" value="outdoor" className="radio" />
-        </div>
-      </div> 
-
-      <div className="biggerlight">
-        <div className="light">
-          <p style={{ fontSize: "20px" }}><b>Light</b></p>
-          <div>
-            <input type="checkbox" id="fullsun" name="light" value="Full Sun" />
-            <label htmlFor="fullsun" className="tooltip">Full sun
-              <span className="tooltiptext">When your plant is in direct sunlight for most of the day.</span>
-            </label>
-            <br />
-            <input type="checkbox" id="partsun" name="light" value="Partial Sun" />
-            <label htmlFor="partsun" className="tooltip">Partial Sun
-              <span className="tooltiptext">When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.</span>
-            </label> 
-            <br />
-            <input type="checkbox" id="shade" name="light" value="Shade" />
-            <label htmlFor="shade" className="tooltip">Shade
-              <span className="tooltiptext">When your plant is in a shaded area with minimum sunlight.</span>
-            </label><br />
-
-            <input type="checkbox" id="artificial" name="light" value="artificial" />
-            <label htmlFor="artificial" className="tooltip">Artificial Light
-              <span className="tooltiptext">When your plant is in a shaded area with minimum sunlight.</span>
-            </label> 
-            {/* Add other light condition radio inputs here */}
+</div>
+   
+                
+       {/* 
+        <div class = "container">
+          <div className="checkbox">
+            <div className="indoor">
+              <label htmlFor="indoor">
+                <p style={{ fontSize: "20px" }}><b>Indoor</b></p>
+              </label>
+            </div>
+            <div className="radio1">
+              <input type="radio" id="radio1" name="location" value="indoor" className="radio" />
+            </div>
           </div>
-        </div>
+      
+          <div className="checkbox">
+            <div className="greenhouse">
+              <label htmlFor="greenhouse">
+                <p style={{ fontSize: "20px" }}><b>Greenhouse</b></p>
+              </label>
+            </div>
+            <div className="radio2">
+              <input type="radio" id="radio" name="location" value="outdoor" className="radio" />
+            </div>
+          </div> 
+
+        </div> 
+        */
+      }
+
+
+
+
+<div class = "image-container">
+
+  <img
+  src="https://www.pngmart.com/files/1/Wedding-Border-284x279.png"
+  style={{ width: '400px' }}
+
+/>
+
+</div>
+
+    <div className="container">
+  
+    <div className="potsize">
+        <p style={{ fontSize: "20px" }}><b>How large is the initial pot size?</b></p>
+        <form>
+          <div className="radio-container">
+          <input type="radio" id="xsmallpot" name="xPot" value="xsmall" />
+            <label htmlFor="bigpot" className="tooltip">xtra Small pot 
+            <span className="tooltiptext"> Diameter range: 12-16cm, fits 1-2 liter</span>
+            </label><br />
+            <input type="radio" id="smallpot" name="xPot" value="small" />
+            <label htmlFor="smallpot" className="tooltip">Small pot
+            <span className="tooltiptext"> Diameter range: 17-20cm, fits 2-4 liter</span>
+            </label> <br />
+            <input type="radio" id="midpot" name="xPot" value="mid" />
+            <label htmlFor="midpot" className="tooltip">Medium pot 
+            <span className="tooltiptext"> Diameter range: 21-29cm, fits 4-10 liter</span>
+            </label><br />
+            <input type="radio" id="bigpot" name="xPot" value="big" />
+            <label htmlFor="bigpot" className="tooltip">Big pot
+            <span className="tooltiptext"> Diameter range: 30-39cm, fits 10-25 liter</span>
+            </label><br />
+            <input type="radio" id="xbigpot" name="xPot" value="xbig" />
+            <label htmlFor="bigpot" className="tooltip">xtra Big pot
+            <span className="tooltiptext"> Diameter range: 40-50cm, fits 25-40 liter</span>
+            </label>
+          </div> 
+        </form>
       </div>
-
-
-      <div className="water">
-        <p style={{ fontSize: "20px" }}><b>Watering</b></p>
-        <label htmlFor="water2"><b>How often will you water your plant?</b></label><br />
-        <select name="Water" id="vatten">
-          <option value="1">3-4 times a day</option>
-          <option value="2">2 times a day</option>
-          <option value="3">Everyday</option>
-          <option value="4">3-4 times a week</option>
-          <option value="5">Once a week</option>
-          <option value="6">3 to 4 times a month</option>
-          <option value="7">Once a month</option>
-          <option value="8">Once every few months</option>
-          <option value="9">Never</option>
-
-        </select> <br />
-
-        <label htmlFor="water1"><b>How much do you plan on watering your plant?</b></label><br />
-        <input type = "text" id = "water1" name = "water1"/> mL
-      </div>
+      
+      
 
       <div className="soiltype">
-        <p style={{ fontSize: "20px" }}><b>Soil Type</b></p>
+        <p style={{ fontSize: "20px" }}><b>What type of soil are you planning to use for your plants?</b></p>
         <form>
           <div className="radio-container">
             <input type="radio" id="welldr" name="soilType" value="Well-draining Soil" />
@@ -176,184 +190,267 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
           </div> 
         </form>
       </div>
+      </div>
 
-      <div className="soiltype">
-        <p style={{ fontSize: "20px" }}><b>Pot size</b></p>
-        <form>
-          <div className="radio-container">
-          <input type="radio" id="xsmallpot" name="xsPot" value="xsmall" />
-            <label htmlFor="bigpot" className="tooltip">xtra Small pot 
-            <span className="tooltiptext"> Diameter range: 12-16cm, fits 1-2 liter</span>
-            </label><br />
-            <input type="radio" id="smallpot" name="sPot" value="small" />
-            <label htmlFor="smallpot" className="tooltip">Small pot
-            <span className="tooltiptext"> Diameter range: 17-20cm, fits 2-4 liter</span>
-            </label> <br />
-            <input type="radio" id="midpot" name="mPOt" value="mid" />
-            <label htmlFor="midpot" className="tooltip">Medium pot 
-            <span className="tooltiptext"> Diameter range: 21-29cm, fits 4-10 liter</span>
-            </label><br />
-            <input type="radio" id="bigpot" name="bPot" value="big" />
-            <label htmlFor="bigpot" className="tooltip">Big pot
-            <span className="tooltiptext"> Diameter range: 30-39cm, fits 10-25 liter</span>
-            </label><br />
-            <input type="radio" id="xbigpot" name="xbPot" value="xbig" />
-            <label htmlFor="bigpot" className="tooltip">xtra Big pot
-            <span className="tooltiptext"> Diameter range: 40-50cm, fits 25-40 liter</span>
+      <div className="biggerlight">
+        <div className="light">
+          <p style={{ fontSize: "20px" }}><b> How much daily sunlight does your gardening area receive?</b></p>
+          <div>
+            <input type="checkbox" id="fullsun" name="light" value="Full Sun" />
+            <label htmlFor="fullsun" className="tooltip">Full sun
+              <span className="tooltiptext">When your plant is in direct sunlight for most of the day.</span>
             </label>
-          </div> 
-        </form>
+            <br />
+            <input type="checkbox" id="partsun" name="light" value="Partial Sun" />
+            <label htmlFor="partsun" className="tooltip">Partial Sun
+              <span className="tooltiptext">When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.</span>
+            </label> 
+            <br />
+            <input type="checkbox" id="shade" name="light" value="Shade" />
+            <label htmlFor="shade" className="tooltip">Shade
+              <span className="tooltiptext">When your plant is in a shaded area with minimum sunlight.</span>
+            </label><br />
+
+           
+            {/* Add other light condition radio inputs here */}
+          </div>
+        </div>
       </div>
 
-      <div className="Season">
-        <p style={{ fontSize: "20px" }}><b>Season</b></p>
-       
-        {/* <form>
-          <input type="checkbox" id="spring" name="spring" value="spring" />
-          <label htmlFor="spring" className="tooltip">Spring
-            <span className="tooltiptext">Spring</span>
-          </label><br />
-          <input type="checkbox" id="summer" name="summer" value="summer" />
-          <label htmlFor="summer" className="tooltip">Summer
-            <span className="tooltiptext">banan</span>
-          </label><br />
-          <input type="checkbox" id="fall" name="fall" value="fall" />
-          <label htmlFor="fall" className="tooltip">Fall
-            <span className="tooltiptext">banan</span>
-          </label><br />
-          <input type="checkbox" id="winter" name="winter" value="winter" />
-          <label htmlFor="winter" className="tooltip">Winter
-            <span className="tooltiptext">banan</span>
-          </label><br /> */}
-          {/* Add other season checkboxes here 
-        </form>*/}
+      
 
-       </div>
-       <div>
-        <div>
-      <button onClick={() => handleButtonClick('summer')}>Summer</button>
-      </div>
-      {showChoices['summer'] && (
-        <div>
-          <button
-            onClick={() => handleChoiceClick('summer', 'early')}
-            style={{
-              backgroundColor: selectedChoices['summer'] === 'early' ? 'green' : 'gray',
-            }}
-          >
-            Early
-          </button>
-          <button
-            onClick={() => handleChoiceClick('summer', 'late')}
-            style={{
-              backgroundColor: selectedChoices['summer'] === 'late' ? 'green' : 'gray',
-            }}
-          >
-            Late
-          </button>
-          
-        </div>
-      )}
-      {selectedChoices['summer'] && <p>Selected choice for summer: {selectedChoices['summer']}</p>}
-<div>
-      <button onClick={() => handleButtonClick('fall')}>Fall</button>
-      </div>
-      {showChoices['fall'] && (
-        <div>
-          <button
-            onClick={() => handleChoiceClick('fall', 'early')}
-            style={{
-              backgroundColor: selectedChoices['fall'] === 'early' ? 'green' : 'gray',
-            }}
-          >
-            Early
-          </button>
-          <button
-            onClick={() => handleChoiceClick('fall', 'late')}
-            style={{
-              backgroundColor: selectedChoices['fall'] === 'late' ? 'green' : 'gray',
-            }}
-          >
-            Late
-          </button>
-       
-        </div>
-      )}
-      {selectedChoices['fall'] && <p>Selected choice for fall: {selectedChoices['fall']}</p>}
-      <div>
-      <button onClick={() => handleButtonClick('winter')}>Winter</button>
-      </div>
-      {showChoices['winter'] && (
-        <div>
-          <button
-            onClick={() => handleChoiceClick('winter', 'early')}
-            style={{
-              backgroundColor: selectedChoices['winter'] === 'early' ? 'green' : 'gray',
-            }}
-          >
-            Early
-          </button>
-          <button
-            onClick={() => handleChoiceClick('winter', 'late')}
-            style={{
-              backgroundColor: selectedChoices['winter'] === 'late' ? 'green' : 'gray',
-            }}
-          >
-            Late
-          </button>
-         
-        </div>
-      )}
-      {selectedChoices['winter'] && <p>Selected choice for winter: {selectedChoices['winter']}</p>}
+     
+      
 
-      <button onClick={() => handleButtonClick('spring')}>Spring</button>
-      {showChoices['spring'] && (
+      <div className="water">
+        <p style={{ fontSize: "20px" }}><b>Your watering habits</b></p>
         <div>
-          <button
-            onClick={() => handleChoiceClick('spring', 'early')}
-            style={{
-              backgroundColor: selectedChoices['spring'] === 'early' ? 'green' : 'gray',
-            }}
-          >
-            Early
-          </button>
-          <button
-            onClick={() => handleChoiceClick('spring', 'late')}
-            style={{
-              backgroundColor: selectedChoices['spring'] === 'late' ? 'green' : 'gray',
-            }}
-          >
-            Late
-          </button>
-        </div>
-      )}
-      {selectedChoices['spring'] && <p>Selected choice for spring: {selectedChoices['spring']}</p>}
-    </div>
-        
+          <p style ={{ marginBottom: '20px' }}>
+        <label htmlFor="water2"><b>How often are you able to water your plants?</b></label><br />
+        <select name="Water" id="vatten">
+          <option value="1">3-4 times a day</option>
+          <option value="2">2 times a day</option>
+          <option value="3">Everyday</option>
+          <option value="4">3-4 times a week</option>
+          <option value="5">Once a week</option>
+          <option value="6">3 to 4 times a month</option>
+          <option value="7">Once a month</option>
+          <option value="8">Once every few months</option>
+          <option value="9">Never</option>
 
-        <div className="temp">
-          <p style={{ fontSize: "20px" }}><b>Temperature</b></p>
+        </select> <br /></p>
+       <p>
+        <label htmlFor="water1"><b>How much do you plan on watering your plant?</b></label><br />
+        <input type = "text" id = "water1" name = "water1"/> mL </p>
+      </div>
+     
+   <div className="temp">
+          <p style={{ fontSize: "20px" }}><b>What is the average temperature range in your area during the growing season?</b></p>
           <div className="slidecontainer">
             <input type="range" min="0" max="100" value={sliderValue} className="slider" id="myRange" onChange ={handleSliderChange}/>
             <div className="slider-value">{sliderValue}</div>
             <p className="place">°C</p>
           </div>
+      
         </div>
       
+
+
+        <div className="Season">
+          <p style={{ fontSize: "20px" }}><b>Which season do you prefer for starting new plants?</b></p>
+
+
+          <div className = "hbutton1">
+            <div> <button onClick={()=>handleButtonClick('summer')}>Summer</button> </div>
+            {showChoices['summer'] && (
+              <div><button onClick={() => handleChoiceClick('summer','early')}style ={{bakgroundColor:selectedChoices['summer']=== 'early' ? 'green': 'gray'}}></button>
+                 <button onClick={() => handleChoiceClick('summer','late')}style ={{bakgroundColor:selectedChoices['summer']=== 'late' ? 'green': 'gray'}}>
+                Late 
+              </button>
+              </div>
+              )
+            }
+
+            <div> <button onClick={()=>handleButtonClick('winter')}>Winter</button> </div>
+            {showChoices['winter'] && (
+              <div><button onClick={() => handleChoiceClick('winter','early')}style ={{bakgroundColor:selectedChoices['winter']=== 'early' ? 'green': 'gray'}}>Early</button>
+                <button onClick={() => handleChoiceClick('winter','late')}style ={{bakgroundColor:selectedChoices['winter']=== 'late' ? 'green': 'gray'}}>
+                Late 
+              </button>
+              </div>
+              )
+            }
+
+          </div>
+
+
+          <div className="hbutton2">
+
+            <div> <button onClick={()=>handleButtonClick('fall')}>Fall</button> </div>
+            {showChoices['fall'] && (
+              <div><button onClick={() => handleChoiceClick('fall','early')}style ={{bakgroundColor:selectedChoices['fall']=== 'early' ? 'green': 'gray'}}> Early </button>
+              <button onClick={() => handleChoiceClick('fall','late')}style ={{bakgroundColor:selectedChoices['fall']=== 'late' ? 'green': 'gray'}}>
+                Late 
+              </button>
+              </div>
+              )
+            }
+
+            <div> <button onClick={()=>handleButtonClick('spring')}>Spring</button> </div>
+            {showChoices['spring'] && (
+              <div><button onClick={() => handleChoiceClick('spring','early')}style ={{bakgroundColor:selectedChoices['spring']=== 'early' ? 'green': 'gray'}}>Early</button>
+                <button onClick={() => handleChoiceClick('spring','late')}style ={{bakgroundColor:selectedChoices['spring']=== 'late' ? 'green': 'gray'}}>
+                Late 
+              </button>
+              </div>
+              )
+            }
+
+          </div>
+
+
+          <div>
+            <div>
+          <button onClick={() => handleButtonClick('summer')}>Summer</button>
+          </div>
+          {showChoices['summer'] && (
+            <div>
+              <button
+                onClick={() => handleChoiceClick('summer', 'early')}
+                style={{
+                  backgroundColor: selectedChoices['summer'] === 'early' ? 'green' : 'gray',
+                }}
+              >
+                Early
+              </button>
+              <button
+                onClick={() => handleChoiceClick('summer', 'late')}
+                style={{
+                  backgroundColor: selectedChoices['summer'] === 'late' ? 'green' : 'gray',
+                }}
+              >
+                Late
+              </button>
+              
+            </div>
+          )}
+          {selectedChoices['summer'] && <p>Selected choice for summer: {selectedChoices['summer']}</p>}
+          <div>
+          <button onClick={() => handleButtonClick('fall')}>Fall</button>
+          </div>
+          {showChoices['fall'] && (
+            <div>
+              <button
+                onClick={() => handleChoiceClick('fall', 'early')}
+                style={{
+                  backgroundColor: selectedChoices['fall'] === 'early' ? 'green' : 'gray',
+                }}
+              >
+                Early
+              </button>
+              <button
+                onClick={() => handleChoiceClick('fall', 'late')}
+                style={{
+                  backgroundColor: selectedChoices['fall'] === 'late' ? 'green' : 'gray',
+                }}
+              >
+                Late
+              </button>
+          
+            </div>
+          )}
+          {selectedChoices['fall'] && <p>Selected choice for fall: {selectedChoices['fall']}</p>}
+
+          <div>
+          <button onClick={() => handleButtonClick('winter')}>Winter</button>
+          </div>
+          {showChoices['winter'] && (
+            <div>
+              <button
+                onClick={() => handleChoiceClick('winter', 'early')}
+                style={{
+                  backgroundColor: selectedChoices['winter'] === 'early' ? 'green' : 'gray',
+                }}
+              >
+                Early
+              </button>
+              <button
+                onClick={() => handleChoiceClick('winter', 'late')}
+                style={{
+                  backgroundColor: selectedChoices['winter'] === 'late' ? 'green' : 'gray',
+                }}
+              >
+                Late
+              </button>
+            
+            </div>
+          )}
+          {selectedChoices['winter'] && <p>Selected choice for winter: {selectedChoices['winter']}</p>}
+
+          <div> {/* First div for Spring */}
+            <button onClick={() => handleButtonClick('spring')}>Spring</button>
+            {showChoices['spring'] && (
+          <div>
+      <button onClick={() => handleChoiceClick('spring', 'early')}
+        style={{
+        backgroundColor: selectedChoices['spring'] === 'early' ? 'green' : 'gray',
+        }} >Early</button>
+      <button
+        onClick={() => handleChoiceClick('spring', 'late')}
+        style={{
+          backgroundColor: selectedChoices['spring'] === 'late' ? 'green' : 'gray',
+        }}>Late</button>
+    </div>
+    )}
+  {selectedChoices['spring'] && <p>Selected choice for spring: {selectedChoices['spring']}</p>}
+
+
+
+
+
+
+
+
+
+
+          
+
+          {/*
+            {showChoices['spring'] && (
+              <div>
+                <button
+                  onClick={() => handleChoiceClick('spring', 'early')}
+                  style={{
+                    backgroundColor: selectedChoices['spring'] === 'early' ? 'green' : 'gray',
+                  }}
+                >
+                  Early
+                </button>
+                <button
+                  onClick={() => handleChoiceClick('spring', 'late')}
+                  style={{
+                    backgroundColor: selectedChoices['spring'] === 'late' ? 'green' : 'gray',
+                  }}
+                >
+                  Late
+                </button>
+              </div>
+            )}
+            {selectedChoices['spring'] && <p>Selected choice for spring: {selectedChoices['spring']}</p>}
+          </div>
+          */}
+      </div>
       
-      
-  
-      
+        
 
     
-
       
-        <br />
+      
         
-      
+      </div>
+      </div>
 
-      
-
+      {/*
       <label htmlFor="climate" className="tooltip"><b>Which climate do you live in?*</b>
         <span className="tooltiptext">
           <p>Tropical zone: hot, high humidity, minimal seasonal variation, heavy rainfall, high precipitation, average temperatures are greater than 18°C (64°F) year-round, dense vegetation.</p>
@@ -372,11 +469,12 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
       </select>
 
 
- 
+        */}
       
+      
+
       <div className="Plant-care">
         <p style={{ fontSize: "20px" }}><b>Maintenance</b></p>
-        <fieldset>
           <legend><b>How do you care for your plant?</b></legend>
           <div>
             <input type="checkbox" id="repotting" name="repotting" defaultChecked />
@@ -396,12 +494,78 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
               <span className="tooltiptext">typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</span>
               </label><br />
           </div>
-        </fieldset>
       </div>
-      <div>
-      <button onClick={confirmOptionsCB}>Confirm Options</button>
-      </div>
+      
     </div>
+
+
+<div className = "clim-zon">
+  <div className="climate-zone">
+    <div> What climate zone are you in?</div> 
+      <div className= "climate"> 
+      <input
+      className = "zone"
+      type = "text"       
+      place-holder = "Climate zone..."
+      />
+      <div/>
+       
+    </div>
+<lable for="climatezone"> Choose a climate zone</lable> 
+<select>
+  <optgroup label = "A">
+    <option value = "1">Af </option>
+    <option value = "2">Am</option>
+    <option value = "3">Aw </option>
+  </optgroup>
+  <optgroup label = "B">
+  <option value = "4">BSh  </option>
+  <option value = "5">BSk  </option>
+  <option value = "6">BWh  </option>
+  </optgroup>
+  <optgroup label = "C">
+  <option value = "7">Cfa  </option>
+  <option value = "8">Csa  </option>
+  <option value = "9">CSb </option>
+  <option value = "10">Cwa  </option>
+  <option value = "11">Cwb </option>
+  <option value = "12">Cwc  </option>
+  </optgroup>
+  <optgroup label = "D">
+  <option value = "13">Dfa </option>
+  <option value = "14">Dfb </option>
+  <option value = "15">Dfc </option>
+  <option value = "16">Dfd </option>
+  <option value = "17">Dsa </option>
+  <option value = "18">Dsb </option>
+  <option value = "19">Dsc </option>
+  <option value = "20">Dsd </option>
+  <option value = "21">Dwa </option>
+  <option value = "22">Dwb </option>
+  <option value = "23">Dwc </option>
+  <option value = "24">Dwd </option>
+  </optgroup>
+  <optgroup label = "E">
+  <option value = "25">EF </option>
+  <option value = "26">ET </option>
+  </optgroup>
+</select>
+<br/>
+<a href = "https://www.koppen-map.com/"> Find your climate zone here!</a>
+<div/>
+
+
+</div>
+      <div className = "confirmOption">
+          <button onClick={confirmOptionsCB}>Confirm Options</button>
+      </div>
+</div>
+</div>
+
+ 
+
+
+
 
   );
 };

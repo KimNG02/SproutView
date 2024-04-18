@@ -1,17 +1,67 @@
-.temp {
-  margin-left: 20px;
-  justify-content: center;
-  color: rgb(156, 67, 146);
+
+.topic{
+ background-color:rgb(115, 220, 115);
+ color: rgb(244, 242, 242);
+ padding: 60px ;
+ font-size: 90px;
+ font-weight: bolder;
 }
 
+.font-container { 
+  font-family: "Lucida Handwriting", cursive;
+} 
+
+.image-container{
+  max-width: 100%;
+  height: auto; /* Keeps the image aspect ratio */
+  float: right; /* Moves the image to the right */
+}
+.slidecontainer{
+  margin: 30px;
+}
+
+.temp {
+  width: 80%;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(10, 9, 9, 0.2);
+  border-radius: 10px;
+  background-color: #9fd877;
+
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  float: left;
+}
+
+/*
 div.indoor {
-  margin-left: 54px;
-  line-height: 10%;
+  text-align:center ;
+  vertical-align:50px;
+  margin-left: 40px;  
 }
 
 div.greenhouse {
-  margin-left: 40px;
-  line-height: 10%;
+  text-align: left;
+  vertical-align:50px;
+  margin-left: 400px;
+}
+
+.container{
+  width: 50%;
+}
+
+.checkbox{
+  display: inline-block;
+  width: 1%;
 }
 
 div.radio2 {
@@ -20,15 +70,20 @@ div.radio2 {
 }
 
 div.radio1 {
-  margin-left: 75px;
+  margin-left: 420px;
   line-height: 10%;
 }
+*/
+
+
+
+
+
+
 
 .soiltype {
-  margin-left: 20px;
-  margin-top: 40px;
-  justify-content: center;
-  color: rgb(156, 67, 146);
+  text-align: right;
+  color: black;
 }
 .slider-value {
   display: inline; /* Ensures it's displayed inline */
@@ -36,7 +91,17 @@ div.radio1 {
 
 .place {
   display: inline; /* Ensures it's displayed inline */
-  margin-left: 2px; /* Adds some space between the slider value and "grader Celsius" */
+ margin-left: 2px; /*Adds some space between the slider value and "grader Celsius"*/
+} 
+
+.Plant-care{
+
+  margin-top: -300px; 
+}
+
+.confirmOption{
+  margin-top:400px;
+  margin-left: 580px;
 }
 
 .tempSlider {
@@ -101,16 +166,42 @@ div.radio1 {
   visibility: visible;
 }
 
+
+
+
+.temp {
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(219, 230, 216, 0.2);
+  border-radius: 10px;
+  background-color: #e0e3de;
+  right: 550px; 
+  position: absolute;
+  right : 150px;
+}
+
+.slidecontainer {
+  margin: 20px;
+
+}
+
 .slider {
   -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
+  width: 50%;
+  height: 10px;
   border-radius: 5px;
-  background: #d3d3d3;
+  background: #ede9ee;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  position: absolute;
+  right : 110px;
+}
+
+.slider:hover {
+  opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
@@ -119,7 +210,7 @@ div.radio1 {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #04aa6d;
+  background: #081106;
   cursor: pointer;
 }
 
@@ -127,9 +218,25 @@ div.radio1 {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #04aa6d;
+  background: #e9f0e9;
   cursor: pointer;
 }
+
+ .slider-value {
+
+  font-size: 15px;
+  color: #0f0e0e;
+  position: absolute;
+  left : 600px;
+}
+
+.place{
+  position: absolute;
+  left : 770px;
+  top: 70px;
+
+}
+
 
 
 
@@ -140,3 +247,87 @@ div.radio1 {
 .late {
   color: rgb(1, 1, 8); /* Change the text color to blue */
 }
+
+
+*{
+
+  text-align: center;
+  
+  } 
+
+  .container {
+    display: flex; /* Enables flexbox */
+    justify-content: space-between; /* Distributes space between the children */
+    align-items: flex-start; /* Aligns items to the start of the flex direction */
+  }
+  
+  .potsize, .soiltype{
+    flex: 1; /* Each child will take equal width of the container */
+    margin: 10px; /* Optional: adds some space between the children */
+  }
+  
+
+  .light{
+    text-align: center;
+    color: black;
+    margin-left: -650px;
+    margin-top: 40px;
+  }
+
+  .water{
+    
+    margin-left: -700px;
+    margin-top: 100px;
+  }
+  
+
+  .Season{
+    text-align:center;
+    margin-left:1500px;
+    margin-top: -380px;
+  }
+
+  .Season-Button {
+    display: inline-block;
+  }
+  
+  .Season-Button > div {
+    margin-right: 10px; /* Adjust spacing between button groups */
+  }
+  
+
+  
+
+  .S{
+    margin-left: 1500px;
+    margin-top: 20px;
+  }
+
+.Plant-care{
+
+  margin-top: 100px;
+}
+.hbutton1 {
+  display: flex;
+  justify-content: space-between;
+}
+.hbutton2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clim-zon{
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+  
+
+
+  
