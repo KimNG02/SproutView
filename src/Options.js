@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './options.css';
+import './styles/options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 
 const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import './AboutUs.css';
+import './styles/AboutUs.css';
 
 // Define a list of team members
 const teamMembers = [

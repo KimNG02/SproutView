@@ -1,5 +1,5 @@
 import React from 'react';
-import './Alphabet.css';
+import './styles/Alphabet.css';
 
 const Alphabet = ({ onLetterClick }) => {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

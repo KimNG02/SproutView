@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import "./App.css";
+import "./styles/App.css";
 import Alphabet from "./Alphabet";
-import cactusImage from "./Cactus 209133001.png";
-import jalapenoImage from "./Jalapeno Chili 3 Stk.png";
-import strawberryImage from "./Strawberry transparent.png";
+import cactusImage from "./images/Cactus 209133001.png";
+import jalapenoImage from "./images/Jalapeno Chili 3 Stk.png";
+import strawberryImage from "./images/Strawberry transparent.png";
 
 
 const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) => {

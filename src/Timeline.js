@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Timeline.css';
+import './styles/Timeline.css';
 import potImage from "./images/pot1.webp";
 import sprout from "./images/pot2.webp";
 import half from "./images/pot3.webp";
