@@ -1,6 +1,7 @@
 Build instructions:
 0. Install node.js, maven and java17
-1. If there is no node_modules in the main repo run "npm install react-scripts --save" 
+1. If there is no node_modules in the main repo run "npm install react-scripts --save"
+and "npm i react-simple-typewriter" 
 2. Run "npm run build" in main repo
 Now you can run the server by selecting one of the java files and pressing the start button in the top right
 
