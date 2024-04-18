@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SproutViewApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SproutViewApplication.class, args);
 	}
-
 }

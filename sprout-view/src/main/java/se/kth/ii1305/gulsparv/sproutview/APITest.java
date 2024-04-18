@@ -8,13 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/test")
 public class APITest {
 
-    @GetMapping
+    private static TimelineHandler timelineHandler = TimelineHandler.getInstance();
+
+    @GetMapping("/api/test")
     public ResponseEntity<String> Test(@RequestParam String data)
     {
         return new ResponseEntity<String>(data, HttpStatusCode.valueOf(200));
+    }
+
+    @GetMapping("/api/timeline")
+    public ResponseEntity<String> Timeline(@RequestParam String data)
+    {
+        System.out.print(data);
+        JSONObject json = new JSONObject(data);
+        String outData = ""+timelineHandler.fetchTimeline(json);
+        return new ResponseEntity<String>(outData, HttpStatusCode.valueOf(200));
     }
 
 

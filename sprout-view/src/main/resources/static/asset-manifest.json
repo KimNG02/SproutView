@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.395421cc.css",
-    "main.js": "/static/js/main.90b7ead0.js",
+    "main.css": "/static/css/main.d568205b.css",
+    "main.js": "/static/js/main.e3e0cec4.js",
     "static/media/Strawberry transparent.png": "/static/media/Strawberry transparent.574a131fc44d7cad47a6.png",
     "static/media/Cactus 209133001.png": "/static/media/Cactus 209133001.e05b5c30e6f880361510.png",
     "static/media/Jalapeno Chili 3 Stk.png": "/static/media/Jalapeno Chili 3 Stk.2a5bdc7c83e4cd77cf91.png",
+    "static/media/pot4.webp": "/static/media/pot4.67e282b11fc5230fd414.webp",
+    "static/media/pot5.webp": "/static/media/pot5.ccf17c0fa7ea8720919e.webp",
+    "static/media/pot3.webp": "/static/media/pot3.a3bf343cc6e824bb3605.webp",
+    "static/media/pot2.webp": "/static/media/pot2.3f653d5400c8a5387352.webp",
+    "static/media/pot1.webp": "/static/media/pot1.99f3217d91a6c86371e2.webp",
     "index.html": "/index.html",
-    "main.395421cc.css.map": "/static/css/main.395421cc.css.map",
-    "main.90b7ead0.js.map": "/static/js/main.90b7ead0.js.map"
+    "main.d568205b.css.map": "/static/css/main.d568205b.css.map",
+    "main.e3e0cec4.js.map": "/static/js/main.e3e0cec4.js.map"
   },
   "entrypoints": [
-    "static/css/main.395421cc.css",
-    "static/js/main.90b7ead0.js"
+    "static/css/main.d568205b.css",
+    "static/js/main.e3e0cec4.js"
   ]
 }

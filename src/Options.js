@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './options.css'; // Import your CSS file
-import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant, onConfirmOptions}) => {
+const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
   const [temperature, setTemperature] = useState(50);
   const [waterFrequency, setWaterFrequency] = useState('');
   const [waterAmount, setWaterAmount] = useState('');
@@ -13,21 +12,9 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
   };
 
   const confirmOptionsCB = () => {
+    handleOptionsObject(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat");
     onConfirmOptions(); // Call the function passed from the parent component
   };
-
-  const test = () => {
-    testtest();
-  }
-
-  async function testtest()
-  {
-    await ApiServiceHandler.getTimeline(selectedPlant).then((result) => { 
-      document.getElementById("test").innerHTML = result.data;
-    }).catch((err) => {
-      document.getElementById("test").innerHTML = err;
-    });
-  }
 
   return (
     <div>
