@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import './options.css';
+import ApiServiceHandler from './apiServiceHandler.js';
 
-
-function Options(){
+const Options = ({selectedPlant, onConfirmOptions}) => {
 
   const [showChoices, setShowChoices] = useState({
     summer: false,
@@ -67,23 +65,6 @@ function Options(){
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
-  
- 
-=======
-=======
->>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
-import './options.css'; // Import your CSS file
-import ApiServiceHandler from './apiServiceHandler.js';
-
-const Options = ({selectedPlant, onConfirmOptions}) => {
-  const [temperature, setTemperature] = useState(50);
-  const [waterFrequency, setWaterFrequency] = useState('');
-  const [waterAmount, setWaterAmount] = useState('');
-  const [lightCondition, setLightCondition] = useState('');
-  
-  const handleTemperatureChange = (event) => {
-    setTemperature(event.target.value);
-  };
 
   const confirmOptionsCB = () => {
     onConfirmOptions(); // Call the function passed from the parent component
@@ -101,11 +82,6 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
       document.getElementById("test").innerHTML = err;
     });
   }
-<<<<<<< HEAD
->>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
-=======
->>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
-
   return (
   
     <div>
@@ -422,20 +398,9 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
           </div>
         </fieldset>
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      
-      <div><button>Done</button></div>
-=======
       <div>
       <button onClick={confirmOptionsCB}>Confirm Options</button>
       </div>
->>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
-=======
-      <div>
-      <button onClick={confirmOptionsCB}>Confirm Options</button>
-      </div>
->>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
     </div>
 
   );
