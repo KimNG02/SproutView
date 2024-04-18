@@ -1,3 +1,13 @@
+Build instructions:
+0. Install node.js, maven and java17
+1. If there is no node_modules in the main repo run "npm install react-scripts --save" 
+2. Run "npm run build" in main repo
+Now you can run the server by selecting one of the java files and pressing the start button in the top right
+
+To build into jar and run:
+3. Run "mvn package -f "Path\To\Repo\Sprout-View\sprout-view\pom.xml" (exchange path\to\repo for the actual path)
+4. Run "java -jar sprout-view\target\sprout-view-0.0.1-SNAPSHOT.jar" to start the server (port 8080)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

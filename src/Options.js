@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import './options.css';
 
 
@@ -67,6 +68,37 @@ function Options(){
   };
   
  
+=======
+import './options.css'; // Import your CSS file
+import ApiServiceHandler from './apiServiceHandler.js';
+
+const Options = ({selectedPlant, onConfirmOptions}) => {
+  const [temperature, setTemperature] = useState(50);
+  const [waterFrequency, setWaterFrequency] = useState('');
+  const [waterAmount, setWaterAmount] = useState('');
+  const [lightCondition, setLightCondition] = useState('');
+  
+  const handleTemperatureChange = (event) => {
+    setTemperature(event.target.value);
+  };
+
+  const confirmOptionsCB = () => {
+    onConfirmOptions(); // Call the function passed from the parent component
+  };
+
+  const test = () => {
+    testtest();
+  }
+
+  async function testtest()
+  {
+    await ApiServiceHandler.getTimeline(selectedPlant).then((result) => { 
+      document.getElementById("test").innerHTML = result.data;
+    }).catch((err) => {
+      document.getElementById("test").innerHTML = err;
+    });
+  }
+>>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
 
   return (
   
@@ -384,8 +416,14 @@ function Options(){
           </div>
         </fieldset>
       </div>
+<<<<<<< HEAD
       
       <div><button>Done</button></div>
+=======
+      <div>
+      <button onClick={confirmOptionsCB}>Confirm Options</button>
+      </div>
+>>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
     </div>
 
   );

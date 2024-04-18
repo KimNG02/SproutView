@@ -1,0 +1,55 @@
+.timeline-container {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make sure timeline-container covers the entire viewport height */
+  display: flex;
+  flex-direction: column; /* Arrange elements vertically */
+  justify-content: flex-end; /* Align elements at the bottom */
+}
+
+.App {
+  margin-left: 350px;
+  margin-bottom: 20px; /* Optional: Add some spacing between the slider and the bottom */
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 350px;
+}
+
+.labels span {
+  flex: 1;
+  margin: 15px; /* Adjust the margin value to make the spaces smaller */
+}
+
+#prev {
+  top: -225px; /* Adjust this value to move the button up or down */
+}
+
+#next {
+  position: relative;
+  top: -325px; /* Adjust this value to move the button up or down */
+  right: -550px;
+  padding: 5px 10px;
+  border-radius: 550;
+}
+
+.image-container {
+  display: flex;
+  margin-left: 170px;
+  margin-bottom: 50px;
+}
+
+input[type="range"] {
+  width: 65%; /* Make the slider take up full width */
+  color: green;
+}
+
+.stage {
+  color: green;
+}
+
+.container {
+  position: relative;
+}
