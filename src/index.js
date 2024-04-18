@@ -4,10 +4,13 @@ import './index.css';
 import App from './App';
 import Options from './Options';
 import Timeline from './Timeline';
+import AboutUs from './AboutUs';
 
 const Root = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
+  const [showAboutUs, setShowAboutUs] = useState(false);
+
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [optionsObj, setOptionsObj] = useState({
     plant: "",
@@ -31,6 +34,11 @@ const Root = () => {
     setShowOptions(false);
   };
 
+  const handleShowAboutUs = () => {
+    setShowAboutUs(true);
+  };
+  
+
   const handleOptionsObject = (plant, season, soiltype, water, light, climate) => {
     setOptionsObj(({
       ...optionsObj,
@@ -47,16 +55,21 @@ const Root = () => {
 
   return (
     <React.StrictMode>
-      {showOptions ? (
-        <Options onConfirmOptions={handleConfirmOptions} 
+      {showOptions ? (<Options 
+        onConfirmOptions={handleConfirmOptions} 
         selectedPlant={selectedPlant} 
         handleOptionsObject={handleOptionsObject}/>
-      ) : showTimeline ? (
-        <Timeline optionsObj={optionsObj}/>
-      ) : (
-        <App onConfirmPlanting={handleConfirmPlanting} 
+      ) : 
+      showTimeline ? (<Timeline 
+        optionsObj={optionsObj}/>
+      ) : 
+      showAboutUs ? (
+        <AboutUs />)
+        : 
+        (<App onConfirmPlanting={handleConfirmPlanting} 
         onPlantChange={handleSelectedPlant}
         selectedPlant={selectedPlant}
+        showAboutUs={handleShowAboutUs}
         />
       )}
     </React.StrictMode>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 import "./App.css";
 import Alphabet from "./Alphabet";
 import cactusImage from "./Cactus 209133001.png";
@@ -6,10 +7,15 @@ import jalapenoImage from "./Jalapeno Chili 3 Stk.png";
 import strawberryImage from "./Strawberry transparent.png";
 
 
-const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
+const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLetter, setSelectedLetter] = useState("");
-  
+  const [typeEffect] = useTypewriter({
+    words: ["Sprout View", "Your plantation guide", "Sprout View", "Your plantation adventure"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40
+  })
   
   const handleImageClick = (plantType) => {
     setModalOpen(true);
@@ -43,7 +49,11 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
       <header className="logo">Sprout View 🪴</header>
       <main>
       <section class="intro-section">
-        <h2>Welcome to Sprout View</h2>
+        <h2>
+          Welcome to 
+          <span> {typeEffect}</span>
+          <Cursor/>
+        </h2>
           <p>Explore and select plants by clicking on letters or images below.</p>
       </section>
       <section class="image-section">
@@ -51,7 +61,7 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant }) => {
           alt="Garden Image" class="garden-image"/>
       </section>
       <section class="cta-section">
-        <button class="explore-button">Explore Now</button>
+        <button class="explore-button" onClick={showAboutUs}>About Us</button>
       </section>
 
 

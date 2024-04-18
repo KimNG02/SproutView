@@ -16,9 +16,10 @@ async function getTimeline(optionsObj)
 
 function Timeline({optionsObj}) {
   const [stage, setStage] = useState(0);
-
-  const timeline = getTimeline(optionsObj).data;
-  console.log(timeline);
+  /*
+    const timeline = getTimeline(optionsObj).data;
+    console.log(timeline);
+  */
 
   const handlePrev = () => {
     if (stage > 0) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant, onConfirmOptions}) => {
+const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
 
   const [showChoices, setShowChoices] = useState({
     summer: false,
