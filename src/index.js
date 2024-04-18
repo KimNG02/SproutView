@@ -6,7 +6,7 @@ import Options from './Options';
 import Timeline from './Timeline';
 
 const Root = () => {
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [optionsObj, setOptionsObj] = useState({
