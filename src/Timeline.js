@@ -5,10 +5,20 @@ import sprout from "./images/pot2.webp";
 import half from "./images/pot3.webp";
 import full from "./images/pot4.webp";
 import withered from "./images/pot5.webp";
+import apiServiceHandler from './apiServiceHandler.js';
 
+async function getTimeline(optionsObj)
+{ 
+  const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "");
+  console.log(stuff);
+  return await apiServiceHandler.getTimeline(stuff);
+}
 
-function Timeline() {
+function Timeline({optionsObj}) {
   const [stage, setStage] = useState(0);
+
+  const timeline = getTimeline(optionsObj).data;
+  console.log(timeline);
 
   const handlePrev = () => {
     if (stage > 0) {

@@ -9,6 +9,14 @@ const Root = () => {
   const [showOptions, setShowOptions] = useState(true);
   const [showTimeline, setShowTimeline] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState(null);
+  const [optionsObj, setOptionsObj] = useState({
+    plant: "",
+    season: "",
+    soiltype: "",
+    water: "",
+    light: "",
+    climate: ""
+  });
 
   const handleSelectedPlant = (plant) => {
     setSelectedPlant(plant)
@@ -23,17 +31,33 @@ const Root = () => {
     setShowOptions(false);
   };
 
+  const handleOptionsObject = (plant, season, soiltype, water, light, climate) => {
+    setOptionsObj(({
+      ...optionsObj,
+      plant: plant,
+      season: season,
+      soiltype: soiltype,
+      water: water,
+      light: light,
+      climate: climate}
+    ));
+    console.log(JSON.stringify(optionsObj));
+    console.log(optionsObj.plant, optionsObj.climate);
+  };
+
   return (
     <React.StrictMode>
       {showOptions ? (
         <Options onConfirmOptions={handleConfirmOptions} 
-        selectedPlant={selectedPlant}/>
+        selectedPlant={selectedPlant} 
+        handleOptionsObject={handleOptionsObject}/>
       ) : showTimeline ? (
-        <Timeline />
+        <Timeline optionsObj={optionsObj}/>
       ) : (
         <App onConfirmPlanting={handleConfirmPlanting} 
         onPlantChange={handleSelectedPlant}
-        selectedPlant={selectedPlant}/>
+        selectedPlant={selectedPlant}
+        />
       )}
     </React.StrictMode>
   );
