@@ -129,7 +129,7 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
 
             <input type="checkbox" id="artificial" name="light" value="artificial" />
             <label htmlFor="artificial" className="tooltip">Artificial Light
-              <span className="tooltiptext">When your plant is in a shaded area with minimum sunlight.</span>
+              <span className="tooltiptext">When your plant is in an area with artifical lights such as fluorescent, incandescent, induction, or LED bulb lighting.</span>
             </label> 
             {/* Add other light condition radio inputs here */}
           </div>
@@ -182,23 +182,23 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
         <form>
           <div className="radio-container">
           <input type="radio" id="xsmallpot" name="xsPot" value="xsmall" />
-            <label htmlFor="bigpot" className="tooltip">xtra Small pot 
+            <label htmlFor="bigpot" className="tooltip">Extra Small 
             <span className="tooltiptext"> Diameter range: 12-16cm, fits 1-2 liter</span>
             </label><br />
             <input type="radio" id="smallpot" name="sPot" value="small" />
-            <label htmlFor="smallpot" className="tooltip">Small pot
+            <label htmlFor="smallpot" className="tooltip">Small 
             <span className="tooltiptext"> Diameter range: 17-20cm, fits 2-4 liter</span>
             </label> <br />
             <input type="radio" id="midpot" name="mPOt" value="mid" />
-            <label htmlFor="midpot" className="tooltip">Medium pot 
+            <label htmlFor="midpot" className="tooltip">Medium  
             <span className="tooltiptext"> Diameter range: 21-29cm, fits 4-10 liter</span>
             </label><br />
             <input type="radio" id="bigpot" name="bPot" value="big" />
-            <label htmlFor="bigpot" className="tooltip">Big pot
+            <label htmlFor="bigpot" className="tooltip">Big 
             <span className="tooltiptext"> Diameter range: 30-39cm, fits 10-25 liter</span>
             </label><br />
             <input type="radio" id="xbigpot" name="xbPot" value="xbig" />
-            <label htmlFor="bigpot" className="tooltip">xtra Big pot
+            <label htmlFor="bigpot" className="tooltip">Extra Big 
             <span className="tooltiptext"> Diameter range: 40-50cm, fits 25-40 liter</span>
             </label>
           </div> 
