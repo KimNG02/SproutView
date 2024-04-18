@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './options.css';
 
 
@@ -69,6 +70,8 @@ function Options(){
   
  
 =======
+=======
+>>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
 import './options.css'; // Import your CSS file
 import ApiServiceHandler from './apiServiceHandler.js';
 
@@ -98,6 +101,9 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
       document.getElementById("test").innerHTML = err;
     });
   }
+<<<<<<< HEAD
+>>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
+=======
 >>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
 
   return (
@@ -417,8 +423,14 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
         </fieldset>
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       
       <div><button>Done</button></div>
+=======
+      <div>
+      <button onClick={confirmOptionsCB}>Confirm Options</button>
+      </div>
+>>>>>>> ac3ea32c51396b94f3661512fc07b0805e3411b8
 =======
       <div>
       <button onClick={confirmOptionsCB}>Confirm Options</button>
