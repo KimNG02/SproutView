@@ -67,8 +67,7 @@ const Options = ({selectedPlant, onConfirmOptions}) => {
   };
 
   const confirmOptionsCB = () => {
-    handleOptionsObject(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat");
-    onConfirmOptions(); // Call the function passed from the parent component
+    onConfirmOptions(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
   };
 
   return (
