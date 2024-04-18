@@ -11,16 +11,9 @@ const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
   };
 
   const confirmOptionsCB = () => {
-    onConfirmOptions(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
+    handleOptionsObject(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
+    onConfirmOptions();
   };
-
-  async function handleOptionsObject() {
-    await ApiServiceHandler.getTimeline(selectedPlant).then((result) => { 
-      document.getElementById("test").innerHTML = result.data;
-    }).catch((err) => {
-      document.getElementById("test").innerHTML = err;
-    });
-  }
 
   return (
     <div className="options-container">
