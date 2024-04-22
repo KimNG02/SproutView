@@ -2,54 +2,67 @@ import React, { useState, useEffect } from 'react';
 import './styles/CountrySelector.css';
 
 function CountrySelector({ onSelect }) {
-  const [countries, setCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [climateZone, setClimateZone] = useState('');
+  const [zoneDescription, setZoneDescription] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch list of countries
-    fetchCountries();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          setError('Error getting geolocation: ' + error.message);
+        }
+      );
+    } else {
+      setError('Geolocation is not supported by your browser.');
+    }
   }, []);
 
-  const fetchCountries = async () => {
+  useEffect(() => {
+    if (latitude && longitude) {
+      fetchClimateZone();
+    }
+  }, [latitude, longitude]);
+
+  const fetchClimateZone = async () => {
     try {
-      const response = await fetch('https://restcountries.com/v3.1/all');
-      const data = await response.json();
-      const countryNames = data.map(country => country.name.common);
-      countryNames.sort(); // Sort countries alphabetically
-      setCountries(countryNames);
+      const response = await fetch(`http://climateapi.scottpinkelman.com/api/v1/location/${latitude}/${longitude}`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.return_values && data.return_values.length > 0) {
+          const { koppen_geiger_zone, zone_description } = data.return_values[0];
+          console.log('Climate Zone:', koppen_geiger_zone);
+          console.log('Zone Description:', zone_description);
+          setClimateZone(koppen_geiger_zone);
+          setZoneDescription(zone_description);
+          onSelect({ climateZone: koppen_geiger_zone, zoneDescription }); // Pass both climate zone and zone description to onSelect
+        } else {
+          setError('Climate zone data not found in response.');
+        }
+      } else {
+        setError('Failed to fetch climate zone. Status code: ' + response.status);
+      }
     } catch (error) {
-      console.error('Error fetching countries:', error);
+      setError('Error fetching climate zone: ' + error.message);
     }
   };
 
-  const handleSelect = (e) => {
-    onSelect(e.target.value);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  // Filter countries based on search term
-  const filteredCountries = countries.filter(country =>
-    country.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
-    <div className="country-selector">
-      <input
-        type="text"
-        placeholder="Search for a country..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <select onChange={handleSelect}>
-        {filteredCountries.map((country, index) => (
-          <option key={index} value={country}>
-            {country}
-          </option>
-        ))}
-      </select>
+    <div>
+      {error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <div>
+          <p>Koppen Climate Zone: {climateZone}</p>
+          <p>Zone Description: {zoneDescription}</p>
+        </div>
+      )}
     </div>
   );
 }
