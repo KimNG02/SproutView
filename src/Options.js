@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles/options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
+import CountrySelector from './CountrySelector.js';
 
 const Options = ({selectedPlant, handleOptionsObject}) => {
 
@@ -14,13 +15,29 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
     handleOptionsObject(selectedPlant, sliderValue, "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
   };
 
+  const handleCountrySelect = (country) => {
+    console.log('Selected country:', country);
+    // You can handle the selected country here, e.g., save it to state
+  };
+
   return (
     <div className="options-container">
       <div className="font-container">
         <h1 className="topic">Environment Options</h1>
       </div>
+      <div>
+        <CountrySelector onSelect={handleCountrySelect} />
+      </div>
       <div className="container">
-        {/* Pot Size Options */}
+        {/* Location Options */}
+      <div className="options-section">
+        <h2>Where do you live?</h2>
+          <div className="input-container">
+          <input type="text" id="country" name="country" placeholder="Enter your country" />
+        </div>
+      </div>
+
+
         <div className="options-section">
           <h2>How large is the initial pot size?</h2>
           <div className="radio-container">
@@ -54,7 +71,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
       {/* Temperature Options */}
       <div className="options-section">
-        <h2>What is the average temperature range in your area during the growing season?</h2>
+        <h2>What is the average temperature?</h2>
         <div className="slidecontainer">
           <input type="range" min="0" max="100" value={sliderValue} className="slider" id="myRange" onChange={handleSliderChange} />
           <div className="slider-value">{sliderValue}</div>
@@ -81,16 +98,10 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
       {/* Climate Zone Options */}
       <div className="options-section">
-        <div className="climate-zone">
-          <h2>What climate zone are you in?</h2>
-          <div className="climate">
-            <input className="zone" type="text" placeholder="Climate zone..." />
-          </div>
-          <div>
+        <div className='confirm-zone'>
             <a href='#timeline'>
             <button onClick={confirmOptionsCB}>Confirm Options</button>
             </a>
-          </div>
         </div>
       </div>
     </div>
