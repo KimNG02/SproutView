@@ -15,29 +15,15 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
     handleOptionsObject(selectedPlant, sliderValue, "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
   };
 
-  const handleCountrySelect = (country) => {
-    console.log('Selected country:', country);
-    // You can handle the selected country here, e.g., save it to state
-  };
-
   return (
     <div className="options-container">
       <div className="font-container">
         <h1 className="topic">Environment Options</h1>
       </div>
-      <div>
-        <CountrySelector onSelect={handleCountrySelect} />
+      <div className='options-section'>
+        <CountrySelector />
       </div>
       <div className="container">
-        {/* Location Options */}
-      <div className="options-section">
-        <h2>Where do you live?</h2>
-          <div className="input-container">
-          <input type="text" id="country" name="country" placeholder="Enter your country" />
-        </div>
-      </div>
-
-
         <div className="options-section">
           <h2>How large is the initial pot size?</h2>
           <div className="radio-container">

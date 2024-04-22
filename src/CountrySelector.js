@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles/CountrySelector.css';
 
-function CountrySelector({ onSelect }) {
+function CountrySelector() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [climateZone, setClimateZone] = useState('');
@@ -41,7 +41,6 @@ function CountrySelector({ onSelect }) {
           console.log('Zone Description:', zone_description);
           setClimateZone(koppen_geiger_zone);
           setZoneDescription(zone_description);
-          onSelect({ climateZone: koppen_geiger_zone, zoneDescription }); // Pass both climate zone and zone description to onSelect
         } else {
           setError('Climate zone data not found in response.');
         }
