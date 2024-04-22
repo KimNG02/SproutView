@@ -5,40 +5,39 @@ import org.apache.tomcat.util.json.*;
 public class TimelineHandler {
     private static TimelineHandler INSTANCE = new TimelineHandler();
 
-    private TimelineHandler() {}
+    private TimelineHandler() {
+    }
 
-    public static TimelineHandler getInstance()
-    {
+    public static TimelineHandler getInstance() {
         return INSTANCE;
     }
 
-    public double fetchTimeline(JSONObject json){
+    public String fetchTimeline(JSONObject json) {
         json.printAll();
 
-        double out = 1;
+        String out = "{\"sproutTime\":\"10\", \"halfGrownTime\":\"20\",\"matureTime\":\"30\", \"witheringTime\":\"40\"}";
 
         return out;
     }
 
-    private double preferredWater(String water)
-    {
+    private double preferredWater(String water) {
 
         return 1;
     }
-    private double preferredLight(String light)
-    {
+
+    private double preferredLight(String light) {
         return 1;
     }
-    private double preferredTemp(String temp)
-    {
+
+    private double preferredTemp(String temp) {
         return 1;
     }
-    private double preferredSoil(String soil)
-    {
+
+    private double preferredSoil(String soil) {
         return 1;
     }
-    private double preferredSeason(String season)
-    {
+
+    private double preferredSeason(String season) {
         return 1;
     }
 }

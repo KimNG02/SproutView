@@ -6,7 +6,6 @@ import App from './App';
 import Options from './Options';
 import Timeline from './Timeline';
 import AboutUs from './AboutUs';
-import UndefinedTest from './UndefinedTest';
 
 const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
@@ -68,10 +67,6 @@ function makeRouter
       path: "/aboutus",
       element: <AboutUs />
     },
-    {
-      path: "/undefinedtest",
-      element: <UndefinedTest optionsObj={optionsObj}/>
-    }
   ])
 }
 
