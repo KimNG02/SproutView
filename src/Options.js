@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 
-const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
+const Options = ({selectedPlant, handleOptionsObject}) => {
 
   const [sliderValue, setSliderValue] = useState(50);
 
@@ -11,8 +11,7 @@ const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
   };
 
   const confirmOptionsCB = () => {
-    handleOptionsObject(selectedPlant, "sommar", "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
-    onConfirmOptions();
+    handleOptionsObject(selectedPlant, sliderValue, "jord", "vatten", "ljus", "klimat"); // Call the function passed from the parent component
   };
 
   return (
@@ -88,7 +87,9 @@ const Options = ({selectedPlant, onConfirmOptions, handleOptionsObject}) => {
             <input className="zone" type="text" placeholder="Climate zone..." />
           </div>
           <div>
+            <a href='#timeline'>
             <button onClick={confirmOptionsCB}>Confirm Options</button>
+            </a>
           </div>
         </div>
       </div>

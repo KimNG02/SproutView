@@ -1,8 +1,9 @@
 import http from "./http-common.js";
 
 class ApiServiceHandler {
-    getTimeline(data) {
-      return http.get(`/timeline?data=${data}`);
+     getTimeline(data) {
+      const out = http.get(`/timeline?data=${data}`);
+      return out;
     }
   }
 export default new ApiServiceHandler();
