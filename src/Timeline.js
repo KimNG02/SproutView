@@ -131,9 +131,14 @@ function Timeline({ optionsObj }) {
         </button>
       </div>
     </section>
+    {timelineData ? (
     <section ref={suggestionsRef} id="suggestions" className="timeline-section">
-      <div>HEJ OCH VÄLKOMMEN TILL SUGGESTIONS</div>
+      <h1>HEJ OCH VÄLKOMMEN TILL SUGGESTIONS</h1>
+      <h2>{timelineData.suggestion1}</h2>
     </section>
+    ) : (
+      <div>Loading Suggestions...</div>
+    )}
     </div>
   );
 }

@@ -15,7 +15,7 @@ public class TimelineHandler {
     public String fetchTimeline(JSONObject json) {
         json.printAll();
 
-        String out = "{ \"timelineState\":\"Risky\", \"sproutTime\":\"10\", \"halfGrownTime\":\"20\",\"matureTime\":\"30\", \"witheringTime\":\"40\"}";
+        String out = "{ \"suggestion1\":\"Du borde vattna mer!!\", \"timelineState\":\"Risky\", \"sproutTime\":\"10\", \"halfGrownTime\":\"20\",\"matureTime\":\"30\", \"witheringTime\":\"40\"}";
 
         return out;
     }

@@ -6,6 +6,7 @@ import App from './App';
 import Options from './Options';
 import Timeline from './Timeline';
 import AboutUs from './AboutUs';
+import Toolbar from './Toolbar';
 
 const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
@@ -41,6 +42,7 @@ const Root = () => {
 
   return (
     <React.StrictMode>
+        <Toolbar />
         <RouterProvider router={makeRouter({
           selectedPlant, handleSelectedPlant, 
           handleOptionsObject, optionsObj})}/>

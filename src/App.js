@@ -46,7 +46,6 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
 
   return (
     <div>
-      <header className="logo">Sprout View 🪴</header>
       <main>
       <section class="intro-section">
         <h2>
