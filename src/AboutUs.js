@@ -10,12 +10,12 @@ const teamMembers = [
   },
   {
     name: "Theodor",
-    role: "Servern",
+    role: "Scrum Master",
     imageUrl: "https://static.vecteezy.com/system/resources/previews/022/948/153/non_2x/cute-happy-blackberry-character-ai-generated-free-png.png",
   },
   {
     name: "Rut",
-    role: "Designer",
+    role: "Developer",
     imageUrl: "https://static.vecteezy.com/system/resources/previews/025/037/881/non_2x/cute-watercolor-peony-flower-illustration-ai-generative-png.png",
   },
   {
@@ -25,22 +25,22 @@ const teamMembers = [
   },
   {
     name: "Kim",
-    role: "Servern",
+    role: "Developer",
     imageUrl: "https://www.creativefabrica.com/wp-content/uploads/2020/09/28/cute-flower-kawaii-illustrations-Graphics-5731329-1-1-580x387.png",
   },
   {
     name: "Saina",
-    role: "Servern",
+    role: "Developer",
     imageUrl: "https://static.vecteezy.com/system/resources/previews/026/793/223/original/cute-watermelon-watercolor-ai-generative-png.png",
   },
   {
     name: "Emil",
-    role: "Servern",
+    role: "Developer",
     imageUrl: "https://cdn-icons-png.freepik.com/512/6813/6813248.png",
   },
   {
     name: "Isac",
-    role: "Servern",
+    role: "Developer",
     imageUrl: "https://www.creativefabrica.com/wp-content/uploads/2021/02/14/Kawaii-Cute-Carrot-Vegetable-Graphics-8601699-1.png",
   },
   // Add more team members as needed

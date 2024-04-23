@@ -7,6 +7,38 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.Spring{
+  margin-inline: 10px;
+}
+
+.Summer{
+  margin-inline: 10px;
+}
+
+.Autumn{
+  margin-inline: 10px;
+}
+
+.Winter{
+  margin-inline: 10px;
+}
+
+.Full-sun {
+  margin-inline: 10px;
+}
+
+.Partial-sun {
+  margin-inline: 10px;
+}
+
+.Shade {
+  margin-inline: 10px;
+}
+
+.Artificial-light {
+  margin-inline: 10px;
+}
+
 .font-container {
   text-align: center;
 }
@@ -36,8 +68,12 @@
 }
 
 .radio-container {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
+}
+
+.light-options {
+  color: #4caf50;
 }
 
 .slidecontainer {
@@ -58,7 +94,32 @@
 }
 
 .tooltip {
-  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgb(120, 164, 97);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+
+  bottom: -10%;
+  left: 100%;
+  margin-left: -5px;
+
+  opacity: 0;
+  transition: opacity 0.75s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 .confirm-zone {
@@ -81,6 +142,7 @@
 }
 
 .button {
+  text-align: center;
   padding: 10px 20px;
   background-color: #4caf50;
   color: #ffffff;
@@ -93,3 +155,23 @@
 .button:hover {
   background-color: #45a049;
 }
+
+.secondary-buttons {
+  margin-top: 10px; /* Space above the secondary button section */
+}
+
+.confirm-button {
+  display: block; /* Makes the button a block element */
+  margin: 10px auto; /* Centers the button horizontally and adds space above */
+  width: fit-content; /* Ensures the button width is as wide as its content */
+}
+
+.potSize-dropdown {
+  width: 100%; /* Makes the dropdown full width of its container */
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  margin: 10px 0;
+}
+
