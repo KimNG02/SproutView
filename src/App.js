@@ -61,7 +61,9 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
           alt="Garden Image" class="garden-image"/>
       </section>
       <section class="cta-section">
-        <button class="explore-button" onClick={showAboutUs}>About Us</button>
+        <a href="#aboutus">
+        <button class="explore-button">About Us</button>
+        </a>
       </section>
 
 
@@ -86,7 +88,9 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
             <div className="modal-content">
               <span className="close" onClick={handleCloseModal}>&times;</span>
               <h2>Are you sure you want to plant a {selectedPlant}?</h2>
-              <button onClick={handleConfirmPlantingClick}>Yes</button>
+              <a href="#options">
+              <button >Yes</button>
+              </a>
             </div>
           </div>
         )}

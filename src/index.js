@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import './styles/index.css';
 import App from './App';
 import Options from './Options';
@@ -7,10 +8,6 @@ import Timeline from './Timeline';
 import AboutUs from './AboutUs';
 
 const Root = () => {
-  const [showOptions, setShowOptions] = useState(false);
-  const [showTimeline, setShowTimeline] = useState(false);
-  const [showAboutUs, setShowAboutUs] = useState(false);
-
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [optionsObj, setOptionsObj] = useState({
     plant: "",
@@ -25,18 +22,6 @@ const Root = () => {
     setSelectedPlant(plant)
   }
 
-  const handleConfirmPlanting = () => {
-    setShowOptions(true);
-  };
-
-  const handleConfirmOptions = () => {
-    setShowTimeline(true);
-    setShowOptions(false);
-  };
-
-  const handleShowAboutUs = () => {
-    setShowAboutUs(true);
-  };
   
 
   const handleOptionsObject = (plant, season, soiltype, water, light, climate) => {
@@ -49,32 +34,40 @@ const Root = () => {
       light: light,
       climate: climate}
     ));
-    console.log(JSON.stringify(optionsObj));
-    console.log(optionsObj.plant, optionsObj.climate);
+    //console.log(JSON.stringify(optionsObj));
+    //console.log(optionsObj.plant, optionsObj.climate);
   };
 
   return (
     <React.StrictMode>
-      {showOptions ? (<Options 
-        onConfirmOptions={handleConfirmOptions} 
-        selectedPlant={selectedPlant} 
-        handleOptionsObject={handleOptionsObject}/>
-      ) : 
-      showTimeline ? (<Timeline 
-        optionsObj={optionsObj}/>
-      ) : 
-      showAboutUs ? (
-        <AboutUs />)
-        : 
-        (<App onConfirmPlanting={handleConfirmPlanting} 
-        onPlantChange={handleSelectedPlant}
-        selectedPlant={selectedPlant}
-        showAboutUs={handleShowAboutUs}
-        />
-      )}
+        <RouterProvider router={makeRouter({
+          selectedPlant, handleSelectedPlant, 
+          handleOptionsObject, optionsObj})}/>
     </React.StrictMode>
   );
 };
-
+function makeRouter 
+({selectedPlant, handleSelectedPlant, handleOptionsObject, optionsObj}) {
+  return createHashRouter([
+    {
+      path: "/",
+      element: <App 
+      selectedPlant={selectedPlant} 
+      onPlantChange={handleSelectedPlant}/>
+    },
+    {
+      path: "/options",
+      element: <Options selectedPlant={selectedPlant} handleOptionsObject={handleOptionsObject} />
+    },
+    {
+      path: "/timeline",
+      element: <Timeline optionsObj={optionsObj}/>
+    },
+    {
+      path: "/aboutus",
+      element: <AboutUs />
+    },
+  ])
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
