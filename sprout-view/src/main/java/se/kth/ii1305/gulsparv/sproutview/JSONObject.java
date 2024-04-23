@@ -1,6 +1,5 @@
 package se.kth.ii1305.gulsparv.sproutview;
 
-import lombok.val;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
