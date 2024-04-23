@@ -13,7 +13,6 @@ public class TimelineHandler {
     }
 
     public String fetchTimeline(JSONObject json) {
-        json.printAll();
 
         String out = "{\"sproutTime\":\"10\", \"halfGrownTime\":\"20\",\"matureTime\":\"30\", \"witheringTime\":\"40\"}";
 

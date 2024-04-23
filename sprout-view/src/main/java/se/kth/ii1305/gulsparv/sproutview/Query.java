@@ -1,49 +1,16 @@
 package se.kth.ii1305.gulsparv.sproutview;
 
-import java.util.ArrayList;
-
 
 public class Query {
-    String table;
-    String[] columns;
-    String[] constraints;
+    String plant;
 
-    private Query(String table, String[] columns, String[] constraints) 
+    public Query(String plant) 
     {
-        this.table = table;
-        this.columns = columns;
-        this.constraints = constraints;
+        this.plant = plant;
     }
 
-    public QueryBuilder getBuilder(String tableName)
+    public String toString()
     {
-        return new QueryBuilder(tableName);
-    }
-
-    public class QueryBuilder {
-        private String tableName;
-        private String[] columns = {"*"};
-        private ArrayList<String> constraints;
-        
-        public QueryBuilder(String tableName)
-        {
-            this.tableName = tableName;
-        }
-
-        public QueryBuilder setColumns(String[] columns)
-        {
-            this.columns = columns;
-            return this;
-        }
-
-        public QueryBuilder addConstraint(String constraint)
-        {
-            this.constraints.add(constraint);
-            return this;
-        }
-        public Query build()
-        {
-
-        }
+        return String.format("SELECT * FROM plant_preferrences LEFT JOIN plant_lifetime ON plant_preferrences.name = plant_lifetime.name WHERE plant_lifetime.name = '%s';", plant);
     }
 }
