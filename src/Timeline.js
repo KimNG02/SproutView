@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './styles/Timeline.css';
+import React, { useState, useEffect, useRef } from "react";
+import "./styles/Timeline.css";
 import potImage from "./images/pot1.webp";
 import sprout from "./images/pot2.webp";
 import half from "./images/pot3.webp";
 import full from "./images/pot4.webp";
 import withered from "./images/pot5.webp";
-import apiServiceHandler from './apiServiceHandler.js';
+import apiServiceHandler from "./apiServiceHandler.js";
+import { useHref } from "react-router-dom";
 
 async function getTimeline(optionsObj) {
   const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "");
@@ -13,19 +14,20 @@ async function getTimeline(optionsObj) {
   return await apiServiceHandler.getTimeline(stuff);
 }
 
-
-function Timeline({optionsObj}) {
+function Timeline({ optionsObj }) {
   const [stage, setStage] = useState(0);
   const [timelineData, setTimelineData] = useState(null);
+  const suggestionsRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getTimeline(optionsObj);
+        console.log(response);
         console.log(response.data);
         setTimelineData(response.data);
       } catch (error) {
-        console.error('Error fetching timeline data:', error);
+        console.error("Error fetching timeline data:", error);
       }
     };
     fetchData();
@@ -50,20 +52,26 @@ function Timeline({optionsObj}) {
       case 1:
         return sprout;
       case 2:
-          return half;
+        return half;
       case 3:
-          return full;
+        return full;
       case 4:
-            return withered;    
-
+        return withered;
     }
   };
 
+  const scrollToSuggestions = () => {
+    suggestionsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className='timeline-container'>
+    <div className="page-container">
+    <section className="timeline-section" id="timeline">
       <div>
         {timelineData ? (
           <div>
+            <h1 className="timeline-state">{timelineData.timelineState}</h1>
+
             {Object.keys(timelineData).map((key, index) => (
               <div key={index}>
                 <strong>{key}:</strong> {timelineData[key]}
@@ -74,18 +82,20 @@ function Timeline({optionsObj}) {
           <div>Loading...</div>
         )}
       </div>
-      <div className="App">
-        <div id="prev">
-          <button onClick={handlePrev}>prev</button>
-        </div>
-        <div className="image-container">
-          <img src={getImage(stage)} alt="Your Image" width="200" height="250" />
-        </div>
-        <div id="next">
-          <button onClick={handleNext}>next</button>
-        </div>
-       
+
+      <div className="image-container">
+        <button className="prev-next" onClick={handlePrev}>
+          prev
+        </button>
+        <img src={getImage(stage)} alt="Your Image" width="200" height="250" />
+        <button className="prev-next" onClick={handleNext}>
+          next
+        </button>
+      </div>
+      {timelineData ? (
+      <div>
         <input
+          className="timeline-bar"
           type="range"
           id="stage"
           name="stage"
@@ -95,25 +105,40 @@ function Timeline({optionsObj}) {
           value={stage}
           onChange={(e) => setStage(parseInt(e.target.value))}
         />
-        <div className="labels">
-            <p>
-              Seed
-            </p>
-            <p>
-              Sprout
-  
-            </p>
-            <p>
-              half grown
-            </p>
-            <p>
-              mature
-            </p>
-            <p>
-              Withered
-            </p>
+        <div className="stages-container">
+        <div className="stages">
+          <span>Seed</span>
+          <span>Sprout</span>
+          <span>Vegetative</span>
+          <span>Flowering</span>
+          <span>Mature</span>
+        </div>
+        <div className="stages">
+          <span>Now</span>
+          <span>{timelineData.sproutTime}</span>
+          <span>{timelineData.halfGrownTime}</span>
+          <span>{timelineData.matureTime}</span>
+          <span>{timelineData.witheringTime}</span>
+        </div>
         </div>
       </div>
+        ) : (
+        <div>Loading...</div>
+      )}
+      <div>
+        <button onClick={scrollToSuggestions}>
+          HEJ HEJ GÅ NER TILL SUGGESTIONS
+        </button>
+      </div>
+    </section>
+    {timelineData ? (
+    <section ref={suggestionsRef} id="suggestions" className="timeline-section">
+      <h1>HEJ OCH VÄLKOMMEN TILL SUGGESTIONS</h1>
+      <h2>{timelineData.suggestion1}</h2>
+    </section>
+    ) : (
+      <div>Loading Suggestions...</div>
+    )}
     </div>
   );
 }

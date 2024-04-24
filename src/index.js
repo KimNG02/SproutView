@@ -6,16 +6,17 @@ import App from './App';
 import Options from './Options';
 import Timeline from './Timeline';
 import AboutUs from './AboutUs';
+import Toolbar from './Toolbar';
 
 const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [optionsObj, setOptionsObj] = useState({
     plant: "",
     season: "",
+    potsize: "",
     soiltype: "",
     water: "",
     light: "",
-    climate: ""
   });
 
   const handleSelectedPlant = (plant) => {
@@ -24,15 +25,16 @@ const Root = () => {
 
   
 
-  const handleOptionsObject = (plant, season, soiltype, water, light, climate) => {
+  const handleOptionsObject = (plant, season, potsize, soiltype, water, light) => {
     setOptionsObj(({
       ...optionsObj,
       plant: plant,
       season: season,
+      potsize: potsize,
       soiltype: soiltype,
       water: water,
       light: light,
-      climate: climate}
+      }
     ));
     //console.log(JSON.stringify(optionsObj));
     //console.log(optionsObj.plant, optionsObj.climate);
@@ -40,6 +42,7 @@ const Root = () => {
 
   return (
     <React.StrictMode>
+        <Toolbar />
         <RouterProvider router={makeRouter({
           selectedPlant, handleSelectedPlant, 
           handleOptionsObject, optionsObj})}/>
