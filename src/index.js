@@ -7,6 +7,9 @@ import Options from './Options';
 import Timeline from './Timeline';
 import AboutUs from './AboutUs';
 import Toolbar from './Toolbar';
+import Healthy from './Healthy';
+import Risky from './Risky';
+import Dead from './Dead';
 
 const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
@@ -69,6 +72,18 @@ function makeRouter
     {
       path: "/aboutus",
       element: <AboutUs />
+    },
+    {
+      path: "/healthy",
+      element: <Healthy />
+    },
+    {
+      path: "/risky",
+      element: <Risky />
+    },
+    {
+      path: "/dead",
+      element: <Dead />
     },
   ])
 }

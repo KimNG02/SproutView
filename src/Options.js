@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './styles/options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 import CountrySelector from './CountrySelector.js';
+import envPageImage from "./images/envimg.png";
+
 
 const Options = ({selectedPlant, handleOptionsObject}) => {
 
@@ -16,6 +18,9 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
   function increment() {
     setpH(function (prevCount) {
+      if (prevCount === 14) {
+        return (prevCount = 0); 
+      } else 
       return (prevCount += 0.5);
     });
   }
@@ -70,15 +75,19 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
   return (
     <div className="options-container">
       <div className="font-container">
-        <h1 className="topic">Environment Options</h1>
+        <h1 className="topic">Select Environment Options</h1>
       </div>
+      <div className="square">
+      {/*<div className="image-section">
+        <img src={envPageImage} alt="plant pot" className="envimage" />*/}
       <div className='options-section'>
         <CountrySelector />
       </div>
-      
+    
       {/*Season Options*/}
       <div className='options-section'>
-      <h2>Which season do you prefer for starting new plants?</h2>
+        <div className='right-align'>
+      <h2>Which is your planting season?</h2>
       <button className='Spring' onClick={() => handleSeasonClick('Spring')}>Spring</button>
       <button className='Summer' onClick={() => handleSeasonClick('Summer')}>Summer</button>
       <button className='Autumn' onClick={() => handleSeasonClick('Autumn')}>Autumn</button>
@@ -94,6 +103,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
       {(selectedSeason && seasonPart) && (
         <button className='confirm-button' onClick={confirmOptionsCB}>Confirm Season</button>
       )}
+    </div>
     </div>
 
     {/* Pot Size Options */}
@@ -159,8 +169,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
       {/* Watering Options */}
       <div className="options-section">
-        <h2>Your watering habits</h2>
-        <h2>How often do you water ypur plant?</h2>
+        <h2>How often do you water your plant?</h2>
         <select
         value={waterFrequency}
         onChange={(waterfreq) => setWaterFrequency(waterfreq.target.value)}
@@ -177,8 +186,6 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           <option value = 'never'> Never </option>
         </select>
         <br/>
-        <h2>How much do you water it every time?</h2>
-          <input placeholder='cl' ></input>
       </div>
 
       {/* Temperature Options */}
@@ -195,14 +202,13 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
       <div className="options-section">
       <h2>What is the pH of your soil?</h2>
       <legend><b>{pH}</b></legend>
-        <button onClick={increment}>Increment</button>
-        <button onClick={decrement}>Decrement</button>
+        <button onClick={decrement}>&#8722;</button>
+        <button onClick={increment}>&#43;</button>
       </div>
 
       {/* Plant-care Options */}
       <div className="options-section">
-        <h2>Plant-care</h2>
-        <legend><b>How do you maintain your plant?</b></legend>
+        <h2>How will you maintain your plant?</h2>
         <div>
           <input type="checkbox" id="repotting" name="repotting"  />
           <label htmlFor="repotting">
@@ -231,15 +237,20 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
         </div>
       </div>
 
-    
-      {/* Climate Zone Options */}
+      {/* Humidity Options */}
+      <div className="options-section">
+      <h2>What is the room humidity?</h2>
+          <input placeholder='%' ></input>
+      </div>
+
       <div className="options-section">
         <div className='confirm-zone'>
             <a href='#timeline'>
-            <button onClick={confirmOptionsCB}>Confirm Options</button>
+            <button onClick={confirmOptionsCB}>Done</button>
             </a>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -1,0 +1,128 @@
+/* Dead Styles*/
+
+.dead-container {
+    display: flex;
+    flex-direction: column;
+    background: #FBEAEA;
+  }
+
+.timeline-section {
+    padding-top: 4vh;
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+  }
+
+.dead-circle-container {
+    position: relative;
+    width: 200px; /* Adjust the size of the circle */
+    height: 200px; /* Adjust the size of the circle */
+    background-color: #F49797;
+    border-radius: 50%; /* Ensures the container is a circle */
+    margin: 0 auto; /* Centers the container horizontally */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    /* Add any other styling properties as needed */
+}
+
+.dead-circle-container::after {
+    content: "Help!";
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: 100px;
+    height: 100px; /* Set the height to match the dimensions of the speech bubble image */
+    background-image: url('https://s3-alpha-sig.figma.com/img/1dcc/77c0/7c319b87c46939d565024072974f03fd?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Yy5gJ6CdiiFw8jO85JHik7PoIbrut2keBlXJoayUVF2pPb0Xn9Djx1bXef5XnagXSkbfzxb3XqCkQNZkdfBu41MdM83yb-PwqWpjwttGmO3SX3OwPbbyi27K2kNNK1RjlQY6IaZH3S5yuD9GjopcZjG0L8Emwiv39P1E34mo4ph3SZiFdbxILa8R7EkhpJhr2la0Epsg-oc9d1eVl137Vf6Vj2-bHNlfu1HTlcjMtnmX0NDtgGwzpXyCWxOpWjgw6-kZYMPEtn-YxyduR4xHYuJ-ZIRt8raK75h~u-vbZv14QQvoThMJ2ZsNU5ZTC-je7RqS5AwFx8RvdECPVkVqew__'); /* Set the image as background */
+    background-size: contain; /* Make sure the image fits inside the speech bubble */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: black; /* Text color */
+    font-size: 25px; /* Adjust font size */
+    text-align: center; /* Center the text */
+    line-height: 80px; /* Vertical centering */
+    z-index: 1;
+}
+
+
+.dead-circle-container img {
+    max-width: 60%; /* Ensures the image does not exceed the container */
+    max-height:60%; /* Ensures the image does not exceed the container */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1; /* Ensure arrows appear above the image */
+}
+
+.left-arrow {
+    left: -120px; /* Adjust distance from the left side */
+}
+
+.right-arrow {
+    right: -120px; /* Adjust distance from the right side */
+}
+
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .labels span {
+    font-size: 12px;
+    transition: font-weight 0.2s ease;
+  }
+  
+  .labels span.active {
+    font-weight: bold;
+  }
+  
+
+  .white-rectangle {
+    width: 100%;
+    height: 50vh; /* Adjust the height as needed */
+    background-color: white;
+    /* Add any other styling properties as needed */
+}

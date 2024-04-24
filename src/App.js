@@ -5,17 +5,27 @@ import Alphabet from "./Alphabet";
 import cactusImage from "./images/Cactus 209133001.png";
 import jalapenoImage from "./images/Jalapeno Chili 3 Stk.png";
 import strawberryImage from "./images/Strawberry transparent.png";
+import frontpageImage from "./images/frontpage.png";
+import icon from "./images/icon.png";
+import { type } from "@testing-library/user-event/dist/type";
+import wait from "./wait";
+import TypeWriterEffect from "react-typewriter-effect";
+
+
 
 
 const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLetter, setSelectedLetter] = useState("");
-  const [typeEffect] = useTypewriter({
-    words: ["Sprout View", "Your plantation guide", "Sprout View", "Your plantation adventure"],
-    loop: {},
-    typeSpeed: 100,
-    deleteSpeed: 40
-  })
+  const myRef = document.querySelector('.typer')
+  const typer = <TypeWriterEffect
+  textStyle={{ fontFamily: 'VT323' }}
+  startDelay={2}
+  cursorColor="black"
+  text="Sprout View"
+  typeSpeed={100}
+  scrollArea={myRef}
+/>;
   
   const handleImageClick = (plantType) => {
     setModalOpen(true);
@@ -46,42 +56,39 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
 
   return (
     <div>
-      <main>
-      <section class="intro-section">
-        <h2>
-          Welcome to 
-          <span> {typeEffect}</span>
-          <Cursor/>
-        </h2>
-          <p>Explore and select plants by clicking on letters or images below.</p>
-      </section>
+      <main id="app-main">
       <section class="image-section">
-          <img src="https://media.istockphoto.com/id/1459952195/sv/foto/beautiful-spring-garden-with-flowers-and-lawn-grass-3d-illustration.jpg?s=612x612&w=0&k=20&c=jcWhULX1E3E0IAOriKKAbZkDNpJmaLmd-xem9rGA10w=" 
-          alt="Garden Image" class="garden-image"/>
+        <img src={frontpageImage} alt="Windowsill with plants" class="frontimage"/>
+          <div className="image-text" >
+            <section class="intro-section">
+              <h2>
+                Welcome to 
+                <span id="typer">{typer}</span>
+              </h2>
+                <p>Explore and select plants by clicking on letters or images below.</p>
+            </section>
+          </div>
       </section>
-      <section class="cta-section">
-        <a href="#aboutus">
-        <button class="explore-button">About Us</button>
-        </a>
-      </section>
-
-
-        <div>
-          <h1>Select a Letter</h1>
+      <section className="plant-section">
+          <div className="flex">
+            <img className="icon" alt="icon" src={icon}></img>
+            <h1 className="choice">Choose your plant</h1>
+          </div>
           <Alphabet onLetterClick={handleLetterClick} />
+
           <div>
             <div>
               {Array.from({ length: 26 }, (_, i) => (
                 <div key={i} id={String.fromCharCode(65 + i)} className="letter-section">
                   {String.fromCharCode(65 + i)}
-                  {String.fromCharCode(65 + i) === "C" && <img className="plantImage" src={cactusImage} alt="Cactus" onClick={() => handleImageClick("Cactus")} />}
-                  {String.fromCharCode(65 + i) === "J" && <img className="plantImage" src={jalapenoImage} alt="Jalapeno" onClick={() => handleImageClick("Jalapeno")} />}
-                  {String.fromCharCode(65 + i) === "S" && <img className="plantImage" src={strawberryImage} alt="Strawberry" onClick={() => handleImageClick("Strawberry")} />}
+                  {String.fromCharCode(65 + i) === "C" && <img className="plant-image" src={cactusImage} alt="Cactus" onClick={() => handleImageClick("Cactus")} />}
+                  {String.fromCharCode(65 + i) === "J" && <img className="plant-image" src={jalapenoImage} alt="Jalapeno" onClick={() => handleImageClick("Jalapeno")} />}
+                  {String.fromCharCode(65 + i) === "S" && <img className="plant-image" src={strawberryImage} alt="Strawberry" onClick={() => handleImageClick("Strawberry")} />}
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
         {modalOpen && (
           <div className="modal">
             <div className="modal-content">
@@ -91,7 +98,7 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
               <button >Yes</button>
               </a>
             </div>
-          </div>
+            </div>
         )}
       </main>
     </div>

@@ -14,7 +14,7 @@ const teamMembers = [
     imageUrl: "https://static.vecteezy.com/system/resources/previews/022/948/153/non_2x/cute-happy-blackberry-character-ai-generated-free-png.png",
   },
   {
-    name: "Rut",
+    name: "Ruth",
     role: "Developer",
     imageUrl: "https://static.vecteezy.com/system/resources/previews/025/037/881/non_2x/cute-watercolor-peony-flower-illustration-ai-generative-png.png",
   },

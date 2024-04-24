@@ -1,20 +1,45 @@
-.logo {
-  background-color: rgb(115, 220, 115);
-  color: white;
-  text-align: center;
-  font-size: 100px;
-  font-weight: bolder;
-  padding: 20px 0; /* Add padding to top and bottom for spacing */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap');
+
+#app-main {
+  background-color: #fefefe;
 }
 
-.plantImage {
+body {
+  font-family: "VT323";
+  }
+
+.logo {
+  text-align: left;
+  font-size: 2vw;
+  font-weight: bolder;
+  padding: 1vw;
+  padding-left: 1vw;
+  border: 0;
+}
+
+.toolContainer {
+  background-color: rgb(255, 255, 255);
+}
+
+.icon {
+  height: 2vw;
+  width: 2vw;
+  padding-right: 1vw;
+}
+
+.icon#home {
+  padding-right: 1vb;
+}
+
+.plant-image {
   display: flex;
   align-items: center;
   width: 100px;
   height: 100px;
 }
 
-.plantImage:hover {
+.plant-image:hover {
   cursor: pointer;
   transition: 300ms ease;
   width: 120px;
@@ -57,34 +82,73 @@
   cursor: pointer;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: rgb(115, 220, 115);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #217b17;
-}
 
 .intro-section {
   text-align: center;
   padding: 20px;
+  font-family: "VT323";
 }
 
 .image-section {
+  padding-top: 4vh;
+  height: 96vh;
+  min-height: fit-content;
+  position: relative;
   text-align: center;
-  margin-top: 20px;
 }
 
-.garden-image {
+.frontimage {
   width: 100%;
-  max-width: 600px;
-  border-radius: 10%;
+  height: 400px;
+  max-width: 1;
+  object-fit: cover;
+  padding-top: 0;
+}
+
+
+
+@keyframes slideInFromTop {
+  0% {
+    background-color: #fefefe00;
+    transform: translate(-50%, -300%);
+  }
+  100% {
+    background-color: #fefefe98;
+    transform: translate(-50%, -80%);
+  }
+}
+
+.image-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: xx-large;
+  height: 60%;
+  width: 100%;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-name: slideInFromTop;
+}
+
+.react-typewriter-text, .react-typewriter-pointer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#welcome {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#sprout-view {
+  margin-left: 1vw;
 }
 
 .cta-section {
@@ -94,8 +158,6 @@ button:hover {
 
 .explore-button {
   padding: 10px 20px;
-  background-color: rgb(115, 220, 115);
-  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -106,4 +168,37 @@ button:hover {
   background-color: #167222;
 }
 
+.choice {
+  color: black;
+  font-size:large;
+}
 
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+}
+
+.plant-section {
+  margin-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+
+
+.icon {
+  margin-top: 1 px; /* Adjust the margin-top value as needed */
+}
+
+.choice {
+  margin-left: 10px; /* Add margin between the icon and text */
+ font-size: 30px;
+}
+
+.image-text .intro-section h2 {
+  font-size: 50px; /* Adjust the font size as needed */
+}

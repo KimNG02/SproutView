@@ -1,0 +1,60 @@
+/* fonts.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap');
+
+/* .toolbar-button {
+    color: black;s
+    font-size: 2vw;
+    padding: 4vw;
+    padding-right: 2vw;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  } */
+  
+  .toolbar-button:hover {
+    background-color: rgb(103, 157, 95);
+  }
+
+
+  .toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo .sprout-view {
+    font-family: VT323;
+    color: #000000;
+    
+
+  
+
+  }
+
+.lolo {
+  text-decoration: none; /* Remove default link underline */
+
+}
+
+.logoo .about-us{
+    font-family: VT323;
+    color: #000000;
+    position: relative;
+    top: 50px;
+    font-size: 25px;
+
+}
+
+.toolbar-button {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Align items horizontally */
+  height: 0%;/* Make the button bar height 100% */
+  text-decoration: none; /* Remove default link underline */
+
+}
+
+
+  
