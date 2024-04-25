@@ -15,7 +15,18 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
   const [selectedLight, setSelectedLight] = useState('');
   const [soilType, setSoilType] = useState('');
   const [waterFrequency, setWaterFrequency] = useState('');
-  const [pH, setpH] = useState(7);
+  const [pH, setpH] = useState(7.0);
+  const [humidity, setHumidity] = useState('');
+  const [plantCare, setPlantCare] = useState([]);
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    if (checked) {
+      setPlantCare(prevState => [...prevState, name]);
+    } else {
+      setPlantCare(prevState => prevState.filter(item => item !== name));
+    }
+  };
 
   function increment() {
     setpH(function (prevCount) {
@@ -36,8 +47,8 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
     });
   }
 
-  const handleWaterClick = (waterfreq) => {
-    setWaterFrequency(waterfreq);
+  const handleWaterFrequencyChange = (event) => {
+    setWaterFrequency(event.target.value);
   };
 
   const handleSeasonClick = (season) => {
@@ -56,16 +67,14 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
-
+  /* Options, stored in OptionsObj */
+  /* plant, light, water, soil, temp, potSize, plantCare, humidity, pH */
   const confirmOptionsCB = () => {
     try {
-      const fullSeason = `${seasonPart} ${selectedSeason}`.toLowerCase();
-      console.log(selectedPlant);
-      console.log(fullSeason);
-      console.log(potSize);
-      console.log(selectedLight);
       const plant = selectedPlant.toLowerCase();
-      handleOptionsObject(plant, fullSeason, potSize, soilType, waterFrequency, selectedLight); // Call the function passed from the parent component
+      handleOptionsObject
+      (plant, selectedLight, waterFrequency, soilType, 
+      sliderValue, potSize, "plantCare", humidity, pH); // Call the function passed from the parent component
     } catch (error) {
       console.error(error);
     }
@@ -75,8 +84,9 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
     setSelectedLight(light);
   };
 
-  console.log("Selected Light " + selectedLight);
-
+  const handleHumidityChange = (event) => {
+    setHumidity(event.target.value);
+  };
 
   return (
 
@@ -94,17 +104,17 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
       </div>
 
       {/*Season Options*/}
-      <div className='options-section'>
+      <div className='season-options'>
       <h2>During which season do you plan to plant?</h2>
-      <button className='Spring' onClick={() => handleSeasonClick('Spring')}>Spring</button>
-      <button className='Summer' onClick={() => handleSeasonClick('Summer')}>Summer</button>
-      <button className='Autumn' onClick={() => handleSeasonClick('Autumn')}>Autumn</button>
-      <button className='Winter' onClick={() => handleSeasonClick('Winter')}>Winter</button>
+      <button id='Spring' onClick={() => handleSeasonClick('Spring')}>Spring</button>
+      <button id='Summer' onClick={() => handleSeasonClick('Summer')}>Summer</button>
+      <button id='Autumn' onClick={() => handleSeasonClick('Autumn')}>Autumn</button>
+      <button id='Winter' onClick={() => handleSeasonClick('Winter')}>Winter</button>
 
       {selectedSeason && (
         <div className="secondary-buttons">
-          <button onClick={() => handleSeasonPartClick('Early')}>Early</button>
-          <button className='Late' onClick={() => handleSeasonPartClick('Late')}>Late</button>
+          <button >Early</button>
+          <button className='Late'>Late</button>
         </div>
       )}
 
@@ -112,7 +122,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
         <button className='confirm-button' onClick={confirmOptionsCB}>Confirm Season</button>
       )} */}
     </div>
-
+      <div className='box2'>
     {/* Pot Size Options */}
     <div className="container">
       <div className="options-section">
@@ -121,12 +131,12 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           value={potSize} 
           onChange={e => setPotSize(e.target.value)}
           className="potSize-dropdown">
-          <option value="">Select pot size</option>
-          <option value="xsmall">X-Small</option>
+          <option value="any">Select pot size</option>
+          <option value="extra small">X-Small</option>
           <option value="small">Small</option>
           <option value="medium">Medium</option>
           <option value="large">Large</option>
-          <option value="xlarge">X-Large</option>
+          <option value="extra large">X-Large</option>
         </select>
       </div>
 
@@ -135,7 +145,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           <h2>What type of soil do you plan to use?</h2>
           <div className="radio-container">
             <input type="radio" id="welldr" name="soilType" value="Well-draining Soil" 
-            onChange={() => handleSoilTypeChange("well-draining")}/>
+            onChange={() => handleSoilTypeChange("well draining")}/>
             <label htmlFor="welldr">
               <div className="tooltip">Well-draining <span class="tooltiptext">
                 Such as Sandy soil, Sandy loam or Gravelly soil. Allows water to enter the soil at a moderate rate without pooling or puddling.</span>
@@ -160,13 +170,18 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           </div>
         </div>
       </div>
-
+      </div>
       <div class='box2'>
       {/* Watering Options */}
       <div className="options-section">
         <h2>How often do you plan to water you plant?</h2>
         <div>
-          Every <input placeholder='0'></input> day(s).
+          Every <input 
+          placeholder='0' 
+          id='water_freq'
+          value={waterFrequency}
+          onChange={handleWaterFrequencyChange}
+          ></input> day(s).
         </div>
       </div>
 
@@ -179,8 +194,9 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           <p className="place">°C</p>
         </div>
       </div>
-
       </div>
+
+      <div className='box2'>
       {/*Light-level*/}
       <div className="options-section">
         <div className='light-options'> 
@@ -190,62 +206,81 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
           <button className ='Shade' onClick={() => handleLightClick('shade')}> Shade </button>
         </div>
       </div>
-        
+
+      {/* Plant-care Options */}
+      <div className="options-section">
+      <h2>How are you willing to care for your plant?</h2>
+      <div>
+        <input 
+          type="checkbox" 
+          id="repotting" 
+          name="repotting" 
+          checked={plantCare.includes('repotting')} 
+          onChange={handleCheckboxChange} 
+        />
+        <label htmlFor="repotting">Repotting</label><br />
+
+        <input 
+          type="checkbox" 
+          id="trimming" 
+          name="trimming" 
+          checked={plantCare.includes('trimming')} 
+          onChange={handleCheckboxChange} 
+        />
+        <label htmlFor="trimming">Trimming</label><br />
+
+        <input 
+          type="checkbox" 
+          id="pruning" 
+          name="pruning" 
+          checked={plantCare.includes('pruning')} 
+          onChange={handleCheckboxChange} 
+        />
+        <label htmlFor="pruning">Pruning</label><br />
+
+        <input 
+          type="checkbox" 
+          id="fertilizer" 
+          name="fertilizer" 
+          checked={plantCare.includes('fertilizer')} 
+          onChange={handleCheckboxChange} 
+        />
+        <label htmlFor="fertilizer">Fertilizer</label><br />
+        {/* Add more checkboxes as needed */}
+      </div>
+    </div>
+      </div>
+
+      <div className='box2'>
       {/* pH Options */}
       <div className="options-section">
       <h2>What is the pH of your soil?</h2>
       <div id="ph">
         <button onClick={increment}>&#43;</button>
-        <legend><b>{pH}</b></legend>
+          <b>{pH}</b>
         <button onClick={decrement}>&#8722;</button>
       </div>
       </div>
 
-      {/* Plant-care Options */}
-      <div className="options-section">
-        <h2>How are you willing to care for your plant?</h2>
-        <div>
-          <input type="checkbox" id="repotting" name="repotting"  />
-          <label htmlFor="repotting">
-            <div className="tooltip">Repotting <span class="tooltiptext">
-                Moving a plant from one pot to another.</span>
-            </div>
-          </label><br />
-          <input type="checkbox" id="trimming" name="trimming"  />
-          <label htmlFor="trimming">
-            <div className="tooltip">Trimming <span class="tooltiptext">
-              Trimming typically involves cutting back plant material for reasons other than health concerns.</span>
-            </div>
-          </label><br />
-          <input type="checkbox" id="pruning" name="pruning"  />
-          <label htmlFor="pruning">
-            <div className="tooltip">Pruning <span class="tooltiptext">
-              Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant.</span>
-            </div></label><br />
-          <input type="checkbox" id="fertilizer" name="fertilizer"  />
-          <label htmlFor="fertilizer">
-            <div className="tooltip">Fertilizer <span class="tooltiptext">
-              Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</span>
-            </div>
-          </label><br />
-          {/* Include other maintenance options */}
-        </div>
-      </div>
-
-
       {/* Humidity Options */}
       <div className="options-section">
-      <h2>What is the room humidity?</h2>
-          <input placeholder='%' ></input>
+      <h2>What is the room humidity?</h2> 
+        <input 
+          placeholder='%' 
+          value={humidity} 
+          onChange={handleHumidityChange} 
+        />
       </div>
-
-      <div className="options-section">
+      </div>
+      
+      <div>
         <div className='confirm-zone'>
             <a href='#timeline'>
-            <button onClick={confirmOptionsCB}>Generate</button>
+            <button className='button' onClick={confirmOptionsCB}>Generate</button>
             </a>
         </div>
       </div>
+      
     </div>
     </div>
 

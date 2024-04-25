@@ -22,27 +22,34 @@ const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [timelinePage, setTimelinePage] = useState('');
   const [optionsObj, setOptionsObj] = useState({
-    plant: '',
-    season: '',
-    potsize: '',
-    soiltype: '',
-    water: '',
-    light: '',
+    name: '',
+    light_level: '',
+    preferred_watering_frequency: '',
+    soil: '',
+    preferred_average_temperature: '',
+    preferred_pot_size: '',
+    plant_care: '',
+    humidity: '',
+    soil_ph: '',
   });
 
   const handleSelectedPlant = (plant) => {
     setSelectedPlant(plant);
   };
 
-  const handleOptionsObject = (plant, season, potsize, soiltype, water, light) => {
+  const handleOptionsObject = 
+  (plant, light, water, soil, temp, potSize, plantCare, humidity, pH) => {
     setOptionsObj({
       ...optionsObj,
-      plant: plant,
-      season: season,
-      potsize: potsize,
-      soiltype: soiltype,
-      water: water,
-      light: light,
+      name: plant,
+      light_level: light,
+      preferred_watering_frequency: water,
+      soil: soil,
+      preferred_average_temperature: temp,
+      preferred_pot_size: potSize,
+      plant_care: plantCare,
+      humidity: humidity,
+      soil_ph: pH,
     });
   };
 

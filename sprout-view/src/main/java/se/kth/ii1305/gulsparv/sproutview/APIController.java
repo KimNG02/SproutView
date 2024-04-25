@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/timeline")
 public class APIController {
 
-
     @GetMapping
-    public ResponseEntity<String> getTimeline(@RequestParam String data)
-    {
+    public ResponseEntity<String> getTimeline(@RequestParam String data) {
         String message = "Internal server error";
         int code = 500;
 
@@ -23,7 +21,7 @@ public class APIController {
         try {
             JSONObject timeline = MainController.getInstance().calculateTimeline(options);
             code = 200;
-            message = timeline.toString();
+            message = timeline.getString(true);
         } catch (Exception e) {
             System.out.println(e.toString());
         }

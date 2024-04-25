@@ -53,7 +53,9 @@ function Healthy ({timelineData}) {
       </section>
       <section ref={suggestionsRef} className="timeline-section" id="growth-suggestions">
         <h1>Growth Suggestions</h1>
-        <div className="white-rectangle"></div>
+        <div className="white-rectangle">
+          {timelineData}
+        </div>
       </section>
     </div>
   );
