@@ -17,7 +17,7 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
   const plantSelectRef = useRef(null);
 
   const [text] = useTypewriter({
-    words: ['Sprout View', 'Your planting assistant'],
+    words: ['Sprout View', 'Your planting adventure'],
     loop: {},
     typeSpeed: 150,
     deleteSpeed: 60,

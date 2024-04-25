@@ -73,6 +73,7 @@ public class PlantCalculator {
         String[] optionsPlantCare = options.getValue("plant_care");
         String[] resultPlantCare = queryResult.getValue("plant_care");
         double plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
+                        plantCareSimilarity = 1;
 
         String optionsHumidity = options.getValue("humidity")[0];
         String resultHumidity = queryResult.getValue("humidity")[0].replace("%", "");
