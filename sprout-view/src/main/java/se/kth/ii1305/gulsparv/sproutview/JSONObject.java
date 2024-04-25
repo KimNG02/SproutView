@@ -1,8 +1,6 @@
 package se.kth.ii1305.gulsparv.sproutview;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class JSONObject {
 
@@ -31,6 +29,14 @@ public class JSONObject {
     }
     */
 
+   public JSONObject(String[] attributeNames, String[][] attributeValues){
+    this.attributeNames = attributeNames;
+    this.attributeValues = attributeValues;
+    if(attributeNames.length != attributeValues.length){
+        System.out.println("Malformed JSON: " + attributeNames.length + ", " + attributeValues.length);
+        throw new RuntimeException();
+    }
+   }
    
    public JSONObject(String JSONRaw){
         if (JSONRaw != null && JSONRaw != "") {
@@ -65,7 +71,6 @@ public class JSONObject {
                     }
                 }
 
-                System.out.println(n);
                 System.out.println(attributeNames[n] + ":" + attributeValues[n][0]);
             }
             //name:value,name:value,name:value,name:value
@@ -87,40 +92,25 @@ public class JSONObject {
         result.next();
         int arrayLength = result.getMetaData().getColumnCount();
         attributeNames = new String[arrayLength];
-        ArrayList<String>[] attributeValuesPreliminary = new ArrayList[arrayLength];
+        attributeValues = new String[arrayLength][1];
 
-        for(int n = 0; n < attributeValuesPreliminary.length; n++){
-            attributeValuesPreliminary[n] = new ArrayList<String>();
-        }
-
-        result.next();
         for(int n = 0; n < arrayLength; n++){
-            attributeNames[n] = result.getMetaData().getColumnLabel(n+1);
-            attributeValuesPreliminary[n].add(result.getString(n+1));
+            String name = result.getMetaData().getColumnLabel(n+1);
+            String value = result.getString(n+1).trim();
+
+            attributeNames[n] = name;
+            attributeValues[n][0] = value;
         }
+
         while(result.next()){
-            for(int n = 0; n < arrayLength; n++){
-                String value = result.getString(n);
-                if(!attributeValuesPreliminary[n].contains(value)){
-                    attributeValuesPreliminary[n].add(value);
-                }
-            }
-        }
 
-        attributeValues = new String[arrayLength][];
-
-        for(int n = 0; n < arrayLength; n++){
-            attributeValues[n] = (String[]) attributeValuesPreliminary[n].toArray();
         }
     }
 
     public String[] getValue(String attributeName) {
         String[] value = null;
 
-        System.out.println("Name to get: " + attributeName);
-
         for (int n = 0; n < attributeNames.length; n++) {
-            System.out.println("Name: " + attributeNames[n]);
             if (attributeNames[n].equals(attributeName)) {
                 value = attributeValues[n];
                 break;
@@ -130,7 +120,13 @@ public class JSONObject {
         return value;
     }
 
-    public String toString(boolean includeBrackets){
+    public void printAll() {
+        for (int n = 0; n < attributeNames.length; n++) {
+            System.out.println(attributeNames[n] + ": " + attributeValues[n]);
+        }
+    }
+
+    public String getString(boolean includeBrackets){
         String out = "";
 
         if(includeBrackets){
@@ -138,15 +134,15 @@ public class JSONObject {
         }
 
         for(int n = 0; n < attributeNames.length; n++){
-            out += attributeNames[n];
             if(attributeValues[n].length == 1){
-                out += ":" + attributeValues[n][0] + ",";
+                out += "\"" + attributeNames[n] + "\":\"" + attributeValues[n][0] + "\",";
             } else {
-                out += ":[";
+                out += attributeNames[n] + ":[";
                 for(int i = 0; i < attributeValues[n].length; i++){
-                    out += attributeValues[n][i] + ",";
+                    out += "\"" + attributeValues[n][i] + "\"" + ",";
                 }
-                out = out + out.substring(0, out.length()-1) + "],";
+                out = out.substring(0, out.length()-1);
+                out += "],";
             }
         }
 
@@ -155,8 +151,6 @@ public class JSONObject {
         if(includeBrackets){
             out += "}";
         }
-
-        System.out.println("Json to string returning: " + out);
 
         return out;
     }
