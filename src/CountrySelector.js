@@ -58,8 +58,8 @@ function CountrySelector() {
         <p>Error: {error}</p>
       ) : (
         <div>
-          <p>Koppen Climate Zone: {climateZone}</p>
-          <p>Zone Description: {zoneDescription}</p>
+          <p>You are currently in the Koppen Climate Zone: {climateZone}</p>
+          <p>Your Zone Description: {zoneDescription}</p>
         </div>
       )}
     </div>

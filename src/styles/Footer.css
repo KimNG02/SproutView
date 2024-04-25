@@ -1,0 +1,44 @@
+/* Footer.css */
+
+.footer {
+  background-color: inherit;
+  color: #333;
+  padding: 10px 10px; /* Adjusted padding */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-column {
+  margin-right: 20px;
+}
+
+.footer-column h3 {
+  margin-bottom: 5px; /* Adjusted margin */
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-bottom {
+  margin-top: 15px; /* Adjusted margin */
+  text-align: center;
+}
+
+.back-to-top-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px; /* Adjusted padding */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+  background-color: #555;
+}

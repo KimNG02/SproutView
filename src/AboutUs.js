@@ -46,7 +46,8 @@ const teamMembers = [
   // Add more team members as needed
 ];
 
-const AboutUs = () => {
+const AboutUs = ({setTimelinePage}) => {
+  setTimelinePage('');
   return (
     <div className="about-us-container">
       <h1>About Us</h1>

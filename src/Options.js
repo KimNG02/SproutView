@@ -3,11 +3,12 @@ import './styles/options.css';
 import ApiServiceHandler from './apiServiceHandler.js';
 import CountrySelector from './CountrySelector.js';
 import envPageImage from "./images/envimg.png";
+import Toolbar from './Toolbar.js';
 
 
 const Options = ({selectedPlant, handleOptionsObject}) => {
 
-  const [sliderValue, setSliderValue] = useState(50);
+  const [sliderValue, setSliderValue] = useState(22.5);
   const [selectedSeason, setSelectedSeason] = useState('');
   const [seasonPart, setSeasonPart] = useState('');
   const [potSize, setPotSize] = useState('');
@@ -27,10 +28,10 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
   function decrement() {
     setpH(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 0.5); 
+      if (prevCount === 0) {
+        return (prevCount = 14); 
       } else {
-        return (prevCount = 0);
+        return (prevCount -= 0.5);
       }
     });
   }
@@ -57,12 +58,17 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
   };
 
   const confirmOptionsCB = () => {
-    const fullSeason = `${seasonPart} ${selectedSeason}`.toLowerCase();
-    console.log(selectedPlant);
-    console.log(fullSeason);
-    console.log(potSize);
-    console.log(selectedLight);
-    handleOptionsObject(selectedPlant.toLowerCase(), fullSeason, potSize, soilType, waterFrequency, selectedLight); // Call the function passed from the parent component
+    try {
+      const fullSeason = `${seasonPart} ${selectedSeason}`.toLowerCase();
+      console.log(selectedPlant);
+      console.log(fullSeason);
+      console.log(potSize);
+      console.log(selectedLight);
+      const plant = selectedPlant.toLowerCase();
+      handleOptionsObject(plant, fullSeason, potSize, soilType, waterFrequency, selectedLight); // Call the function passed from the parent component
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleLightClick = (light) => {
@@ -73,21 +79,23 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
 
 
   return (
+
     <div className="options-container">
       <div className="font-container">
         <h1 className="topic">Select Environment Options</h1>
       </div>
       <div className="square">
+
       {/*<div className="image-section">
         <img src={envPageImage} alt="plant pot" className="envimage" />*/}
+
       <div className='options-section'>
         <CountrySelector />
       </div>
-    
+
       {/*Season Options*/}
       <div className='options-section'>
-        <div className='right-align'>
-      <h2>Which is your planting season?</h2>
+      <h2>During which season do you plan to plant?</h2>
       <button className='Spring' onClick={() => handleSeasonClick('Spring')}>Spring</button>
       <button className='Summer' onClick={() => handleSeasonClick('Summer')}>Summer</button>
       <button className='Autumn' onClick={() => handleSeasonClick('Autumn')}>Autumn</button>
@@ -96,25 +104,23 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
       {selectedSeason && (
         <div className="secondary-buttons">
           <button onClick={() => handleSeasonPartClick('Early')}>Early</button>
-          <button onClick={() => handleSeasonPartClick('Late')}>Late</button>
+          <button className='Late' onClick={() => handleSeasonPartClick('Late')}>Late</button>
         </div>
       )}
 
-      {(selectedSeason && seasonPart) && (
+      {/* {(selectedSeason && seasonPart) && (
         <button className='confirm-button' onClick={confirmOptionsCB}>Confirm Season</button>
-      )}
-    </div>
+      )} */}
     </div>
 
     {/* Pot Size Options */}
     <div className="container">
       <div className="options-section">
-        <h2>How large is the initial pot size?</h2>
+        <h2>How large is the pot you wish to plant in?</h2>
         <select 
           value={potSize} 
           onChange={e => setPotSize(e.target.value)}
-          className="potSize-dropdown"
-        >
+          className="potSize-dropdown">
           <option value="">Select pot size</option>
           <option value="xsmall">X-Small</option>
           <option value="small">Small</option>
@@ -124,21 +130,9 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
         </select>
       </div>
 
-
-      {/*Light-level*/}
-      <div className="options-section">
-        <div className='light-options'> 
-          <h2> What is the light-level for your plant?</h2>
-          <button className ="Full-sun" onClick= {() => handleLightClick('full sun')}> Full sun </button>
-          <button className ='Partial sun' onClick={() => handleLightClick('partial sun')}> Partial sun </button>
-          <button className ='Shade' onClick={() => handleLightClick('shade')}> Shade </button>
-          <button className ='Artificial light' onClick={() => handleLightClick('artificial light')}> Artificial light </button>
-        </div>
-      </div>
-        
         {/* Soil Type Options */}
         <div className="options-section">
-          <h2>What type of soil are you planning to use for your plants?</h2>
+          <h2>What type of soil do you plan to use?</h2>
           <div className="radio-container">
             <input type="radio" id="welldr" name="soilType" value="Well-draining Soil" 
             onChange={() => handleSoilTypeChange("well-draining")}/>
@@ -146,7 +140,7 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
               <div className="tooltip">Well-draining <span class="tooltiptext">
                 Such as Sandy soil, Sandy loam or Gravelly soil. Allows water to enter the soil at a moderate rate without pooling or puddling.</span>
               </div>
-            </label><br />
+            </label><br/>
             <input type="radio" id="loamy" name="soilType" value="Loamy soil" 
             onChange={() => handleSoilTypeChange("loamy soil")}/>
             <label htmlFor="loamy">
@@ -167,48 +161,49 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
         </div>
       </div>
 
+      <div class='box2'>
       {/* Watering Options */}
       <div className="options-section">
-        <h2>How often do you water your plant?</h2>
-        <select
-        value={waterFrequency}
-        onChange={(waterfreq) => setWaterFrequency(waterfreq.target.value)}
-        className='water'
-        >
-          <option value = 'twice a day'> twice a day </option>
-          <option value = 'everyday' > Everyday </option>
-          <option value = '1-3 days a week' >1-3 days a week </option>
-          <option value = 'once a week'> Once a week </option>
-          <option value = 'once a month'> once a month </option>
-          <option value = '2 times a month'> 2 times a month </option>
-          <option value = '1-3 times a month'> 1-3 times a month </option>
-          <option value = 'few times a year'> Few times a year </option>
-          <option value = 'never'> Never </option>
-        </select>
-        <br/>
+        <h2>How often do you plan to water you plant?</h2>
+        <div>
+          Every <input placeholder='0'></input> day(s).
+        </div>
       </div>
 
       {/* Temperature Options */}
       <div className="options-section">
-        <h2>What is the average temperature?</h2>
+        <h2>What is the average temperature where your plant will be?</h2>
         <div className="slidecontainer">
-          <input type="range" min="0" max="100" value={sliderValue} className="slider" id="myRange" onChange={handleSliderChange} />
-          <div className="slider-value">{sliderValue}</div>
+          <input type="range" min="5" max="40" value={sliderValue} className="slider" id="myRange" onChange={handleSliderChange} />
+          <div className="slider-value">{sliderValue} </div>
           <p className="place">°C</p>
         </div>
       </div>
 
+      </div>
+      {/*Light-level*/}
+      <div className="options-section">
+        <div className='light-options'> 
+          <h2> How much light will the plant recieve over the course of the day?</h2>
+          <button className ="Full-sun" onClick= {() => handleLightClick('full sun')}> Full sun </button>
+          <button className ='Partial sun' onClick={() => handleLightClick('partial sun')}> Partial sun </button>
+          <button className ='Shade' onClick={() => handleLightClick('shade')}> Shade </button>
+        </div>
+      </div>
+        
       {/* pH Options */}
       <div className="options-section">
       <h2>What is the pH of your soil?</h2>
-      <legend><b>{pH}</b></legend>
-        <button onClick={decrement}>&#8722;</button>
+      <div id="ph">
         <button onClick={increment}>&#43;</button>
+        <legend><b>{pH}</b></legend>
+        <button onClick={decrement}>&#8722;</button>
+      </div>
       </div>
 
       {/* Plant-care Options */}
       <div className="options-section">
-        <h2>How will you maintain your plant?</h2>
+        <h2>How are you willing to care for your plant?</h2>
         <div>
           <input type="checkbox" id="repotting" name="repotting"  />
           <label htmlFor="repotting">
@@ -229,13 +224,14 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
             </div></label><br />
           <input type="checkbox" id="fertilizer" name="fertilizer"  />
           <label htmlFor="fertilizer">
-            <div className="tooltip">Fertiilizer <span class="tooltiptext">
+            <div className="tooltip">Fertilizer <span class="tooltiptext">
               Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</span>
             </div>
           </label><br />
           {/* Include other maintenance options */}
         </div>
       </div>
+
 
       {/* Humidity Options */}
       <div className="options-section">
@@ -246,12 +242,13 @@ const Options = ({selectedPlant, handleOptionsObject}) => {
       <div className="options-section">
         <div className='confirm-zone'>
             <a href='#timeline'>
-            <button onClick={confirmOptionsCB}>Done</button>
+            <button onClick={confirmOptionsCB}>Generate</button>
             </a>
         </div>
       </div>
     </div>
     </div>
+
   );
 };
 

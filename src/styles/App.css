@@ -1,13 +1,13 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css?family=ABeeZee&family=ABeeZee&display=swap");
 
 #app-main {
-  background-color: #fefefe;
+  background-color: #f8fbfc;
 }
 
 body {
-  font-family: "VT323";
-  }
+  font-family: ABeeZee;
+}
 
 .logo {
   text-align: left;
@@ -16,10 +16,6 @@ body {
   padding: 1vw;
   padding-left: 1vw;
   border: 0;
-}
-
-.toolContainer {
-  background-color: rgb(255, 255, 255);
 }
 
 .icon {
@@ -63,7 +59,7 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #f8fbfc;
   padding: 20px;
   border-radius: 5px;
 }
@@ -82,7 +78,6 @@ body {
   cursor: pointer;
 }
 
-
 .intro-section {
   text-align: center;
   padding: 20px;
@@ -90,7 +85,7 @@ body {
 }
 
 .image-section {
-  padding-top: 4vh;
+  padding-bottom: 4vh;
   height: 96vh;
   min-height: fit-content;
   position: relative;
@@ -99,13 +94,11 @@ body {
 
 .frontimage {
   width: 100%;
-  height: 400px;
+  height: 50vh;
   max-width: 1;
   object-fit: cover;
   padding-top: 0;
 }
-
-
 
 @keyframes slideInFromTop {
   0% {
@@ -123,22 +116,46 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  top: 50%;
+  top: 37%;
   left: 50%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: xx-large;
-  height: 60%;
+  height: 40%;
   width: 100%;
   animation-fill-mode: both;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-timing-function: ease-out;
   animation-name: slideInFromTop;
 }
 
-.react-typewriter-text, .react-typewriter-pointer {
+.react-typewriter-text,
+.react-typewriter-pointer {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.cta-btn {
+  background-color: #64d345ac; /* Green */
+  color: white;
+  padding: 15px 30px; /* Increased padding for a bigger button */
+  border: none;
+  border-radius: 25px; /* Increased border-radius for a rounded button */
+  cursor: pointer;
+  font-size: 18px; /* Increased font size */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 6rem;
+  display: inline-block; /* Added to ensure the button width adjusts according to content */
+  position: relative; /* Added for pseudo-element */
+  overflow: hidden; /* Added for pseudo-element */
+}
+
+.cta-btn:hover {
+  background-color: #45a049; /* Darker green */
+  transform: translateY(-2px); /* Move button slightly upwards */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
 }
 
 #welcome {
@@ -151,26 +168,9 @@ body {
   margin-left: 1vw;
 }
 
-.cta-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.explore-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.explore-button:hover {
-  background-color: #167222;
-}
-
 .choice {
   color: black;
-  font-size:large;
+  font-size: large;
 }
 
 .flex {
@@ -182,13 +182,10 @@ body {
 
 .plant-section {
   margin-top: 4vh;
-  height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
 }
-
-
 
 .icon {
   margin-top: 1 px; /* Adjust the margin-top value as needed */
@@ -196,7 +193,7 @@ body {
 
 .choice {
   margin-left: 10px; /* Add margin between the icon and text */
- font-size: 30px;
+  font-size: 30px;
 }
 
 .image-text .intro-section h2 {

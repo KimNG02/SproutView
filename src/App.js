@@ -1,31 +1,52 @@
-import React, { useState, useEffect } from "react";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
+import React, { useState, useEffect, useRef } from "react";
+import { useTypewriter, Cursor } from "react-simple-typewriter-remake2";
 import "./styles/App.css";
 import Alphabet from "./Alphabet";
 import cactusImage from "./images/Cactus 209133001.png";
 import jalapenoImage from "./images/Jalapeno Chili 3 Stk.png";
 import strawberryImage from "./images/Strawberry transparent.png";
-import frontpageImage from "./images/frontpage.png";
+import frontpageImage from "./images/front.jpg";
 import icon from "./images/icon.png";
 import { type } from "@testing-library/user-event/dist/type";
-import wait from "./wait";
-import TypeWriterEffect from "react-typewriter-effect";
-
 
 
 
 const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLetter, setSelectedLetter] = useState("");
-  const myRef = document.querySelector('.typer')
-  const typer = <TypeWriterEffect
-  textStyle={{ fontFamily: 'VT323' }}
-  startDelay={2}
-  cursorColor="black"
-  text="Sprout View"
-  typeSpeed={100}
-  scrollArea={myRef}
-/>;
+  const plantSelectRef = useRef(null);
+
+  const [text] = useTypewriter({
+    words: ['Sprout View', 'Your planting assistant'],
+    loop: {},
+    typeSpeed: 150,
+    deleteSpeed: 60,
+    delaySpeed: 1500,
+    delayTime: 2000
+  })
+
+
+  // useEffect(() => {
+  //   const imageText = document.querySelector(".image-text");
+
+  //   Add event listener for animation end
+  //   const handleAnimationEnd = () => {
+  //     text.
+  //   };
+
+  //   Attach event listener
+  //   imageText.addEventListener("animationend", handleAnimationEnd);
+
+  //   // Remove event listener on component unmount
+  //   return () => {
+  //     imageText.removeEventListener("animationend", handleAnimationEnd);
+  //   };
+  // }, []);
+
+  
+  const scrollToPlantSelection = () => {
+    plantSelectRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   
   const handleImageClick = (plantType) => {
     setModalOpen(true);
@@ -54,6 +75,8 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
     }
   };
 
+
+    
   return (
     <div>
       <main id="app-main">
@@ -63,13 +86,20 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
             <section class="intro-section">
               <h2>
                 Welcome to 
-                <span id="typer">{typer}</span>
+                <br></br>
+                  <span>
+                    {text}
+                    <Cursor/>
+                  </span>
               </h2>
                 <p>Explore and select plants by clicking on letters or images below.</p>
             </section>
           </div>
+          <div>
+            <button className="cta-btn" onClick={scrollToPlantSelection}>Explore Now!</button>
+          </div>
       </section>
-      <section className="plant-section">
+      <section className="plant-section" ref={plantSelectRef}>
           <div className="flex">
             <img className="icon" alt="icon" src={icon}></img>
             <h1 className="choice">Choose your plant</h1>

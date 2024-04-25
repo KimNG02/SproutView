@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css?family=ABeeZee&family=ABeeZee&display=swap");
 
 body {
   background-color: #e8f9df;
 }
 
+.options-section h2{
+  padding-bottom: 10px;
+}
+
 .options-container {
-  /*max-width: 800px;*/
   margin: 0 auto;
-  padding: 20px;
-  /*background-color: #f5f5f5;*/
-  /*border-radius: 10px;
-  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
 .options-section button {
-  background-color: #BFDB9D;
-  font-family: 'Lucida Consode', monospace;
+  background-color: #bfdb9d;
+  font-family: ABeeZee;
   font-size: 16px;
   padding: 10px 24px;
   text-align: center;
@@ -29,19 +29,27 @@ body {
   background-color: rgb(138, 165, 118);
 }
 
-.Spring{
+.options-section button:focus {
+  background-color: rgb(138, 165, 118);
+}
+
+.country {
+  font-family: ABeeZee;
+}
+
+.Summer {
   margin-inline: 10px;
 }
 
-.Summer{
+.Autumn {
   margin-inline: 10px;
 }
 
-.Autumn{
+.Winter {
   margin-inline: 10px;
 }
 
-.Winter{
+.Late {
   margin-inline: 10px;
 }
 
@@ -64,11 +72,11 @@ body {
 .font-container {
   text-align: center;
   font-family: VT323;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .topic {
-  padding-top: 70px;
+  padding-top: 40px;
   margin-bottom: 70px;
   color: rgb(40, 40, 40);
 }
@@ -77,19 +85,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
 }
 
 .options-section {
   margin-bottom: 20px;
-  /*background-color: #ffffff;*/
   padding: 20px;
   border-radius: 10px;
-  /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);*/
+
+  flex: 1; 
+  margin-right: 20px; 
 }
 
 .options-section h2 {
   margin-bottom: 10px;
-  font-family: 'Lucida Consode', monospace;
+  font-family: ABeeZee;
   color: #0c0c0c;
 }
 
@@ -108,8 +118,21 @@ body {
 
 .options-section .slider {
   width: 100%;
+
+  appearance: none;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #ccc;
 }
 
+.options-section .slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(127, 156, 104);
+  cursor: pointer;
+}
 .options-section .slider-value {
   margin-top: 5px;
   color: #799655;
@@ -127,14 +150,14 @@ body {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
-  background-color: rgb(120, 164, 97);
+  background-color: rgb(130, 171, 109);
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  font-family: 'Lucida Consode', monospace;
+  font-family: "Lucida Consode", monospace;
 
   bottom: -10%;
   left: 100%;
@@ -184,17 +207,20 @@ body {
 }
 
 .secondary-buttons {
-  margin-top: 10px; /* Space above the secondary button section */
+  width: fit-content; /* Ensures the button width is as wide as its content */
+  padding-top: 10px;
 }
 
 .confirm-button {
   display: block; /* Makes the button a block element */
-  margin: 10px auto; /* Centers the button horizontally and adds space above */
   width: fit-content; /* Ensures the button width is as wide as its content */
+  margin: 10px; /* Centers the button horizontally and adds space above */
+  margin-left: 160px;
+
 }
 
 .potSize-dropdown {
-  width: 100%; /* Makes the dropdown full width of its container */
+  width: 30%; /* Makes the dropdown full width of its container */
   padding: 8px 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -204,29 +230,30 @@ body {
 
 .square {
   padding-top: 70px;
-  width: 100%;
   max-height: max-content;
   background-color: #fdfdfd;
+  justify-content: space-between;
 }
 
-.image-section {
-  
+.options-container .image-section{
+  display: inline;
 }
 
 .envimage {
-  width: 100%;
-  max-width: 400px; 
-  float: right; 
+  max-width:30%;
+  max-height:30%;
+  float: right;
 }
 
-.left-align {
-  margin-right: auto;
-  width: 100%;
-  padding: 10px;
+.box2{
+  display: flex;
 }
 
-.right-align {
-  margin-left: auto;
-  width: 100%;
-  padding: 10px;
+.box3{
+  display: flex;
+}
+
+#ph {
+  display: flex;
+  justify-content: row;
 }

@@ -13,9 +13,8 @@ async function getTimeline(optionsObj) {
   return await apiServiceHandler.getTimeline(stuff);
 }
 
-function Timeline({ optionsObj }) {
+function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   const [timelineData, setTimelineData] = useState(null);
-  const [timelinePage, setTimelinePage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {

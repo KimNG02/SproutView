@@ -1,92 +1,89 @@
 /* Risky Styles */
+
 .risky-container {
-    display: flex;
-    flex-direction: column;
-    background: #FCF8CD;
-  }
+  display: flex;
+  flex-direction: column;
+  background: #fcf8cd;
+}
 
 .timeline-section {
-    padding-top: 4vh;
-    height: 96vh;
-    margin: 0 10rem;
-    box-sizing: border-box;
-    min-height: fit-content;
-  }
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
 
 .risky-circle-container {
-    position: relative;
-    width: 200px; /* Adjust the size of the circle */
-    height: 200px; /* Adjust the size of the circle */
-    background-color: #F6EA83;
-    border-radius: 50%; /* Ensures the container is a circle */
-    margin: 0 auto; /* Centers the container horizontally */
-    display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    /* Add any other styling properties as needed */
+  position: relative;
+  width: 200px; /* Adjust the size of the circle */
+  height: 200px; /* Adjust the size of the circle */
+  background-color: #f6ea83;
+  border-radius: 50%; /* Ensures the container is a circle */
+  margin: 0 auto; /* Centers the container horizontally */
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  /* Add any other styling properties as needed */
 }
-
-
 
 .risky-circle-container img {
-    max-width: 60%; /* Ensures the image does not exceed the container */
-    max-height:60%; /* Ensures the image does not exceed the container */
+  max-width: 60%; /* Ensures the image does not exceed the container */
+  max-height: 60%; /* Ensures the image does not exceed the container */
 }
 
-
 .slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    background: black;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
-  
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-  }
-  
-  .labels {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .labels span {
-    font-size: 12px;
-    transition: font-weight 0.2s ease;
-  }
-  
-  .labels span.active {
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .white-rectangle {
-    width: 100%;
-    height: 50vh; /* Adjust the height as needed */
-    background-color: white;
-    /* Add any other styling properties as needed */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: black;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.labels span {
+  font-size: 12px;
+  transition: font-weight 0.2s ease;
+}
+
+.labels span.active {
+  font-weight: bold;
+}
+
+.white-rectangle {
+  width: 100%;
+  height: 50vh; /* Adjust the height as needed */
+  background-color: white;
+  /* Add any other styling properties as needed */
 }
