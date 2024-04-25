@@ -16,8 +16,8 @@
 
 .dead-circle-container {
   position: relative;
-  width: 200px; /* Adjust the size of the circle */
-  height: 200px; /* Adjust the size of the circle */
+  width: 400px; /* Adjust the size of the circle */
+  height: 400px; /* Adjust the size of the circle */
   background-color: #f49797;
   border-radius: 50%; /* Ensures the container is a circle */
   margin: 0 auto; /* Centers the container horizontally */
@@ -25,6 +25,8 @@
   justify-content: center; /* Centers the content horizontally */
   align-items: center; /* Centers the content vertically */
   /* Add any other styling properties as needed */
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .dead-circle-container::after {
@@ -122,4 +124,5 @@
   height: 50vh; /* Adjust the height as needed */
   background-color: white;
   /* Add any other styling properties as needed */
+  border-radius: 18px;
 }

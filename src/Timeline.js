@@ -8,7 +8,7 @@ import Dead from "./Dead.js";
 
 
 async function getTimeline(optionsObj) {
-  const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "");
+  const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "").replace("[", "%5B").replace("]", "%5D");
   console.log(stuff);
   return await apiServiceHandler.getTimeline(stuff);
 }
@@ -42,13 +42,25 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   } else if (timelinePage === 'Dead') {
     timelineComponent = <Dead timelineData={timelineData}/>;
   }
+  /* similarity Values
+  Healthy: 1-0.9
+  Risky: 0.9-0.5
+  Dead: 0.5-0
+  */
 
   return (
     <div id="timeline-page">
+      {timelineData && (
+      <div>
+        Ligth Comment:
+      {timelineData.lightComment}
+      {timelineData.matureTime}
       <button onClick={() => handleTimelinePage('Healthy')}>Healthy</button>
       <button onClick={() => handleTimelinePage('Risky')}>Risky</button>
       <button onClick={() => handleTimelinePage('Dead')}>Dead</button>
       {timelineComponent}
+      </div>
+      )}
     </div> 
   );
 }

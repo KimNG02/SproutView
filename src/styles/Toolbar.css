@@ -4,7 +4,9 @@
 
 .toolContainer {
   background: inherit;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 }
+
 .toolbar {
   display: flex;
   flex-direction: row;
@@ -31,6 +33,6 @@
   color: #000000;
   position: relative;
   top: 0px;
-  font-size: 25px;
+  font-size: 22px;
   margin-right: 2rem;
 }

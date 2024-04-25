@@ -9,8 +9,8 @@
 
 .letter {
   font-family: ABeeZee;
-  background-color: rgb(138, 165, 118); /* Green background */
-  color: rgb(255, 255, 255); /* White text */
+  background-color: rgb(154, 200, 124); /* Green background */
+  color: #f7f7f7; /* White text */
   font-size: 24px; /* Larger font size */
   font-weight: bold; /* Bold font weight */
   width: 40px; /* Width of the buttons */
@@ -27,11 +27,12 @@
 
 .letter:hover,
 .letter:focus {
-  background-color: rgb(138, 165, 118); /* Darker green on hover/focus */
+  background-color: rgb(106, 142, 76); /* Darker green on hover/focus */
   transform: scale(1.1); /* Slightly scale up the button */
 }
 
 .letter-section {
+  color: rgb(19, 19, 19);
   padding: 20px; /* Padding around each letter section */
   border-bottom: 1px solid #ccc; /* Border to separate sections */
   font-size: 32px; /* Larger font size for section headings */

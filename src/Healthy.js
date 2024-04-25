@@ -54,7 +54,6 @@ function Healthy ({timelineData}) {
       <section ref={suggestionsRef} className="timeline-section" id="growth-suggestions">
         <h1>Growth Suggestions</h1>
         <div className="white-rectangle">
-          {timelineData}
         </div>
       </section>
     </div>

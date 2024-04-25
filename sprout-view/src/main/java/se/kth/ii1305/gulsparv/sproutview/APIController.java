@@ -16,7 +16,7 @@ public class APIController {
         String message = "Internal server error";
         int code = 500;
 
-        JSONObject options = new JSONObject(data);
+        JSONObject options = new JSONObject(data.replace("%5B", "[").replace("%5D", "]"));
 
         try {
             JSONObject timeline = MainController.getInstance().calculateTimeline(options);

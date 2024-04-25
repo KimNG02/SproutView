@@ -6,8 +6,7 @@ body {
 }
 
 .options-section {
-  width: 20vw;
-  max-width: max-content;
+  width: 40vw;
 }
 
 .options-section h2 {
@@ -18,11 +17,15 @@ body {
   margin: 0 auto;
 }
 
-.season-options {
+/* .season-options {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+} */
+
+.season-buttons {
+  flex-direction: row;
 }
 
 .options-section button,
@@ -38,11 +41,13 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.options-section button:hover {
+.options-section button:hover,
+.season-options button:hover {
   background-color: rgb(138, 165, 118);
 }
 
-.options-section button:focus {
+.options-section button:checked,
+.season-options button:checked {
   background-color: rgb(138, 165, 118);
 }
 
@@ -50,15 +55,7 @@ body {
   font-family: ABeeZee;
 }
 
-.Summer {
-  margin-inline: 10px;
-}
-
-.Autumn {
-  margin-inline: 10px;
-}
-
-.Winter {
+.season {
   margin-inline: 10px;
 }
 
@@ -124,7 +121,6 @@ body {
 
 .options-section .slider {
   width: 60%;
-
   appearance: none;
   height: 5px;
   border-radius: 5px;
@@ -234,11 +230,14 @@ body {
 }
 
 .square {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  padding-top: 10vw;
+  padding-bottom: 10px;
   max-height: max-content;
   background-color: #fdfdfd;
-  justify-content: space-between;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
 }
 
 .options-container .image-section {
@@ -252,8 +251,10 @@ body {
 }
 
 .box2 {
-  justify-content: space-around;
+  justify-content: left;
   display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
 #ph {

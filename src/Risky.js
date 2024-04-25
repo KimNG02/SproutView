@@ -25,7 +25,7 @@ function Risky ({timelineData}) {
     <div className="risky-container">
       <section className="timeline-section" id="risky-timeline">
         <h1>Risky Growth</h1>
-        <h4>Your Cactus plant will grow healthily in the following stages</h4>
+        <h4>Your Cactus plant will grow relaitvely well, but you can do even better!</h4>
         <div className="risky-circle-container">
             <button className="arrow left-arrow" onClick={decrementValue}>&lt;</button>
             <img src="https://s3-alpha-sig.figma.com/img/f5fa/dea8/ae7a8dcc084c12df9e01036341062518?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VNxZyqfpWqjUdqFj3zNKZsDDFkwapTlVDHoghvHqxYDW-EtPL6xk64xrdGje0BGAfQyJGrHOlJHso6eNZWDFaxZBg3HdkgjfGCvX5XlJIouSKJv4x7Za~U9yYLP~9aIf2OMYapfAP~zzDlvqHVeEP39PEYE8k9CmfesFqUaqk~dMsyw-g2UxtBiUTPdXmqlZABAb~OtoF4Icf48QitOIvU0uZKGlLWkPqYuZcsX3qY6wOq3hP~d9ly9ILkGyqkk4Mk-oRpyVc0dvJr9ylvThsS~BoK-yNE8bbzByN3NttW052PzoRxCx0TmKBwqkweJEqmvNGrtBz07z2h~u6VCODQ__" alt="Healthy Plant" />

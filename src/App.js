@@ -92,7 +92,7 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
                     <Cursor/>
                   </span>
               </h2>
-                <p>Explore and select plants by clicking on letters or images below.</p>
+                <p>Explore and select indoor plants by clicking on letters or images below.</p>
             </section>
           </div>
           <div>
