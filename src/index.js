@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import './styles/index.css';
-import App from './App';
-import Options from './Options';
-import Timeline from './Timeline';
-import AboutUs from './AboutUs';
-import Toolbar from './Toolbar';
-import Healthy from './Healthy';
-import Risky from './Risky';
-import Dead from './Dead';
-import Footer from './Footer';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import "./styles/index.css";
+import App from "./App";
+import Options from "./Options";
+import Timeline from "./Timeline";
+import AboutUs from "./AboutUs";
+import Toolbar from "./Toolbar";
+import Healthy from "./Healthy";
+import Risky from "./Risky";
+import Dead from "./Dead";
+import Footer from "./Footer";
 
 // Define handleRouteChange outside the Root component
 const handleRouteChange = () => {
@@ -20,25 +20,34 @@ const handleRouteChange = () => {
 
 const Root = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
-  const [timelinePage, setTimelinePage] = useState('');
+  const [timelinePage, setTimelinePage] = useState("");
   const [optionsObj, setOptionsObj] = useState({
-    name: '',
-    light_level: '',
-    preferred_watering_frequency: '',
-    soil: '',
-    preferred_average_temperature: '',
-    preferred_pot_size: '',
-    plant_care: '',
-    humidity: '',
-    soil_ph: '',
+    name: "",
+    light_level: "",
+    preferred_watering_frequency: "",
+    soil: "",
+    preferred_average_temperature: "",
+    preferred_pot_size: "",
+    plant_care: "",
+    humidity: "",
+    soil_ph: "",
   });
 
   const handleSelectedPlant = (plant) => {
     setSelectedPlant(plant);
   };
 
-  const handleOptionsObject = 
-  (plant, light, water, soil, temp, potSize, plantCare, humidity, pH) => {
+  const handleOptionsObject = (
+    plant,
+    light,
+    water,
+    soil,
+    temp,
+    potSize,
+    plantCare,
+    humidity,
+    pH,
+  ) => {
     setOptionsObj({
       ...optionsObj,
       name: plant,
@@ -55,18 +64,18 @@ const Root = () => {
 
   useEffect(() => {
     // Listen for hashchange event and call handleRouteChange
-    window.addEventListener('hashchange', handleRouteChange);
+    window.addEventListener("hashchange", handleRouteChange);
 
     // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener('hashchange', handleRouteChange);
+      window.removeEventListener("hashchange", handleRouteChange);
     };
   }, []); // Empty dependency array to run effect only once
 
   return (
     <React.StrictMode>
       <Toolbar timelinePage={timelinePage} />
-      <RouterProvider 
+      <RouterProvider
         onUpdate={handleRouteChange}
         router={makeRouter({
           selectedPlant,
@@ -82,44 +91,60 @@ const Root = () => {
   );
 };
 
-function makeRouter({ 
-  selectedPlant, 
-  handleSelectedPlant, 
-  handleOptionsObject, 
-  optionsObj, 
-  timelinePage, 
-  setTimelinePage, 
-  }) {
+function makeRouter({
+  selectedPlant,
+  handleSelectedPlant,
+  handleOptionsObject,
+  optionsObj,
+  timelinePage,
+  setTimelinePage,
+}) {
   return createHashRouter([
     {
-      path: '/',
-      element: <App selectedPlant={selectedPlant} onPlantChange={handleSelectedPlant} />,
+      path: "/",
+      element: (
+        <App
+          selectedPlant={selectedPlant}
+          onPlantChange={handleSelectedPlant}
+        />
+      ),
     },
     {
-      path: '/options',
-      element: <Options selectedPlant={selectedPlant} handleOptionsObject={handleOptionsObject} />,
+      path: "/options",
+      element: (
+        <Options
+          selectedPlant={selectedPlant}
+          handleOptionsObject={handleOptionsObject}
+        />
+      ),
     },
     {
-      path: '/timeline',
-      element: <Timeline optionsObj={optionsObj} timelinePage={timelinePage} setTimelinePage={setTimelinePage} />,
+      path: "/timeline",
+      element: (
+        <Timeline
+          optionsObj={optionsObj}
+          timelinePage={timelinePage}
+          setTimelinePage={setTimelinePage}
+        />
+      ),
     },
     {
-      path: '/aboutus',
+      path: "/aboutus",
       element: <AboutUs setTimelinePage={setTimelinePage} />,
     },
     {
-      path: '/healthy',
+      path: "/healthy",
       element: <Healthy />,
     },
     {
-      path: '/risky',
+      path: "/risky",
       element: <Risky />,
     },
     {
-      path: '/dead',
+      path: "/dead",
       element: <Dead />,
     },
   ]); // Removed extra parenthesis here
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
+ReactDOM.createRoot(document.getElementById("root")).render(<Root />);

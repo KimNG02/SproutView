@@ -9,22 +9,24 @@ import frontpageImage from "./images/front.jpg";
 import icon from "./images/icon.png";
 import { type } from "@testing-library/user-event/dist/type";
 
-
-
-const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) => {
+const App = ({
+  onConfirmPlanting,
+  onPlantChange,
+  selectedPlant,
+  showAboutUs,
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLetter, setSelectedLetter] = useState("");
   const plantSelectRef = useRef(null);
 
   const [text] = useTypewriter({
-    words: ['Sprout View', 'Your planting adventure'],
+    words: ["Sprout View", "Your planting adventure"],
     loop: {},
-    typeSpeed: 150,
+    typeSpeed: 90,
     deleteSpeed: 60,
     delaySpeed: 1500,
-    delayTime: 2000
-  })
-
+    delayTime: 2000,
+  });
 
   // useEffect(() => {
   //   const imageText = document.querySelector(".image-text");
@@ -43,14 +45,13 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
   //   };
   // }, []);
 
-  
   const scrollToPlantSelection = () => {
-    plantSelectRef.current.scrollIntoView({ behavior: 'smooth' });
+    plantSelectRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  
+
   const handleImageClick = (plantType) => {
     setModalOpen(true);
-    onPlantChange(plantType)
+    onPlantChange(plantType);
   };
 
   const handleCloseModal = () => {
@@ -75,31 +76,38 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
     }
   };
 
-
-    
   return (
     <div>
       <main id="app-main">
-      <section class="image-section">
-        <img src={frontpageImage} alt="Windowsill with plants" class="frontimage"/>
-          <div className="image-text" >
+        <section class="image-section">
+          <img
+            src={frontpageImage}
+            alt="Windowsill with plants"
+            class="frontimage"
+          />
+          <div className="image-text">
             <section class="intro-section">
               <h2>
-                Welcome to 
+                Welcome to
                 <br></br>
-                  <span>
-                    {text}
-                    <Cursor/>
-                  </span>
+                <span>
+                  {text}
+                  <Cursor />
+                </span>
               </h2>
-                <p>Explore and select indoor plants by clicking on letters or images below.</p>
+              <p>
+                Explore and select indoor plants by clicking on letters or
+                images below.
+              </p>
             </section>
           </div>
           <div>
-            <button className="cta-btn" onClick={scrollToPlantSelection}>Explore Now!</button>
+            <button className="cta-btn" onClick={scrollToPlantSelection}>
+              Explore Now!
+            </button>
           </div>
-      </section>
-      <section className="plant-section" ref={plantSelectRef}>
+        </section>
+        <section className="plant-section" ref={plantSelectRef}>
           <div className="flex">
             <img className="icon" alt="icon" src={icon}></img>
             <h1 className="choice">Choose your plant</h1>
@@ -109,11 +117,36 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
           <div>
             <div>
               {Array.from({ length: 26 }, (_, i) => (
-                <div key={i} id={String.fromCharCode(65 + i)} className="letter-section">
+                <div
+                  key={i}
+                  id={String.fromCharCode(65 + i)}
+                  className="letter-section"
+                >
                   {String.fromCharCode(65 + i)}
-                  {String.fromCharCode(65 + i) === "C" && <img className="plant-image" src={cactusImage} alt="Cactus" onClick={() => handleImageClick("Cactus")} />}
-                  {String.fromCharCode(65 + i) === "J" && <img className="plant-image" src={jalapenoImage} alt="Jalapeno" onClick={() => handleImageClick("Jalapeno")} />}
-                  {String.fromCharCode(65 + i) === "S" && <img className="plant-image" src={strawberryImage} alt="Strawberry" onClick={() => handleImageClick("Strawberry")} />}
+                  {String.fromCharCode(65 + i) === "C" && (
+                    <img
+                      className="plant-image"
+                      src={cactusImage}
+                      alt="Cactus"
+                      onClick={() => handleImageClick("Cactus")}
+                    />
+                  )}
+                  {String.fromCharCode(65 + i) === "J" && (
+                    <img
+                      className="plant-image"
+                      src={jalapenoImage}
+                      alt="Jalapeno"
+                      onClick={() => handleImageClick("Jalapeno")}
+                    />
+                  )}
+                  {String.fromCharCode(65 + i) === "S" && (
+                    <img
+                      className="plant-image"
+                      src={strawberryImage}
+                      alt="Strawberry"
+                      onClick={() => handleImageClick("Strawberry")}
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -122,13 +155,15 @@ const App = ({ onConfirmPlanting, onPlantChange, selectedPlant, showAboutUs }) =
         {modalOpen && (
           <div className="modal">
             <div className="modal-content">
-              <span className="close" onClick={handleCloseModal}>&times;</span>
+              <span className="close" onClick={handleCloseModal}>
+                &times;
+              </span>
               <h2>Are you sure you want to plant a {selectedPlant}?</h2>
               <a href="#options">
-              <button >Yes</button>
+                <button>Yes</button>
               </a>
             </div>
-            </div>
+          </div>
         )}
       </main>
     </div>

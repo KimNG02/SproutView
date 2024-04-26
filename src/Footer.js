@@ -1,29 +1,29 @@
 import React from "react";
 import "./styles/Footer.css";
 
-const Footer = ({timelinePage}) => {
+const Footer = ({ timelinePage }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   let background;
   switch (timelinePage) {
-    case 'Healthy':
-      background = '#E8F9DF'; // background color for Healthy page
+    case "Healthy":
+      background = "#E8F9DF"; // background color for Healthy page
       break;
-    case 'Risky':
-      background = '#fcf8cd'; // background color for Risky page
+    case "Risky":
+      background = "#fcf8cd"; // background color for Risky page
       break;
-    case 'Dead':
-      background = '#fbeaea'; // background color for Dead page
+    case "Dead":
+      background = "#fbeaea"; // background color for Dead page
       break;
     default:
-      background = 'inherit'; // Default background color
+      background = "inherit"; // Default background color
       break;
   }
 
   return (
-    <footer className="footer" style={{background}}>
+    <footer className="footer" style={{ background }}>
       <div className="footer-content">
         <div className="footer-column">
           <a href="#aboutus">

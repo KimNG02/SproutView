@@ -7,7 +7,11 @@ import Risky from "./Risky.js";
 import Dead from "./Dead.js";
 
 async function getTimeline(optionsObj) {
-  const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "").replace("[", "%5B").replace("]", "%5D");
+  const stuff = JSON.stringify(optionsObj)
+    .replace("{", "")
+    .replace("}", "")
+    .replace("[", "%5B")
+    .replace("]", "%5D");
   console.log(stuff);
   return await apiServiceHandler.getTimeline(stuff);
 }
@@ -32,7 +36,7 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
 
   const handleTimelinePage = (page) => {
     setTimelinePage(page);
-  }
+  };
 
   /*
   let timelineComponent;
@@ -49,13 +53,13 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   if (timelineData) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
-      handleTimelinePage("Healthy")
+      handleTimelinePage("Healthy");
       timelineComponent = <Healthy timelineData={timelineData} />;
     } else if (similarity >= 0.5) {
-      handleTimelinePage("Risky")
+      handleTimelinePage("Risky");
       timelineComponent = <Risky timelineData={timelineData} />;
     } else {
-      handleTimelinePage("Dead")
+      handleTimelinePage("Dead");
       timelineComponent = <Dead timelineData={timelineData} />;
     }
   }
@@ -68,12 +72,13 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   return (
     <div id="timeline-page">
       {timelineData ? (
-        <div>
-          {timelineComponent}
-        </div>
+        <div>{timelineComponent}</div>
       ) : (
         <div className="loading-screen">
-          <img className="loading-screen" src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"/>
+          <img
+            className="loading-screen"
+            src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"
+          />
         </div>
       )}
     </div>
