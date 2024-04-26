@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.63e623bc.css",
+    "main.css": "/static/css/main.a7934260.css",
     "main.js": "/static/js/main.d656faac.js",
     "static/media/Strawberry transparent.png": "/static/media/Strawberry transparent.574a131fc44d7cad47a6.png",
     "static/media/envimg.png": "/static/media/envimg.5b8d4d98446f08f93af0.png",
@@ -8,11 +8,11 @@
     "static/media/Cactus 209133001.png": "/static/media/Cactus 209133001.e05b5c30e6f880361510.png",
     "static/media/Jalapeno Chili 3 Stk.png": "/static/media/Jalapeno Chili 3 Stk.2a5bdc7c83e4cd77cf91.png",
     "index.html": "/index.html",
-    "main.63e623bc.css.map": "/static/css/main.63e623bc.css.map",
+    "main.a7934260.css.map": "/static/css/main.a7934260.css.map",
     "main.d656faac.js.map": "/static/js/main.d656faac.js.map"
   },
   "entrypoints": [
-    "static/css/main.63e623bc.css",
+    "static/css/main.a7934260.css",
     "static/js/main.d656faac.js"
   ]
 }
