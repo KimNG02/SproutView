@@ -23,6 +23,8 @@ function Risky ({timelineData}) {
 
   return (
     <div className="risky-container">
+      {timelineData ? (
+        <div>
       <section className="timeline-section" id="risky-timeline">
         <h1>Risky Growth</h1>
         <h4>Your Cactus plant will grow relaitvely well, but you can do even better!</h4>
@@ -54,6 +56,8 @@ function Risky ({timelineData}) {
         <h1>Growth Suggestions</h1>
         <div className="white-rectangle"></div>
       </section>
+      </div>
+      ) : (<div>Loading...</div>)}
     </div>
   )
 }

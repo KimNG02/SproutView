@@ -23,6 +23,8 @@ function Dead({timelineData}) {
 
   return (
     <div className="dead-container">
+      {timelineData ? (
+        <div>
       <section className="timeline-section" id="dead-timeline">
         <h1>Oh no!!!</h1>
         <h4>Your Cactus plant will not be able to grow in your current environment</h4>
@@ -54,6 +56,8 @@ function Dead({timelineData}) {
         <h1>Growth Suggestions</h1>
         <div className="white-rectangle"></div>
       </section>
+      </div>
+    ) : (<div>Loading...</div>) }
     </div>
   );
 }

@@ -6,7 +6,6 @@ import Healthy from "./Healthy.js";
 import Risky from "./Risky.js";
 import Dead from "./Dead.js";
 
-
 async function getTimeline(optionsObj) {
   const stuff = JSON.stringify(optionsObj).replace("{", "").replace("}", "").replace("[", "%5B").replace("]", "%5D");
   console.log(stuff);
@@ -15,6 +14,7 @@ async function getTimeline(optionsObj) {
 
 function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   const [timelineData, setTimelineData] = useState(null);
+  const [similarityTest, setSimilarityTest] = useState(1.0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +34,7 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
     setTimelinePage(page);
   }
 
+  /*
   let timelineComponent;
   if (timelinePage === 'Healthy') {
     timelineComponent = <Healthy timelineData={timelineData}/>;
@@ -41,6 +42,19 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
     timelineComponent = <Risky timelineData={timelineData}/>;
   } else if (timelinePage === 'Dead') {
     timelineComponent = <Dead timelineData={timelineData}/>;
+  }
+  */
+
+  let timelineComponent;
+  if (timelineData) {
+    const similarity = parseFloat(timelineData.similarity);
+    if (similarity >= 0.9) {
+      timelineComponent = <Healthy timelineData={timelineData} />;
+    } else if (similarity >= 0.5) {
+      timelineComponent = <Risky timelineData={timelineData} />;
+    } else {
+      timelineComponent = <Dead timelineData={timelineData} />;
+    }
   }
   /* similarity Values
   Healthy: 1-0.9
@@ -50,18 +64,16 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
 
   return (
     <div id="timeline-page">
-      {timelineData && (
-      <div>
-        Ligth Comment:
-      {timelineData.lightComment}
-      {timelineData.matureTime}
-      <button onClick={() => handleTimelinePage('Healthy')}>Healthy</button>
-      <button onClick={() => handleTimelinePage('Risky')}>Risky</button>
-      <button onClick={() => handleTimelinePage('Dead')}>Dead</button>
-      {timelineComponent}
-      </div>
+      {timelineData ? (
+        <div>
+          {timelineComponent}
+        </div>
+      ) : (
+        <div>
+          <img className="loading-screen" src="https://i.pinimg.com/originals/87/e9/35/87e935c85648e03d1fd8abd4569ca81b.gif"/>
+        </div>
       )}
-    </div> 
+    </div>
   );
 }
 

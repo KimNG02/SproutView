@@ -24,6 +24,8 @@ function Healthy ({timelineData}) {
 
   return (
     <div className="healthy-container">
+      {timelineData ? (
+        <div>
       <section className="timeline-section" id="healthy-timeline">
         <h1>Healthy Growth</h1>
         <h4>Your Cactus plant will grow healthily in the following stages</h4>
@@ -42,10 +44,10 @@ function Healthy ({timelineData}) {
         onChange={handleChange} 
         />
       <div className="labels">
-        <span className={value === 1 ? 'active' : ''}>Sprout</span>
-        <span className={value === 2 ? 'active' : ''}>Vegetative</span>
-        <span className={value === 3 ? 'active' : ''}>Flowering</span>
-        <span className={value === 4 ? 'active' : ''}>Mature/Ripe</span>
+        <span className={value === 1 ? 'active' : ''}>Sprout {timelineData.sprout_time}</span>
+        <span className={value === 2 ? 'active' : ''}>Vegetative {timelineData.vegetative_time}</span>
+        <span className={value === 3 ? 'active' : ''}>Flowering {timelineData.flowering_time}</span>
+        <span className={value === 4 ? 'active' : ''}>Mature/Ripe {timelineData.mature_time}</span>
       </div>
     </div>
         
@@ -54,8 +56,16 @@ function Healthy ({timelineData}) {
       <section ref={suggestionsRef} className="timeline-section" id="growth-suggestions">
         <h1>Growth Suggestions</h1>
         <div className="white-rectangle">
+          {timelineData.lightcomment}
+          {timelineData}
         </div>
       </section>
+      </div>
+      ) : (
+        <div>
+          Loading...
+        </div>
+      )}
     </div>
   );
 }
