@@ -49,10 +49,13 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
   if (timelineData) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
+      handleTimelinePage("Healthy")
       timelineComponent = <Healthy timelineData={timelineData} />;
     } else if (similarity >= 0.5) {
+      handleTimelinePage("Risky")
       timelineComponent = <Risky timelineData={timelineData} />;
     } else {
+      handleTimelinePage("Dead")
       timelineComponent = <Dead timelineData={timelineData} />;
     }
   }
@@ -69,8 +72,8 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
           {timelineComponent}
         </div>
       ) : (
-        <div>
-          <img className="loading-screen" src="https://i.pinimg.com/originals/87/e9/35/87e935c85648e03d1fd8abd4569ca81b.gif"/>
+        <div className="loading-screen">
+          <img className="loading-screen" src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"/>
         </div>
       )}
     </div>

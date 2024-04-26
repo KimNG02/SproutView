@@ -1,95 +1,113 @@
 /* Healthy Styles */
 .healthy-container {
-    display: flex;
-    flex-direction: column;
-    background: #E8F9DF;
-  }
+  display: flex;
+  flex-direction: column;
+  background: #e8f9df;
+}
 
 .timeline-section {
-    padding-top: 4vh;
-    height: 96vh;
-    margin: 0 10rem;
-    box-sizing: border-box;
-    min-height: fit-content;
-  }
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
 
 .healthy-circle-container {
-    position: relative;
-    width: 400px; /* Adjust the size of the circle */
-    height: 400px; /* Adjust the size of the circle */
-    background-color: #94B291;
-    border-radius: 50%; /* Ensures the container is a circle */
-    margin: 0 auto; /* Centers the container horizontally */
-    display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    /* Add any other styling properties as needed */
-    margin-bottom: 50px;
-    margin-top: 50px;
+  position: relative;
+  width: 400px; /* Adjust the size of the circle */
+  height: 400px; /* Adjust the size of the circle */
+  background-color: #94b291;
+  border-radius: 50%; /* Ensures the container is a circle */
+  margin: 0 auto; /* Centers the container horizontally */
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  /* Add any other styling properties as needed */
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
-
-
 
 .healthy-circle-container img {
-    max-width: 60%; /* Ensures the image does not exceed the container */
-    max-height:60%; /* Ensures the image does not exceed the container */
+  max-width: 60%; /* Ensures the image does not exceed the container */
+  max-height: 60%; /* Ensures the image does not exceed the container */
 }
 
-
 .slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    background: black;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
-  
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-  }
-  
-  .labels {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .labels span {
-    font-size: 12px;
-    transition: font-weight 0.2s ease;
-  }
-  
-  .labels span.active {
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .white-rectangle {
-    width: 100%;
-    height: 50vh; /* Adjust the height as needed */
-    background-color: white;
-    /* Add any other styling properties as needed */
-    border-radius: 18px;
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: black;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.labels span {
+  font-size: 12px;
+  transition: font-weight 0.2s ease;
+}
+
+.labels span.active {
+  font-weight: bold;
+}
+
+.white-rectangle {
+  width: 100%;
+  height: 50vh; /* Adjust the height as needed */
+  background-color: white;
+  /* Add any other styling properties as needed */
+  border-radius: 18px;
+}
+
+.growth-suggestions {
+  padding: 20px;
+  margin: 20px 0;
+  font-family: "Arial", sans-serif; /* Clean, readable font */
+}
+
+.comment {
+  margin-bottom: 10px;
+  line-height: 1.5; /* Increased line height for readability */
+  color: #666; /* Dark grey color for text */
+}
+
+.comment strong {
+  color: #2c3e50; /* Slightly bolder color for labels */
+  margin-right: 5px; /* Space between label and comment */
+}
+
+.comment span {
+  display: inline-block;
+  max-width: 90%; /* Ensures text doesn't get too wide */
 }

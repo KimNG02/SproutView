@@ -43,10 +43,10 @@ function Risky ({timelineData}) {
         onChange={handleChange} 
         />
       <div className="labels">
-        <span className={value === 1 ? 'active' : ''}>Sprout</span>
-        <span className={value === 2 ? 'active' : ''}>Vegetative</span>
-        <span className={value === 3 ? 'active' : ''}>Flowering</span>
-        <span className={value === 4 ? 'active' : ''}>Mature/Ripe</span>
+        <span className={value === 1 ? 'active' : ''}>Sprout {timelineData.sproutTime}</span>
+        <span className={value === 2 ? 'active' : ''}>Vegetative {timelineData.vegetativeTime}</span>
+        <span className={value === 3 ? 'active' : ''}>Flowering {timelineData.floweringTime}</span>
+        <span className={value === 4 ? 'active' : ''}>Mature/Ripe {timelineData.matureTime}</span>
       </div>
     </div>
         
@@ -54,10 +54,45 @@ function Risky ({timelineData}) {
       </section>
       <section ref={suggestionsRef} className="timeline-section" id="growth-suggestions">
         <h1>Growth Suggestions</h1>
-        <div className="white-rectangle"></div>
+        <div className="white-rectangle">
+        <div className="growth-suggestions">
+                <div className="comment">
+                  <strong>Light:</strong>
+                  <span>{timelineData.lightComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>Water:</strong>
+                  <span>{timelineData.waterComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>Pot Size:</strong>
+                  <span>{timelineData.potSizeComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>Soil:</strong>
+                  <span>{timelineData.soilComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>Plant Care:</strong>
+                  <span>{timelineData.plantCareComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>pH:</strong>
+                  <span>{timelineData.phComment}</span>
+                </div>
+                <div className="comment">
+                  <strong>Humidity:</strong>
+                  <span>{timelineData.humidityComment}</span>
+                </div>
+              </div>
+        </div>
       </section>
       </div>
-      ) : (<div>Loading...</div>)}
+      ) : (
+      <div className='loading-screen'>
+        <img className="loading-screen" src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"/>
+      </div>
+    )}
     </div>
   )
 }

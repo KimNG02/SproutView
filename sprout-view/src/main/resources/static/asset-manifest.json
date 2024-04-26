@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.aee32342.css",
-    "main.js": "/static/js/main.b2fb121a.js",
+    "main.css": "/static/css/main.63e623bc.css",
+    "main.js": "/static/js/main.d656faac.js",
     "static/media/Strawberry transparent.png": "/static/media/Strawberry transparent.574a131fc44d7cad47a6.png",
     "static/media/envimg.png": "/static/media/envimg.5b8d4d98446f08f93af0.png",
     "static/media/front.jpg": "/static/media/front.e97ab982d03e9403627d.jpg",
     "static/media/Cactus 209133001.png": "/static/media/Cactus 209133001.e05b5c30e6f880361510.png",
     "static/media/Jalapeno Chili 3 Stk.png": "/static/media/Jalapeno Chili 3 Stk.2a5bdc7c83e4cd77cf91.png",
     "index.html": "/index.html",
-    "main.aee32342.css.map": "/static/css/main.aee32342.css.map",
-    "main.b2fb121a.js.map": "/static/js/main.b2fb121a.js.map"
+    "main.63e623bc.css.map": "/static/css/main.63e623bc.css.map",
+    "main.d656faac.js.map": "/static/js/main.d656faac.js.map"
   },
   "entrypoints": [
-    "static/css/main.aee32342.css",
-    "static/js/main.b2fb121a.js"
+    "static/css/main.63e623bc.css",
+    "static/js/main.d656faac.js"
   ]
 }
