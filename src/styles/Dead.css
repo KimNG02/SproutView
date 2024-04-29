@@ -16,8 +16,8 @@
 
 .dead-circle-container {
   position: relative;
-  width: 30vh; /* Adjust the size of the circle */
-  height: 30vh; /* Adjust the size of the circle */
+  width: 50vh; /* Adjust the size of the circle */
+  height: 50vh; /* Adjust the size of the circle */
   background-color: #f49797;
   border-radius: 50%; /* Ensures the container is a circle */
   margin: 0 auto; /* Centers the container horizontally */

@@ -38,16 +38,16 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
     setTimelinePage(page);
   };
 
-  /*
-  let timelineComponent;
+  
+  /*let timelineComponent;
   if (timelinePage === 'Healthy') {
     timelineComponent = <Healthy timelineData={timelineData}/>;
   } else if (timelinePage === 'Risky') {
     timelineComponent = <Risky timelineData={timelineData}/>;
   } else if (timelinePage === 'Dead') {
     timelineComponent = <Dead timelineData={timelineData}/>;
-  }
-  */
+  }*/
+  
 
   let timelineComponent;
   if (timelineData) {
@@ -63,6 +63,8 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
       timelineComponent = <Dead timelineData={timelineData} />;
     }
   }
+  
+ 
   /* similarity Values
   Healthy: 1-0.9
   Risky: 0.9-0.5
@@ -82,6 +84,7 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
         </div>
       )}
     </div>
+    
   );
 }
 

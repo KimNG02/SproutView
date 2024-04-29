@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./styles/options.css";
 import ApiServiceHandler from "./apiServiceHandler.js";
 import CountrySelector from "./CountrySelector.js";
-import envPageImage from "./images/envimg.png";
+import envPageImage from "./images/leavesmin.png";
+import leavesImage from "./images/leaves.webp";
+
 import Toolbar from "./Toolbar.js";
 
 const Options = ({ selectedPlant, handleOptionsObject }) => {
@@ -100,12 +102,13 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         <h1 className="topic">Select Environment Options</h1>
       </div>
       <div className="square">
-        {/*<div className="image-section">
-        <img src={envPageImage} alt="plant pot" className="envimage" />*/}
-
+        <div className="image-section">
+          <img src={envPageImage} alt="plant pot" className="envimage" />
+        </div>
         {/* <div className='options-section'>
         <CountrySelector />
       </div> */}
+
         <div className="box2">
           {/*Season Options*/}
           <div className="options-section">
@@ -174,21 +177,39 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 onClick={() => handleLightClick("full sun")}
               >
                 {" "}
-                Full sun{" "}
+                <div className="tooltip">
+                  Full Sun
+                  <span class="tooltiptext">
+                    When your plant is in direct sunlight for most of the day.
+                  </span>
+                </div>
+                {" "}
               </button>
               <button
                 className="Partial sun"
                 onClick={() => handleLightClick("partial sun")}
               >
                 {" "}
-                Partial sun{" "}
+                <div className="tooltip">
+                  Partial Sun
+                  <span class="tooltiptext">
+                  When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.
+                  </span>
+                </div>
+                {" "}
               </button>
               <button
                 className="Shade"
                 onClick={() => handleLightClick("shade")}
               >
                 {" "}
-                Shade{" "}
+                <div className="tooltip">
+                  Shade
+                  <span class="tooltiptext">
+                    When your plant is in a shaded area with minimum sunlight.
+                    </span>
+                </div>
+                {" "}
               </button>
             </div>
           </div>
@@ -204,7 +225,14 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 checked={plantCare.includes("repotting")}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="repotting">Repotting</label>
+              <label htmlFor="repotting">
+                <div className="tooltip">
+                  Repotting
+                  <span class="tooltiptext">
+                    Moving the plant from one pot to another.
+                  </span>
+                </div>
+                </label>
               <br />
 
               <input
@@ -214,7 +242,13 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 checked={plantCare.includes("trimming")}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="trimming">Trimming</label>
+              <label htmlFor="trimming">
+              <div className="tooltip">
+                  Trimming
+                  <span class="tooltiptext">
+                  Trimming typically involves cutting back plant material for reasons other than health concerns.                  </span>
+                </div>
+              </label>
               <br />
 
               <input
@@ -224,7 +258,14 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 checked={plantCare.includes("pruning")}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="pruning">Pruning</label>
+              <label htmlFor="pruning">
+                <div className="tooltip">
+                  Pruning
+                  <span class="tooltiptext">
+                    Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant.
+                  </span>
+                </div>
+              </label>
               <br />
 
               <input
@@ -234,7 +275,14 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 checked={plantCare.includes("fertilizer")}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="fertilizer">Fertilizer</label>
+              <label htmlFor="fertilizer">
+              <div className="tooltip">
+                  Fertilizer
+                  <span class="tooltiptext">
+                    Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.
+                  </span>
+                </div>
+              </label>
               <br />
               {/* Add more checkboxes as needed */}
             </div>
@@ -356,14 +404,20 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             </div>
           </div>
         </div>
+        
+        <div className="image-section">
+          <img src={leavesImage} alt="plant pot" className="leavesimage" />
+        </div>
       </div>
 
       <div>
         <div className="confirm-zone">
           <a href="#timeline">
+            <div className="options-section"> 
             <button className="button" onClick={confirmOptionsCB}>
               Generate
             </button>
+            </div>
           </a>
         </div>
       </div>
