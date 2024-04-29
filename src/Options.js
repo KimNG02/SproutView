@@ -66,12 +66,14 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
+
   /* Options, stored in OptionsObj */
   /* plant, light, water, soil, temp, potSize, plantCare, humidity, pH */
   const confirmOptionsCB = () => {
     try {
       const plant = selectedPlant.toLowerCase();
       const waterFreq = waterFrequency * 24;
+
       handleOptionsObject(
         plant,
         selectedLight,
@@ -149,7 +151,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           </div>
           {/* Pot Size Options */}
           <div className="options-section">
-            <h2>How large is the pot you wish to plant in?</h2>
+            <h2>How large is the pot you wish to plant in?*</h2>
             <select
               value={potSize}
               onChange={(e) => setPotSize(e.target.value)}
@@ -165,12 +167,13 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           </div>
 
           {/*Light-level*/}
+
           <div className="options-section">
             <div className="light-options">
               <h2>
                 {" "}
                 How much light will the plant recieve over the course of the
-                day?
+                day?*
               </h2>
               <button
                 className="Full-sun"
@@ -300,7 +303,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         <div className="box2">
           {/* Soil Type Options */}
           <div className="options-section">
-            <h2>What type of soil do you plan to use?</h2>
+            <h2>What type of soil do you plan to use?*</h2>
             <div className="radio-container">
               <input
                 type="radio"
@@ -363,7 +366,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           </div>
           {/* Watering Options */}
           <div className="options-section">
-            <h2>How often do you plan to water you plant?</h2>
+            <h2>How often do you plan to water you plant?*</h2>
             <div>
               Every{" "}
               <input
@@ -378,7 +381,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
 
           {/* Temperature Options */}
           <div className="options-section">
-            <h2>What is the average temperature where your plant will be?</h2>
+            <h2>What is the average temperature where your plant will be?*</h2>
             <div className="slidecontainer">
               <input
                 type="range"
@@ -415,6 +418,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           <a href="#timeline">
             <div className="options-section"> 
             <button className="button" onClick={confirmOptionsCB}>
+            
               Generate
             </button>
             </div>

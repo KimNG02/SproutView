@@ -1,9 +1,12 @@
 package se.kth.ii1305.gulsparv.sproutview;
 
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 public class PlantCalculator {
 
+
+    int index;
     private static PlantCalculator INSTANCE = new PlantCalculator();
 
     private PlantCalculator() {
@@ -35,6 +38,17 @@ public class PlantCalculator {
                 lightSimilarity = currentLightSimilarity;
             }
         }
+
+    
+
+        StringJoiner joiner = new StringJoiner(" & ");
+        for(int i = 0; i< resultLight.length;i++){
+            joiner.add(resultLight[i]);
+        }
+        String allLights = joiner.toString();
+
+       
+          
 
         String optionsSoil = options.getValue("soil")[0];
         String[] resultSoil = queryResult.getValue("soil");
@@ -73,7 +87,15 @@ public class PlantCalculator {
         String[] optionsPlantCare = options.getValue("plant_care");
         String[] resultPlantCare = queryResult.getValue("plant_care");
         double plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
-                        plantCareSimilarity = 1;
+                       
+
+        StringJoiner plantCareJoiner = new StringJoiner(" & ");
+        for(int k = 0; k < optionsPlantCare.length; k++){
+           
+            plantCareJoiner.add(optionsPlantCare[k]);
+        }
+
+        String allPlantCare = plantCareJoiner.toString();
 
         String optionsHumidity = options.getValue("humidity")[0];
         String resultHumidity = queryResult.getValue("humidity")[0].replace("%", "");
@@ -129,44 +151,45 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(Double.toString(totalSimilarity));
 
         if (lightSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different light.");
+            attributeValuesNewJSON.add("Instead of " + optionsLight + ", your plant needs " + allLights + " instead.");
+            
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (soilSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different Soil.");
+            attributeValuesNewJSON.add("Instead of " +  optionsSoil +", your plant needs " + queryResult.getValue("soil")[0]);
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (waterSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different Water frequency.");
+            attributeValuesNewJSON.add("Instead of watering your plant every " + Integer.parseInt(optionsWater)/24 + " days, you should water it every " + Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24 + " days.");
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (tempSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different temperature.");
+            attributeValuesNewJSON.add("Instead of having the room temperature at " + optionsTemp + ", you should have" + queryResult.getValue("preferred_average_temperature")[0] + "." );
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (potSizeSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different pot size.");
+            attributeValuesNewJSON.add("Instead of using pot size " + optionsPotsize + ", you should preferably use a " + queryResult.getValue("preferred_pot_size")[0]  + " pot size.");
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (plantCareSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different plantcare choices.");
+            attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add("The humidity needs to be changed.");
+                attributeValuesNewJSON.add("Instead of humidity" + optionsHumidity + ", you should use humidity " + resultHumidity);
             } else {
                 attributeValuesNewJSON.add("Good job!");
             }
@@ -315,7 +338,7 @@ public class PlantCalculator {
 
         int sizeDifference = size1Int - size2Int;
 
-        if (sizeDifference <= 0) {
+        if (sizeDifference >= 0) {
             if (sizeDifference == -1) {
                 return 0.9;
             }
@@ -360,7 +383,7 @@ public class PlantCalculator {
 
         return 0;
     }
-
+    /*
     public double plantCareCompare(String care1, String care2) {
         double res = 0;
 
@@ -370,23 +393,53 @@ public class PlantCalculator {
         return res;
 
     }
+    */
+
+ 
 
     public double plantCareCompareSeveral(String[] care1, String[] care2) {
         double res = 1;
         int length1 = care1.length;
         int length2 = care2.length;
 
-        if (length1 > 0 || length1 != length2) {
-            res = res - 0.25;
+        if(length1 != length2){
+            for (int n = 0; n < care1.length; n++) { 
+                
+                if(!care1[n].equals(care2[n])){
+                    res = res - 0.25;
+                }
+                
+            }
         }
 
-        if (length1 > 0 && length1 < length2) {// Kommer inte ske ifall databasen bara har ett värde
+        if(length1 == length2){
+            if((care1[0].equals(care2[0]))){
+                return res;
+            }
+            else{
+                res = res - 0.25;
+            }
+            
+        }
+
+            
+       return res;               
+    }
+        
+       
+    
+
+        
+           
+
+        /*if (length1 > 0 && length1 < length2) {// Kommer inte ske ifall databasen bara har ett värde
             for (int i = 0; i < length2; i++) {
                 if (!care1[i].equals(care2[i])) {
                     res = res - 0.1;
                 }
             }
         }
+
         if (length1 > length2) {
             for (int i = 0; i < length2; i++) {
                 if (!care1[i].equals(care2[i])) {
@@ -397,6 +450,7 @@ public class PlantCalculator {
 
         return res;
     }
+    */
 
     public double humidityCompare(String humidity1String, String humidity2String) {
         int humidity1 = Integer.valueOf(humidity1String);

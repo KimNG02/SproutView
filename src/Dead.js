@@ -54,16 +54,16 @@ function Dead({ timelineData }) {
               />
               <div className="labels">
                 <span className={value === 1 ? "active" : ""}>
-                  Sprout in <br /> {timelineData.sproutTime}
+                  Sprout
                 </span>
                 <span className={value === 2 ? "active" : ""}>
-                  Vegetative in <br /> {timelineData.vegetativeTime}
+                  Vegetative
                 </span>
                 <span className={value === 3 ? "active" : ""}>
-                  Flowering in <br /> {timelineData.floweringTime}
+                  Flowering 
                 </span>
                 <span className={value === 4 ? "active" : ""}>
-                  Mature/Ripe in <br /> {timelineData.matureTime}
+                  Mature/Ripe
                 </span>
               </div>
             </div>
