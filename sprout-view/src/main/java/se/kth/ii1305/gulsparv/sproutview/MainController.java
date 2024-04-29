@@ -14,9 +14,14 @@ public class MainController{
 
     public JSONObject calculateTimeline(JSONObject options) throws SQLException, SQLTimeoutException
     {
-        Query query = new Query(options.getValue("name")[0]);
+        InfoQuery query = new InfoQuery(options.getValue("name")[0]);
         JSONObject data = DBHandler.getInstance().executeQuery(query);
         JSONObject timeline = PlantCalculator.getInstance().calculateTimeline(options, data);
         return timeline;
+    }
+
+    public JSONObject getPlants() throws SQLException, SQLTimeoutException
+    {
+        return DBHandler.getInstance().executeQuery(new PlantQuery());
     }
 }

@@ -10,10 +10,9 @@ public class DBHandler {
 
     private static DBHandler INSTANCE = new DBHandler();
 
-    private DBHandler() {
-    }
+    private DBHandler() {}
 
-    private String server = "jdbc:postgresql://130.229.184.61:5432/sprouttest";
+    private String server = "jdbc:postgresql://127.0.0.1:5432/sprouttest";
     private String user = "postgres";
     private String password = "7631";
 
@@ -24,7 +23,7 @@ public class DBHandler {
     public JSONObject executeQuery(Query query) throws SQLException, SQLTimeoutException {
         Connection db;
         db = DriverManager.getConnection(server, user, password);
-        ResultSet result = db.prepareStatement(query.toString()).executeQuery();
+        ResultSet result = db.prepareStatement(query.asString()).executeQuery();
         return new JSONObject(result);
     }
 }
