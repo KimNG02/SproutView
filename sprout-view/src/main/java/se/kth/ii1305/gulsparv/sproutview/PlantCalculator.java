@@ -153,14 +153,19 @@ public class PlantCalculator {
         if (lightSimilarity != 1) {
             attributeValuesNewJSON.add("Instead of " + optionsLight + ", your plant needs " + allLights + " instead.");
             
-        } else {
+        } else if(lightSimilarity == 1) {
             attributeValuesNewJSON.add("Good job!");
+        }else{
+            attributeValuesNewJSON.add("");
         }
 
         if (soilSimilarity != 1) {
             attributeValuesNewJSON.add("Instead of " +  optionsSoil +", your plant needs " + queryResult.getValue("soil")[0]);
-        } else {
+        } else if(soilSimilarity == 1) {
             attributeValuesNewJSON.add("Good job!");
+        }else{
+            attributeValuesNewJSON.add("");
+
         }
 
         if (waterSimilarity != 1) {
@@ -398,20 +403,23 @@ public class PlantCalculator {
  
 
     public double plantCareCompareSeveral(String[] care1, String[] care2) {
+        
         double res = 1;
         int length1 = care1.length;
         int length2 = care2.length;
 
         if(length1 != length2){
             for (int n = 0; n < care1.length; n++) { 
+                for (int k = 0; k < care1.length; k++) {
+                    
                 
-                if(!care1[n].equals(care2[n])){
+                if(!care1[n].equals(care2[k])){
                     res = res - 0.25;
+                    }
                 }
-                
             }
         }
-
+/*
         if(length1 == length2){
             if((care1[0].equals(care2[0]))){
                 return res;
@@ -421,7 +429,7 @@ public class PlantCalculator {
             }
             
         }
-
+*/
             
        return res;               
     }
