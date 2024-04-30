@@ -95,7 +95,6 @@ const App = ({
       letterElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-
   return (
     <div>
       {plantString ? (
