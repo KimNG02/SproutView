@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createElement } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter-remake2";
 import "./styles/App.css";
 import Alphabet from "./Alphabet";
-import cactusImage from "./images/Cactus 209133001.png";
-import jalapenoImage from "./images/Jalapeno Chili 3 Stk.png";
-import strawberryImage from "./images/Strawberry transparent.png";
 import frontpageImage from "./images/front.jpg";
 import icon from "./images/icon.png";
 import { type } from "@testing-library/user-event/dist/type";
+import apiServiceHandler from "./apiServiceHandler";
+import Image from "./Image";
+import { renderIntoDocument } from "react-dom/test-utils";
 
 const App = ({
   onConfirmPlanting,
@@ -17,7 +17,10 @@ const App = ({
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedLetter, setSelectedLetter] = useState("");
+  const [plantString, setPlantString] = useState(null);
   const plantSelectRef = useRef(null);
+  const [plants, setPlants] = useState(null);
+  var imageMap = null;
 
   const [text] = useTypewriter({
     words: ["Sprout View", "Your planting adventure"],
@@ -28,22 +31,39 @@ const App = ({
     delayTime: 2000,
   });
 
-  // useEffect(() => {
-  //   const imageText = document.querySelector(".image-text");
+  
 
-  //   Add event listener for animation end
-  //   const handleAnimationEnd = () => {
-  //     text.
-  //   };
+  useEffect(() => {
+    const handleOnFetch = (response) => {
+      setPlantString(response.data);
+    };
+    const fetchPlants = async () => {
+      try {
+        const response = await apiServiceHandler.getPlants();
+        console.log(response);
+        console.log(response.data);
+        handleOnFetch(response);
+      } catch (error) {
+        console.error("Error fetching plant list:", error);
+      }
+    };
+    plantString ? stuff() : fetchPlants();
+  }, [plantString]);
 
-  //   Attach event listener
-  //   imageText.addEventListener("animationend", handleAnimationEnd);
-
-  //   // Remove event listener on component unmount
-  //   return () => {
-  //     imageText.removeEventListener("animationend", handleAnimationEnd);
-  //   };
-  // }, []);
+  const doNothing = () => {};
+  const stuff = () => {
+    plants ? doNothing() : parse();
+  };
+  const parse = () => {
+    var plantData = plantString;
+    console.log("1 " + plantData)
+    plantData = plantData.substring(6,plantData.length - 2);
+    console.log("2 " + plantData)
+    plantData = plantData.replaceAll('"', '');
+    console.log("3 " + plantData)
+    plantData = plantData.split(",");
+    setPlants(plantData);
+  };
 
   const scrollToPlantSelection = () => {
     plantSelectRef.current.scrollIntoView({ behavior: "smooth" });
@@ -78,7 +98,9 @@ const App = ({
 
   return (
     <div>
-      <main id="app-main">
+      {plantString ? (
+        <main id="app-main">
+          {/* {handleOnFetch} */}
         <section class="image-section">
           <img
             src={frontpageImage}
@@ -119,34 +141,11 @@ const App = ({
               {Array.from({ length: 26 }, (_, i) => (
                 <div
                   key={i}
-                  id={String.fromCharCode(65 + i)}
+                  id={String.fromCharCode(97 + i)}
                   className="letter-section"
                 >
                   {String.fromCharCode(65 + i)}
-                  {String.fromCharCode(65 + i) === "C" && (
-                    <img
-                      className="plant-image"
-                      src={cactusImage}
-                      alt="Cactus"
-                      onClick={() => handleImageClick("Cactus")}
-                    />
-                  )}
-                  {String.fromCharCode(65 + i) === "J" && (
-                    <img
-                      className="plant-image"
-                      src={jalapenoImage}
-                      alt="Jalapeno"
-                      onClick={() => handleImageClick("Jalapeno")}
-                    />
-                  )}
-                  {String.fromCharCode(65 + i) === "S" && (
-                    <img
-                      className="plant-image"
-                      src={strawberryImage}
-                      alt="Strawberry"
-                      onClick={() => handleImageClick("Strawberry")}
-                    />
-                  )}
+                  {plants ? <Image imageSources={plants} filter={97+i} click={handleImageClick} /> : <div/>}
                 </div>
               ))}
             </div>
@@ -166,6 +165,14 @@ const App = ({
           </div>
         )}
       </main>
+      ) : (
+        <div className="loading-screen">
+          <img
+            className="loading-screen"
+            src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"
+          />
+        </div>
+      )}
     </div>
   );
 };

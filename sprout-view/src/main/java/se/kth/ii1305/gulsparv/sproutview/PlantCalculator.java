@@ -129,7 +129,7 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(Double.toString(totalSimilarity));
 
         if (lightSimilarity != 1) {
-            attributeValuesNewJSON.add("Needs different light.");
+            attributeValuesNewJSON.add("Needs different light." + queryResult.getValue("light_level")[0]);
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
