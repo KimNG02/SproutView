@@ -3,10 +3,11 @@ package se.kth.ii1305.gulsparv.sproutview;
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
+
+
+
 public class PlantCalculator {
 
-
-    int index;
     private static PlantCalculator INSTANCE = new PlantCalculator();
 
     private PlantCalculator() {
@@ -17,6 +18,8 @@ public class PlantCalculator {
         return INSTANCE;
 
     }
+
+    int indexValueOfMatchingElements = -1;
 
     public JSONObject calculateTimeline(JSONObject options, JSONObject queryResult) {
 
@@ -42,7 +45,7 @@ public class PlantCalculator {
     
 
         StringJoiner joiner = new StringJoiner(" & ");
-        for(int i = 0; i< resultLight.length;i++){
+        for(int i = 0; i < resultLight.length;i++){
             joiner.add(resultLight[i]);
         }
         String allLights = joiner.toString();
@@ -91,8 +94,11 @@ public class PlantCalculator {
 
         StringJoiner plantCareJoiner = new StringJoiner(" & ");
         for(int k = 0; k < optionsPlantCare.length; k++){
-           
-            plantCareJoiner.add(optionsPlantCare[k]);
+            if(indexValueOfMatchingElements > 0){
+                if(k != indexValueOfMatchingElements){
+                    plantCareJoiner.add(optionsPlantCare[k]);
+                }
+            }
         }
 
         String allPlantCare = plantCareJoiner.toString();
@@ -153,19 +159,14 @@ public class PlantCalculator {
         if (lightSimilarity != 1) {
             attributeValuesNewJSON.add("Instead of " + optionsLight + ", your plant needs " + allLights + " instead.");
             
-        } else if(lightSimilarity == 1) {
+        } else{
             attributeValuesNewJSON.add("Good job!");
-        }else{
-            attributeValuesNewJSON.add("");
-        }
+             }
 
         if (soilSimilarity != 1) {
             attributeValuesNewJSON.add("Instead of " +  optionsSoil +", your plant needs " + queryResult.getValue("soil")[0]);
-        } else if(soilSimilarity == 1) {
+        } else {
             attributeValuesNewJSON.add("Good job!");
-        }else{
-            attributeValuesNewJSON.add("");
-
         }
 
         if (waterSimilarity != 1) {
@@ -388,38 +389,26 @@ public class PlantCalculator {
 
         return 0;
     }
-    /*
-    public double plantCareCompare(String care1, String care2) {
-        double res = 0;
 
-        if (care1.equals(care2)) {
-            res = 1;
-        }
-        return res;
-
-    }
-    */
 
  
 
     public double plantCareCompareSeveral(String[] care1, String[] care2) {
-        
         double res = 1;
         int length1 = care1.length;
         int length2 = care2.length;
 
         if(length1 != length2){
             for (int n = 0; n < care1.length; n++) { 
-                for (int k = 0; k < care1.length; k++) {
-                    
                 
-                if(!care1[n].equals(care2[k])){
+                if(!care1[n].equals(care2[0])){
                     res = res - 0.25;
-                    }
+                }else{
+                    indexValueOfMatchingElements = n;
                 }
             }
         }
-/*
+
         if(length1 == length2){
             if((care1[0].equals(care2[0]))){
                 return res;
@@ -427,17 +416,10 @@ public class PlantCalculator {
             else{
                 res = res - 0.25;
             }
-            
-        }
-*/
-            
-       return res;               
+            }
+       return res;
     }
-        
-       
     
-
-        
            
 
         /*if (length1 > 0 && length1 < length2) {// Kommer inte ske ifall databasen bara har ett värde
@@ -457,7 +439,7 @@ public class PlantCalculator {
         }
 
         return res;
-    }
+        }
     */
 
     public double humidityCompare(String humidity1String, String humidity2String) {

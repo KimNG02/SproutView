@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./styles/Healthy.css";
 
-function Healthy({ timelineData }) {
+function Healthy({ timelineData, selectedPlant }) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
 

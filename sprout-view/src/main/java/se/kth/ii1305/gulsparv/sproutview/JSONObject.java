@@ -113,7 +113,8 @@ public class JSONObject {
         int arrayLength = result.getMetaData().getColumnCount();
         attributeNames = new String[arrayLength];
 
-        ArrayList<String>[] attributeValuesPreliminary = new ArrayList[arrayLength];
+        ArrayList<String>[] attributeValuesPreliminary = new ArrayList [arrayLength];
+
 
         for (int n = 0; n < arrayLength; n++) {
             attributeValuesPreliminary[n] = new ArrayList<String>();

@@ -125,6 +125,7 @@ function makeRouter({
           optionsObj={optionsObj}
           timelinePage={timelinePage}
           setTimelinePage={setTimelinePage}
+          selectedPlant={selectedPlant}
         />
       ),
     },

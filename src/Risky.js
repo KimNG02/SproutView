@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./styles/Risky.css";
 
-function Risky({ timelineData }) {
+function Risky({ timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
 
@@ -28,7 +28,7 @@ function Risky({ timelineData }) {
           <section className="timeline-section" id="risky-timeline">
             <h1>Risky Growth</h1>
             <h4>
-              Your Cactus plant will grow relaitvely well, but you can do even
+              Your {selectedPlant} plant will grow relaitvely well, but you can do even
               better!
             </h4>
             <div className="risky-circle-container">

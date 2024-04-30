@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./styles/Dead.css";
 
-function Dead({ timelineData }) {
+function Dead({ timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
 
@@ -28,7 +28,7 @@ function Dead({ timelineData }) {
           <section className="timeline-section" id="dead-timeline">
             <h1>Oh no!!!</h1>
             <h4>
-              Your Cactus plant will not be able to grow in your current
+              Your {selectedPlant} plant will not be able to grow in your current
               environment
             </h4>
             <div className="dead-circle-container">

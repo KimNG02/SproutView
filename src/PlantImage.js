@@ -23,6 +23,7 @@ function PlantImage({src, index, filter, click}) {
         onClick={() => click(src)} 
         src={`/api/image/${src}`} 
         alt={`${index + 1}`} 
+        key={index}
         {...hover}/>
       );
 }

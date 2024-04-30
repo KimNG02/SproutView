@@ -4,7 +4,7 @@ import ApiServiceHandler from "./apiServiceHandler.js";
 import CountrySelector from "./CountrySelector.js";
 import envPageImage from "./images/leavesmin.png";
 import leavesImage from "./images/leaves.webp";
-
+import plant from "./images/optimg.png";
 import Toolbar from "./Toolbar.js";
 
 const Options = ({ selectedPlant, handleOptionsObject }) => {
@@ -104,9 +104,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         <h1 className="topic">Select Environment Options</h1>
       </div>
       <div className="square">
-        <div className="image-section">
-          <img src={envPageImage} alt="plant pot" className="envimage" />
-        </div>
         {/* <div className='options-section'>
         <CountrySelector />
       </div> */}
@@ -407,22 +404,17 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             </div>
           </div>
         </div>
-        
-        <div className="image-section">
-          <img src={leavesImage} alt="plant pot" className="leavesimage" />
-        </div>
       </div>
+      <img id="plant" src={plant} alt="plant"/>
 
       <div>
         <div className="confirm-zone">
-          <a href="#timeline">
-            <div className="options-section"> 
-            <button className="button" onClick={confirmOptionsCB}>
+              <a href="#timeline">
+              <button className="button" onClick={confirmOptionsCB}>
             
               Generate
-            </button>
-            </div>
-          </a>
+              </button>
+              </a>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, createElement } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter-remake2";
 import "./styles/App.css";
 import Alphabet from "./Alphabet";
-import frontpageImage from "./images/front.jpg";
+import frontpageImage from "./images/fornt.png";
 import icon from "./images/icon.png";
 import { type } from "@testing-library/user-event/dist/type";
 import apiServiceHandler from "./apiServiceHandler";
@@ -31,7 +31,6 @@ const App = ({
     delayTime: 2000,
   });
 
-  
 
   useEffect(() => {
     const handleOnFetch = (response) => {
@@ -85,6 +84,7 @@ const App = ({
   };
 
   const handleLetterClick = (letter) => {
+    letter = String.fromCharCode(letter.charCodeAt(0)+32);
     setSelectedLetter(letter);
     scrollToLetter(letter);
   };
@@ -95,6 +95,7 @@ const App = ({
       letterElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <div>
       {plantString ? (

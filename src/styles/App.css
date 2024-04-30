@@ -116,7 +116,7 @@ body {
 
 .frontimage {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   max-width: 1;
   object-fit: cover;
   padding-top: 0;
@@ -138,11 +138,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  top: 37%;
+  top: 44%;
   left: 50%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: xx-large;
-  height: 40%;
+  height: 45%;
   width: 100%;
   animation-fill-mode: both;
   animation-duration: 2s;

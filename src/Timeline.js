@@ -16,7 +16,7 @@ async function getTimeline(optionsObj) {
   return await apiServiceHandler.getTimeline(stuff);
 }
 
-function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
+function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
   const [timelineData, setTimelineData] = useState(null);
   const [similarityTest, setSimilarityTest] = useState(1.0);
 
@@ -54,13 +54,13 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage }) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
       handleTimelinePage("Healthy");
-      timelineComponent = <Healthy timelineData={timelineData} />;
+      timelineComponent = <Healthy timelineData={timelineData} selectedPlant = {selectedPlant} />;
     } else if (similarity >= 0.5) {
       handleTimelinePage("Risky");
-      timelineComponent = <Risky timelineData={timelineData} />;
+      timelineComponent = <Risky timelineData={timelineData} selectedPlant = {selectedPlant}/>;
     } else {
       handleTimelinePage("Dead");
-      timelineComponent = <Dead timelineData={timelineData} />;
+      timelineComponent = <Dead timelineData={timelineData} selectedPlant = {selectedPlant}/>;
     }
   }
   
