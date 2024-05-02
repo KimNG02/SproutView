@@ -6,6 +6,11 @@ class ApiServiceHandler {
       return out;
     }
 
+    getTimelineImages(){
+      const out = http.get(`/timelineImages`);
+      return out;
+    }
+
     getPlants() {
       return http.get('/plants')
     }

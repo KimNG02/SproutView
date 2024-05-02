@@ -227,3 +227,17 @@ body {
   color: rgb(85, 85, 85);
 }
 
+.vision-section {
+  margin-top: 4vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.vision-text {
+  width: 50%;
+  object-fit: cover;
+  padding-top: 0;
+  padding-bottom: 400px;
+  background-color: #bfdb9d;
+}

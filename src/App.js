@@ -85,7 +85,7 @@ const App = ({
 
   const handleLetterClick = (letter) => {
     letter = String.fromCharCode(letter.charCodeAt(0)+32);
-    setSelectedLetter(letter);
+      setSelectedLetter(letter);
     scrollToLetter(letter);
   };
 
@@ -129,6 +129,15 @@ const App = ({
             </button>
           </div>
         </section>
+
+        {/*<section className="vision-section">
+          <div className="vision-text">
+            <p>
+                blablablibli
+            </p>
+          </div>
+        </section>*/}
+
         <section className="plant-section" ref={plantSelectRef}>
           <div className="flex">
             <img className="icon" alt="icon" src={icon}></img>

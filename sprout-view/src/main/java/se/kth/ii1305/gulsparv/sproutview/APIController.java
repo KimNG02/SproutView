@@ -54,10 +54,10 @@ public class APIController {
         return new ResponseEntity<String>(message, HttpStatusCode.valueOf(code));
     }
 
-    @GetMapping(value = "image/{plant:.+}", produces = "image/png")
-    public ResponseEntity<Resource> image(@PathVariable("plant") String plant) throws IOException {
+    @GetMapping(value = "image/{image:.+}", produces = "image/png")
+    public ResponseEntity<Resource> image(@PathVariable("image") String image) throws IOException {
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
-                "sprout-view/src/main/resources/assets/"+plant+".png"
+                "sprout-view/src/main/resources/assets/"+image+".png"
         )));
         return ResponseEntity
                 .status(HttpStatus.OK)

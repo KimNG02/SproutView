@@ -52,7 +52,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
 
   const handleSeasonClick = (season) => {
     setSelectedSeason(season);
-    setSeasonPart(""); // Reset season part when a new season is selected
+    setSeasonPart(null); // Reset season part when a new season is selected
   };
 
   const handleSeasonPartClick = (part) => {
@@ -66,6 +66,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
+
+ 
 
   /* Options, stored in OptionsObj */
   /* plant, light, water, soil, temp, potSize, plantCare, humidity, pH */
@@ -98,6 +100,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
     setHumidity(event.target.value);
   };
 
+  
+
   return (
     <div className="options-container">
       <div className="font-container">
@@ -114,25 +118,26 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             <h2>During which season do you plan to plant?</h2>
             <div className="season-buttons">
               <button
-                className="season"
+                className={`season ${selectedSeason === "Spring" && "selected"}`}
                 onClick={() => handleSeasonClick("Spring")}
+                
               >
                 Spring
               </button>
               <button
-                className="season"
+                className={`season ${selectedSeason === "Summer" && "selected"}`}
                 onClick={() => handleSeasonClick("Summer")}
               >
                 Summer
               </button>
               <button
-                className="season"
+                className={`season ${selectedSeason === "Autumn" && "selected"}`}
                 onClick={() => handleSeasonClick("Autumn")}
               >
                 Autumn
               </button>
               <button
-                className="season"
+                className={`season ${selectedSeason === "Winter" && "selected"}`}
                 onClick={() => handleSeasonClick("Winter")}
               >
                 Winter
@@ -141,14 +146,20 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
 
             {selectedSeason && (
               <div className="secondary-buttons">
-                <button>Early</button>
-                <button className="Late">Late</button>
+                 <button 
+                    className={`early-late ${seasonPart === "early" && "selected"}`}
+                    onClick={() => handleSeasonPartClick("early")}
+                >Early</button> 
+                <button 
+                className={`early-late ${seasonPart === "late" && "selected"}`}
+                onClick={() => handleSeasonPartClick("late")}
+                >Late</button>
               </div>
             )}
           </div>
           {/* Pot Size Options */}
           <div className="options-section">
-            <h2>How large is the pot you wish to plant in?*</h2>
+          <h2>How large is the pot you wish to plant in?*</h2>
             <select
               value={potSize}
               onChange={(e) => setPotSize(e.target.value)}
@@ -161,6 +172,18 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <option value="large">Large</option>
               <option value="extra large">X-Large</option>
             </select>
+            
+            <div className="tooltip" >
+            <span class="linked-font">Size Guide</span>
+                <span class="tooltiptext">
+                  Diameter range: <br /><br />
+                  X-small: 12-16 cm (1-2 Liter)<br />
+                  Small: 17-20 cm (2-4 Liter)<br />
+                  Medium:21-29 cm (4-10 Liter)<br />
+                  Large: 30-39 cm (10-25 Liter)<br />
+                  X-large: 40-50 cm (25-40 Liter)<br />
+                </span>
+              </div>
           </div>
 
           {/*Light-level*/}
@@ -173,7 +196,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 day?*
               </h2>
               <button
-                className="Full-sun"
+                className={'Fullsun'}
                 onClick={() => handleLightClick("full sun")}
               >
                 {" "}
@@ -186,7 +209,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className="Partial sun"
+                className={`Partialsun ${selectedLight === "partial sun" && "selectearly-late"}`}
                 onClick={() => handleLightClick("partial sun")}
               >
                 {" "}
@@ -199,7 +222,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className="Shade"
+                className={`Shade ${selectedLight === "shade" && "selectearly-late"}`}
                 onClick={() => handleLightClick("shade")}
               >
                 {" "}
@@ -389,8 +412,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 id="myRange"
                 onChange={handleSliderChange}
               />
-              <div className="slider-value">{sliderValue} </div>
-              <p className="place">°C</p>
+              <div className="slider-value">{sliderValue} °C</div>
+              
             </div>
           </div>
 
@@ -405,7 +428,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           </div>
         </div>
       </div>
-      <img id="plant" src={plant} alt="plant"/>
 
       <div>
         <div className="confirm-zone">
@@ -416,7 +438,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               </button>
               </a>
         </div>
-      </div>
+      </div>      
+      <img id="plant" src={plant} alt="plant"/>
     </div>
   );
 };

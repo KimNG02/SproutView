@@ -188,7 +188,10 @@ public class PlantCalculator {
         }
 
         if (plantCareSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+            if(!allPlantCare.equals("")){
+                attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+            }
+            attributeValuesNewJSON.add("Instead of using no plantcare" + ", use " + resultPlantCare[0] + " instead.");
         } else if( plantCareSimilarity == 0) {
             attributeValuesNewJSON.add("");
         }else {
@@ -404,7 +407,7 @@ public class PlantCalculator {
             for (int n = 0; n < care1.length; n++) { 
                 
                 if(!care1[n].equals(care2[0])){
-                    res = res - 0.25;
+                    res = res - 0.05;
                 }else{
                     indexValueOfMatchingElements = n;
                 }
@@ -416,7 +419,7 @@ public class PlantCalculator {
                 return res;
             }
             else{
-                res = res - 0.25;
+                res = res - 0.05;
             }
             }
        return res;

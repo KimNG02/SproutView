@@ -5,6 +5,7 @@ import { useHref } from "react-router-dom";
 import Healthy from "./Healthy.js";
 import Risky from "./Risky.js";
 import Dead from "./Dead.js";
+import TimelineImage from "./TimelineImage.js";
 
 async function getTimeline(optionsObj) {
   const stuff = JSON.stringify(optionsObj)
@@ -16,17 +17,40 @@ async function getTimeline(optionsObj) {
   return await apiServiceHandler.getTimeline(stuff);
 }
 
+async function getTimelineImages(stageAndVariant) {
+  return await apiServiceHandler.getTimelineImages(stageAndVariant);
+}
+
 function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
   const [timelineData, setTimelineData] = useState(null);
+
+  const [timelineSprout, setTimelineSprout] = useState(null);
+  const [timelineVegetative, setTimelineVegetative] = useState(null);
+  const [timelineFlowering, setTimelineFlowering] = useState(null);
+  const [timelineMature, setTimelineMature] = useState(null);
+
   const [similarityTest, setSimilarityTest] = useState(1.0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getTimeline(optionsObj);
+
+        const sproutResponse = <TimelineImage src={"sproutBasic"} />;
+        const vegetativeResponse = <TimelineImage src={"vegetativeBasic"} />;
+        const floweringResponse = <TimelineImage src={"floweringBasic"} />;
+        const matureResponse = <TimelineImage src={"matureBasic"} />;
+
+
         console.log(response);
         console.log(response.data);
         setTimelineData(response.data);
+        
+        setTimelineSprout(sproutResponse.data);
+        setTimelineSprout(vegetativeResponse.data);
+        setTimelineSprout(floweringResponse.data);
+        setTimelineSprout(matureResponse.data);
+
       } catch (error) {
         console.error("Error fetching timeline data:", error);
       }
@@ -54,7 +78,8 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
       handleTimelinePage("Healthy");
-      timelineComponent = <Healthy timelineData={timelineData} selectedPlant = {selectedPlant} />;
+      timelineComponent = <Healthy timelineData={timelineData} selectedPlant = {selectedPlant}
+        />;
     } else if (similarity >= 0.5) {
       handleTimelinePage("Risky");
       timelineComponent = <Risky timelineData={timelineData} selectedPlant = {selectedPlant}/>;
@@ -76,7 +101,8 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
       {timelineData ? (
         <div>{timelineComponent}</div>
       ) : (
-        <div className="loading-screen">
+
+<div className="loading-screen">
           <img
             className="loading-screen"
             src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"

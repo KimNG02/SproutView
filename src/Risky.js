@@ -4,21 +4,60 @@ import "./styles/Risky.css";
 function Risky({ timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
+  const [sprout, setSprout] = useState(true);
+  const [vegetative, setVegetative] = useState(false);
+  const [flowering, setFlowering] = useState(false);
+  const [mature, setMature] = useState(false);
 
   const scrollToSuggestions = () => {
     suggestionsRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleChange = (event) => {
-    setValue(parseInt(event.target.value));
+  const handleChange = (event, num = null) => {
+    var valueHere = null;
+    num ? valueHere = num : valueHere = parseInt(event.target.value)
+    switch (valueHere) {
+      case 1:
+        setSprout(true);
+        setVegetative(false);
+        setFlowering(false);
+        setMature(false);
+        break;
+      case 2:
+          setSprout(false);
+          setVegetative(true);
+          setFlowering(false);
+          setMature(false);
+        break;
+      case 3:
+        setSprout(false);
+        setVegetative(false);
+        setFlowering(true);
+        setMature(false);
+        break;
+      case 4:
+        setSprout(false);
+        setVegetative(false);
+        setFlowering(false);
+        setMature(true);
+        break;
+    
+      default:
+        break;
+    }
+    setValue(valueHere);
   };
 
-  const incrementValue = () => {
-    setValue((prevValue) => Math.min(prevValue + 1, 4));
+  const incrementValue = (event) => {
+    const newValue = Math.min(value + 1, 4);
+    setValue(newValue);
+    handleChange(event, newValue);
   };
-
-  const decrementValue = () => {
-    setValue((prevValue) => Math.max(prevValue - 1, 1));
+  
+  const decrementValue = (event) => {
+    const newValue = Math.max(value - 1, 1);
+    setValue(newValue);
+    handleChange(event, newValue);
   };
 
   return (
@@ -35,10 +74,14 @@ function Risky({ timelineData, selectedPlant}) {
               <button className="arrow left-arrow" onClick={decrementValue}>
                 &lt;
               </button>
-              <img
+                {sprout && <img src="api/image/sproutBasic" alt="whatever"/>}
+                {vegetative && <img src="api/image/vegetativeBasic" alt="whatever"/>}
+                {flowering && <img src="api/image/floweringBasic" alt="whatever"/>}
+                {mature && <img src="api/image/matureBasic" alt="whatever"/>}
+              {/* <img
                 src="https://s3-alpha-sig.figma.com/img/f5fa/dea8/ae7a8dcc084c12df9e01036341062518?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VNxZyqfpWqjUdqFj3zNKZsDDFkwapTlVDHoghvHqxYDW-EtPL6xk64xrdGje0BGAfQyJGrHOlJHso6eNZWDFaxZBg3HdkgjfGCvX5XlJIouSKJv4x7Za~U9yYLP~9aIf2OMYapfAP~zzDlvqHVeEP39PEYE8k9CmfesFqUaqk~dMsyw-g2UxtBiUTPdXmqlZABAb~OtoF4Icf48QitOIvU0uZKGlLWkPqYuZcsX3qY6wOq3hP~d9ly9ILkGyqkk4Mk-oRpyVc0dvJr9ylvThsS~BoK-yNE8bbzByN3NttW052PzoRxCx0TmKBwqkweJEqmvNGrtBz07z2h~u6VCODQ__"
                 alt="Healthy Plant"
-              />
+              /> */}
               <button className="arrow right-arrow" onClick={incrementValue}>
                 &gt;
               </button>
@@ -67,8 +110,9 @@ function Risky({ timelineData, selectedPlant}) {
                 </span>
               </div>
             </div>
-
-            <h2 onClick={scrollToSuggestions}>HELP!</h2>
+            <div id="helpbuttoncontainer">
+              <button id="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
+            </div>
           </section>
           <section
             ref={suggestionsRef}
@@ -98,14 +142,14 @@ function Risky({ timelineData, selectedPlant}) {
                   <strong>Plant Care:</strong>
                   <span>{timelineData.plantCareComment}</span>
                 </div>
-                <div className="comment">
+                {timelineData.phComment ? <div className="comment">
                   <strong>pH:</strong>
                   <span>{timelineData.phComment}</span>
-                </div>
-                <div className="comment">
+                </div> : <div></div>}
+                {timelineData.humidityComment ? <div className="comment">
                   <strong>Humidity:</strong>
                   <span>{timelineData.humidityComment}</span>
-                </div>
+                </div> : <div></div>}
               </div>
             </div>
           </section>
