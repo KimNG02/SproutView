@@ -4,6 +4,8 @@
   background-color: inherit;
   color: #333;
   padding: 10px 10px; /* Adjusted padding */
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content {
