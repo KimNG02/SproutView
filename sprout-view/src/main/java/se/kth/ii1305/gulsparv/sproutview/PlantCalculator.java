@@ -1,5 +1,7 @@
 package se.kth.ii1305.gulsparv.sproutview;
 
+import java.io.File;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
@@ -188,10 +190,7 @@ public class PlantCalculator {
         }
 
         if (plantCareSimilarity != 1) {
-            if(!allPlantCare.equals("")){
-                attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
-            }
-            attributeValuesNewJSON.add("Instead of using no plantcare" + ", use " + resultPlantCare[0] + " instead.");
+            attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
         } else if( plantCareSimilarity == 0) {
             attributeValuesNewJSON.add("");
         }else {
@@ -349,7 +348,7 @@ public class PlantCalculator {
 
         int sizeDifference = size1Int - size2Int;
 
-        if (sizeDifference >= 0) {
+        if (sizeDifference <= 0) {
             if (sizeDifference == -1) {
                 return 0.9;
             }
