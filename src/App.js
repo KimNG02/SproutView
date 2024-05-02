@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, createElement } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter-remake2";
 import "./styles/App.css";
-import "./styles/MediaQueries.css";
 import Alphabet from "./Alphabet";
 import frontpageImage from "./images/fornt.png";
 import icon from "./images/icon.png";
