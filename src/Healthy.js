@@ -28,7 +28,7 @@ function Healthy({ timelineData, selectedPlant }) {
           <section className="timeline-section" id="healthy-timeline">
             <h1>Healthy Growth</h1>
             <h4>
-              Your Cactus plant will grow healthily in the following stages
+              Your {selectedPlant} plant will grow healthily in the following stages
             </h4>
             <div className="healthy-circle-container">
               <button className="arrow left-arrow" onClick={decrementValue}>

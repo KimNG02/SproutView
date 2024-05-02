@@ -189,7 +189,9 @@ public class PlantCalculator {
 
         if (plantCareSimilarity != 1) {
             attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
-        } else {
+        } else if( plantCareSimilarity == 0) {
+            attributeValuesNewJSON.add("");
+        }else {
             attributeValuesNewJSON.add("Good job!");
         }
 
