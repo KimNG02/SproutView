@@ -16,8 +16,8 @@
 
 .dead-circle-container {
   position: relative;
-  width: 40vh; /* Adjust the size of the circle */
-  height: 40vh; /* Adjust the size of the circle */
+  width: 45vh; /* Adjust the size of the circle */
+  height: 45vh; /* Adjust the size of the circle */
   background-color: #f49797;
   border-radius: 50%; /* Ensures the container is a circle */
   margin: 0 auto; /* Centers the container horizontally */
@@ -30,6 +30,7 @@
 }
 
 .dead-circle-container::after {
+  background-color: #f4979700;
   content: "Help!";
   position: absolute;
   top: -20px;
@@ -47,8 +48,8 @@
 }
 
 .dead-circle-container img {
-  max-width: 60%; /* Ensures the image does not exceed the container */
-  max-height: 60%; /* Ensures the image does not exceed the container */
+  max-width: 85%; /* Ensures the image does not exceed the container */
+  max-height: 85%; /* Ensures the image does not exceed the container */
 }
 
 .arrow {

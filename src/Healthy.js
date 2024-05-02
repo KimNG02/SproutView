@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./styles/Healthy.css";
+import "./styles/Timeline.css";
 
 function Healthy({ timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
@@ -64,8 +65,8 @@ function Healthy({ timelineData, selectedPlant}) {
     <div className="healthy-container">
       {timelineData ? (
         <div>
-          <section className="timeline-section" id="healthy-timeline">
-            <h1>Healthy Growth</h1>
+          <section className = "timeline-section" id="healthy-timeline">
+            <h1 classname="growth-title">Healthy Growth</h1>
             <h4>
               Your {selectedPlant} plant will grow healthily in the following stages
             </h4>

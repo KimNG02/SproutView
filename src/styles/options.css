@@ -16,36 +16,16 @@ body {
   flex-direction: row;
 }
 
-button:active{
-  background: #0c0c0c;
-}
 
-button:focus{
-  background: #ccc;
-}
-
-.early-late.selected{
+.selected{
   background-color: #bfdb9d;
   color: #799655;
 }
 
-
-/*
-.selected button:active,
-.selected button:focus,
-
-.Shade .Partialsun .Fullsun .selectearly-late{
+.chosen-color{
   background-color: #bfdb9d;
   color: #799655;
 }
-*/
-
-.options-section .button,
-:after {
-  background-color: #dc0f0f;
-  color: #f618d1;
-}
-
 
 
 
@@ -109,10 +89,10 @@ button:focus{
 }
 
 #plant {
-  bottom: 491px;
+  bottom: 499px;
   height: 441px;
   position: relative;
-  right: -76%;
+  right: -80%;
   width: auto;
 }
 
@@ -254,6 +234,7 @@ button:focus{
 .secondary-buttons {
   width: fit-content; /* Ensures the button width is as wide as its content */
   padding-top: 10px;
+  flex-direction: row;
 }
 
 .confirm-button {
@@ -275,7 +256,7 @@ button:focus{
 .square {
   box-shadow: 0 0 7px rgba(41, 74, 34, 0.2);
   padding-top: 5vw;
-  padding-bottom: 10px;
+  padding-bottom: 4.5vw;
   max-height: max-content;
   background-color: #fdfdfd;
   justify-content: space-around;

@@ -16,8 +16,8 @@
 
 .risky-circle-container {
   position: relative;
-  width: 30vh; /* Adjust the size of the circle */
-  height: 30vh; /* Adjust the size of the circle */
+  width: 45vh; /* Adjust the size of the circle */
+  height: 45vh; /* Adjust the size of the circle */
   background-color: #f6ea83;
   border-radius: 50%; /* Ensures the container is a circle */
   margin: 0 auto; /* Centers the container horizontally */
@@ -30,8 +30,8 @@
 }
 
 .risky-circle-container img {
-  max-width: 60%; /* Ensures the image does not exceed the container */
-  max-height: 60%; /* Ensures the image does not exceed the container */
+  max-width: 85%; /* Ensures the image does not exceed the container */
+  max-height: 85%; /* Ensures the image does not exceed the container */
 }
 
 .slider-container {

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./styles/Dead.css";
+import "./styles/Timeline.css";
 
 function Dead({ timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
@@ -12,7 +13,7 @@ function Dead({ timelineData, selectedPlant}) {
       {timelineData ? (
         <div>
           <section className="timeline-section" id="dead-timeline">
-            <h1>Oh no!!!</h1>
+            <h1 className="growth-title">Oh no!!!</h1>
             <h4>
               Your {selectedPlant} plant is unlikely to grow in your current
               environment

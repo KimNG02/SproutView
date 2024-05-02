@@ -67,8 +67,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
     setSliderValue(event.target.value);
   };
 
- 
-
   /* Options, stored in OptionsObj */
   /* plant, light, water, soil, temp, potSize, plantCare, humidity, pH */
   const confirmOptionsCB = () => {
@@ -196,8 +194,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 day?*
               </h2>
               <button
-                className={'Fullsun'}
-                onClick={() => handleLightClick("full sun")}
+                className={`Fullsun ${selectedLight === "full sun" ? "chosen-color" : ""}`}
+                onClick={() => handleLightClick("full sun") }
               >
                 {" "}
                 <div className="tooltip">
@@ -209,7 +207,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className={`Partialsun ${selectedLight === "partial sun" && "selectearly-late"}`}
+                className={`Partialsun ${selectedLight === "partial sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("partial sun")}
               >
                 {" "}
@@ -222,7 +220,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className={`Shade ${selectedLight === "shade" && "selectearly-late"}`}
+                className={`Shade ${selectedLight === "shade" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("shade")}
               >
                 {" "}
