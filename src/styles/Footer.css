@@ -5,6 +5,7 @@
   color: #333;
   padding: 10px 10px; /* Adjusted padding */
   bottom: 0;
+  position:relative;
   width: 100%;
 }
 
