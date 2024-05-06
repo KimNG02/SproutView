@@ -148,6 +148,14 @@ body {
   transition: opacity 0.75s;
 }
 
+.light-options .tooltip .tooltiptext{
+  bottom: 140%;
+}
+
+.light-options .tooltip .tooltiptext{
+  bottom: 140%;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -174,7 +182,7 @@ body {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor:pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -268,9 +276,36 @@ body {
 @media only screen and (max-width: 768px) {
   .square {
     width: auto;
+    flex-direction: column;
+  }
+
+  .box2{
+    width: 100vw;
   }
 
   #plant {
-    right: -30%;
+    display: none;
+  }
+
+  .options-section{
+    margin: 0;
+  }
+
+  
+
+  .options-section button,
+  .season-options button, .confirm-zone button {
+    font-size: 12px;
+    padding: 8px 14px;
+    
+  }
+
+  .light-options .tooltip .tooltiptext{
+    width: 130px;
+    font-size: 12px;
+  }
+
+  .margin-inline{
+    margin-inline: 5px;
   }
 }
