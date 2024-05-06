@@ -114,25 +114,25 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             <h2>During which season do you plan to plant?</h2>
             <div className="season-buttons">
               <button
-                className="season"
+                className="margin-inline"
                 onClick={() => handleSeasonClick("Spring")}
               >
                 Spring
               </button>
               <button
-                className="season"
+                className="margin-inline"
                 onClick={() => handleSeasonClick("Summer")}
               >
                 Summer
               </button>
               <button
-                className="season"
+                className="margin-inline"
                 onClick={() => handleSeasonClick("Autumn")}
               >
                 Autumn
               </button>
               <button
-                className="season"
+                className="margin-inline"
                 onClick={() => handleSeasonClick("Winter")}
               >
                 Winter
@@ -142,7 +142,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             {selectedSeason && (
               <div className="secondary-buttons">
                 <button>Early</button>
-                <button className="Late">Late</button>
+                <button className="margin-inline">Late</button>
               </div>
             )}
           </div>
@@ -173,7 +173,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 day?*
               </h2>
               <button
-                className="Full-sun"
+                className="margin-inline"
                 onClick={() => handleLightClick("full sun")}
               >
                 {" "}
@@ -186,7 +186,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className="Partial sun"
+                className="margin-inline"
                 onClick={() => handleLightClick("partial sun")}
               >
                 {" "}
@@ -199,7 +199,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
               </button>
               <button
-                className="Shade"
+                className="margin-inline"
                 onClick={() => handleLightClick("shade")}
               >
                 {" "}

@@ -5,7 +5,6 @@ body {
   background-color: #edf9e7;
 }
 
-
 .season-buttons {
   flex-direction: row;
 }
@@ -43,27 +42,7 @@ body {
   margin-bottom: 1vh;
 }
 
-.country {
-  font-family: ABeeZee;
-}
-
-.season {
-  margin-inline: 10px;
-}
-
-.Late {
-  margin-inline: 10px;
-}
-
-.Full-sun {
-  margin-inline: 10px;
-}
-
-.Partial-sun {
-  margin-inline: 10px;
-}
-
-.Shade {
+.margin-inline {
   margin-inline: 10px;
 }
 
@@ -91,12 +70,6 @@ body {
   padding-top: 40px;
   margin-bottom: 70px;
   color: rgb(40, 40, 40);
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .options-section {
@@ -186,11 +159,6 @@ body {
   align-items: center;
 }
 
-.climate-zone h2 {
-  margin-bottom: 10px;
-  color: #4caf50;
-}
-
 .zone {
   width: 100%;
   padding: 10px;
@@ -219,13 +187,6 @@ body {
   padding-top: 10px;
 }
 
-.confirm-button {
-  display: block; /* Makes the button a block element */
-  width: fit-content; /* Ensures the button width is as wide as its content */
-  margin: 10px; /* Centers the button horizontally and adds space above */
-  margin-left: 160px;
-}
-
 .potSize-dropdown {
   width: 40%; /* Makes the dropdown full width of its container */
   padding: 8px 10px;
@@ -248,12 +209,6 @@ body {
 
 .options-container .image-section {
   display: inline-block;
-}
-
-.envimage {
-  max-width: 150%;
-  max-height: 150%;
-  float: right;
 }
 
 .box2 {
