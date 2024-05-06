@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap");
 @import url("https://fonts.googleapis.com/css?family=ABeeZee&family=ABeeZee&display=swap");
 
+/* App CSS */
 #app-main {
   background-color: #f8fbfc;
 }
@@ -240,4 +241,67 @@ body {
   padding-top: 0;
   padding-bottom: 400px;
   background-color: #bfdb9d;
+}
+/* Media Queries */
+
+/* Adjustments for mobile devices */
+@media only screen and (max-width: 768px) {
+  .logo {
+    text-align: center; /* Center the logo text */
+    font-size: 18px; /* Decrease font size for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+    margin-bottom: 10px; /* Increase margin bottom for better spacing */
+  }
+
+  .icon {
+    height: 30px; /* Decrease icon size for smaller screens */
+    width: 30px; /* Decrease icon size for smaller screens */
+    padding-right: 5px; /* Adjust icon padding for smaller screens */
+  }
+
+  .image-section {
+    height: auto; /* Adjust height to auto for smaller screens */
+    padding-bottom: 8vh; /* Adjust padding bottom for smaller screens */
+  }
+
+  .frontimage {
+    height: 75vh; /* Adjust height to auto for smaller screens */
+  }
+
+  .image-text {
+    top: 55%; /* Adjust top position for smaller screens */
+    height: 60%; /* Adjust height for smaller screens */
+  }
+
+  .react-typewriter-text {
+    font-size: 24px; /* Decrease font size for smaller screens */
+  }
+
+  .cta-btn {
+    font-size: 16px; /* Decrease font size for smaller screens */
+    padding: 12px 24px; /* Adjust padding for smaller screens */
+    margin-top: 4rem; /* Adjust margin top for smaller screens */
+  }
+
+  .plant-section {
+    margin: 0 2rem; /* Adjust margin for smaller screens */
+  }
+
+  .choice {
+    font-size: 24px; /* Decrease font size for smaller screens */
+    margin-left: 0; /* Remove left margin for smaller screens */
+    text-align: center; /* Center the choice text */
+  }
+
+  .icon {
+    margin-top: 0; /* Remove top margin for smaller screens */
+  }
+
+  .image-text .intro-section h2 {
+    font-size: 36px; /* Decrease font size for smaller screens */
+  }
+
+  .image-section p {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
 }

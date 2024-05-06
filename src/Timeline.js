@@ -34,6 +34,8 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        //const responseData = {similarity:"0.78",lightComment:"Good job!",soilComment:"Good job!",waterComment:"Instead of watering your plant every 3 days, you should water it every 2 days.",tempComment:"Good job!", potSizeComment:"Good job!",plantCareComment:"Good job!",humidityComment:"Good job!",phComment:"Good job!",sproutTime:"7-14 days",vegetativeTime:"8-12 weeks",floweringTime:"12-14 weeks",matureTime:"14-16 weeks"}
+
         const response = await getTimeline(optionsObj);
 
         const sproutResponse = <TimelineImage src={"sproutBasic"} />;

@@ -12,7 +12,7 @@ public class DBHandler {
 
     private DBHandler() {}
 
-    private String server = "jdbc:postgresql://127.0.0.1:5432/sprouttest";
+    private String server = "jdbc:postgresql://130.229.128.189:5432/sprouttest";
     private String user = "postgres";
     private String password = "7631";
 

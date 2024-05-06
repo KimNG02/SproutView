@@ -68,8 +68,8 @@ function Risky({ timelineData, selectedPlant}) {
           <section className="timeline-section" id="risky-timeline">
             <h1 className="growth-title">Risky Growth</h1>
             <h4>
-              Your {selectedPlant} plant will grow relaitvely well, but you can do even
-              better!
+              Your {selectedPlant} plant will grow relaitvely well, 
+              but you can do even better!
             </h4>
             <div className="risky-circle-container">
               <button className="arrow left-arrow" onClick={decrementValue}>

@@ -5,15 +5,13 @@ body {
   background-color: #edf9e7;
 }
 
-/* .season-options {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-} */
-
 .season-buttons {
   flex-direction: row;
+}
+
+.options-container{
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -58,27 +56,7 @@ body {
   margin-bottom: 1vh;
 }
 
-.country {
-  font-family: ABeeZee;
-}
-
-.season {
-  margin-inline: 10px;
-}
-
-.Late {
-  margin-inline: 10px;
-}
-
-.Full-sun {
-  margin-inline: 10px;
-}
-
-.Partial-sun {
-  margin-inline: 10px;
-}
-
-.Shade {
+.margin-inline {
   margin-inline: 10px;
 }
 
@@ -106,12 +84,6 @@ body {
   padding-top: 40px;
   margin-bottom: 70px;
   color: rgb(40, 40, 40);
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .options-section {
@@ -191,6 +163,14 @@ body {
   transition: opacity 0.75s;
 }
 
+.light-options .tooltip .tooltiptext{
+  bottom: 140%;
+}
+
+.light-options .tooltip .tooltiptext{
+  bottom: 140%;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -200,11 +180,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.climate-zone h2 {
-  margin-bottom: 10px;
-  color: #4caf50;
 }
 
 .zone {
@@ -222,7 +197,7 @@ body {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor:pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -235,13 +210,6 @@ body {
   width: fit-content; /* Ensures the button width is as wide as its content */
   padding-top: 10px;
   flex-direction: row;
-}
-
-.confirm-button {
-  display: block; /* Makes the button a block element */
-  width: fit-content; /* Ensures the button width is as wide as its content */
-  margin: 10px; /* Centers the button horizontally and adds space above */
-  margin-left: 160px;
 }
 
 .potSize-dropdown {
@@ -266,17 +234,6 @@ body {
 
 .options-container .image-section {
   display: inline-block;
-}
-
-.envimage {
-  max-width: 150%;
-  max-height: 150%;
-  float: right;
-}
-
-.leavesimage {
-  max-width: 150%;
-  max-height: 150%;
 }
 
 .box2 {
@@ -335,4 +292,43 @@ body {
   color: #a2bc83;
   text-decoration: underline;
   padding-left: 10px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+  .square {
+    width: auto;
+    flex-direction: column;
+  }
+
+  .box2{
+    width: 100vw;
+  }
+
+  #plant {
+    display: none;
+  }
+
+  .options-section{
+    margin: 0;
+  }
+
+  
+
+  .options-section button,
+  .season-options button, .confirm-zone button {
+    font-size: 12px;
+    padding: 8px 14px;
+    
+  }
+
+  .light-options .tooltip .tooltiptext{
+    width: 130px;
+    font-size: 12px;
+  }
+
+  .margin-inline{
+    margin-inline: 5px;
+  }
 }

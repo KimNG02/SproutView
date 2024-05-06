@@ -200,9 +200,11 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
                 <div className="tooltip">
                   Full Sun
+                  <div class="fullsuntooltiptext">
                   <span class="tooltiptext">
                     When your plant is in direct sunlight for most of the day.
                   </span>
+                  </div>
                 </div>
                 {" "}
               </button>
@@ -213,9 +215,11 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
                 <div className="tooltip">
                   Partial Sun
-                  <span class="tooltiptext">
-                  When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.
-                  </span>
+                  <div class="partialsuntooltiptext">
+                    <span class="tooltiptext">
+                    When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.
+                    </span>
+                  </div>
                 </div>
                 {" "}
               </button>
@@ -226,9 +230,11 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 {" "}
                 <div className="tooltip">
                   Shade
-                  <span class="tooltiptext">
-                    When your plant is in a shaded area with minimum sunlight.
-                    </span>
+                  <div class="shadetooltiptext">
+                    <span class="tooltiptext">
+                      When your plant is in a shaded area with minimum sunlight.
+                      </span>
+                  </div>
                 </div>
                 {" "}
               </button>
