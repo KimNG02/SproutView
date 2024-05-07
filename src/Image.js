@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState } from "react"
 import PlantImage from "./PlantImage";
 
-function Image({imageSources, filter, click}) {
+function Image({imageSource, index, filter, click}) {
   const letterSectionStyle = {
     display: 'flex',
     flexDirection: 'row'
@@ -11,10 +11,8 @@ function Image({imageSources, filter, click}) {
       <div
       style={letterSectionStyle}
       >
-        {imageSources.map((src, index) => (
-          String.fromCharCode(filter) === src[0] &&
-          <PlantImage src={src} index={index} filter={filter} click={click} />
-        ))}
+        {String.fromCharCode(filter) === imageSource[0] &&
+          <PlantImage src={imageSource} index={index} filter={filter} click={click} />}
       </div>
     );
 }

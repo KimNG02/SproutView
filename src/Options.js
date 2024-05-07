@@ -6,6 +6,8 @@ import envPageImage from "./images/leavesmin.png";
 import leavesImage from "./images/leaves.webp";
 import plant from "./images/optimg.png";
 import Toolbar from "./Toolbar.js";
+import { useHref } from "react-router-dom";
+
 
 const Options = ({ selectedPlant, handleOptionsObject }) => {
   const [sliderValue, setSliderValue] = useState(20);
@@ -85,10 +87,14 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         humidity,
         pH,
       ); // Call the function passed from the parent component
+
     } catch (error) {
       console.error(error);
     }
+
+    window.location.href = '/#timeline';
   };
+
 
   const handleLightClick = (light) => {
     setSelectedLight(light);
@@ -105,6 +111,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
       <div className="font-container">
         <h1 className="topic">Select Environment Options</h1>
       </div>
+      <form onSubmit={confirmOptionsCB}>
       <div className="square">
         {/* <div className='options-section'>
         <CountrySelector />
@@ -115,26 +122,26 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           <div className="options-section">
             <h2>During which season do you plan to plant?</h2>
             <div className="season-buttons">
-              <button
+              <button type="button"
                 className={`season ${selectedSeason === "Spring" && "selected"}`}
                 onClick={() => handleSeasonClick("Spring")}
                 
               >
                 Spring
               </button>
-              <button
+              <button type="button"
                 className={`season ${selectedSeason === "Summer" && "selected"}`}
                 onClick={() => handleSeasonClick("Summer")}
               >
                 Summer
               </button>
-              <button
+              <button type="button"
                 className={`season ${selectedSeason === "Autumn" && "selected"}`}
                 onClick={() => handleSeasonClick("Autumn")}
               >
                 Autumn
               </button>
-              <button
+              <button type="button"
                 className={`season ${selectedSeason === "Winter" && "selected"}`}
                 onClick={() => handleSeasonClick("Winter")}
               >
@@ -144,11 +151,11 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
 
             {selectedSeason && (
               <div className="secondary-buttons">
-                 <button 
+                 <button type="button"
                     className={`early-late ${seasonPart === "early" && "selected"}`}
                     onClick={() => handleSeasonPartClick("early")}
                 >Early</button> 
-                <button 
+                <button type="button"
                 className={`early-late ${seasonPart === "late" && "selected"}`}
                 onClick={() => handleSeasonPartClick("late")}
                 >Late</button>
@@ -196,9 +203,10 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 How much light will the plant recieve over the course of the
                 day?*
               </h2>
-              <button
+              <button type="button"
                 className={`Fullsun ${selectedLight === "full sun" ? "chosen-color" : ""}`}
-                onClick={() => handleLightClick("full sun") }
+                onClick={() => handleLightClick("full sun")}
+                required
               >
                 {" "}
                 <div className="tooltip">
@@ -211,9 +219,10 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 </div>
                 {" "}
               </button>
-              <button
+              <button type="button"
                 className={`Partialsun ${selectedLight === "partial sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("partial sun")}
+                required
               >
                 {" "}
                 <div className="tooltip">
@@ -226,9 +235,10 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 </div>
                 {" "}
               </button>
-              <button
+              <button type="button"
                 className={`Shade ${selectedLight === "shade" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("shade")}
+                required
               >
                 {" "}
                 <div className="tooltip">
@@ -338,6 +348,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 name="soilType"
                 value="Well-draining Soil"
                 onChange={() => handleSoilTypeChange("well draining")}
+                required
               />
               <label htmlFor="welldr">
                 <div className="tooltip">
@@ -356,6 +367,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 name="soilType"
                 value="Loamy soil"
                 onChange={() => handleSoilTypeChange("loamy soil")}
+                required
               />
               <label htmlFor="loamy">
                 <div className="tooltip">
@@ -374,6 +386,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 name="soilType"
                 value="Potting mix"
                 onChange={() => handleSoilTypeChange("potting mix")}
+                required
               />
               <label htmlFor="potting">
                 <div className="tooltip">
@@ -397,10 +410,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             <div>
               Every{" "}
               <input
+                type="number"
                 placeholder="0"
                 id="water_freq"
                 value={waterFrequency}
                 onChange={handleWaterFrequencyChange}
+                required
               ></input>{" "}
               day(s).
             </div>
@@ -428,9 +443,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           <div className="options-section">
             <h2>What is the pH of your soil?</h2>
             <div id="ph">
-              <button onClick={decrement}>&#8722;</button>
+              <button type="button" onClick={decrement}>&#8722;</button>
               <b>{pH}</b>
-              <button onClick={increment}>&#43;</button>
+              <button type="button" onClick={increment}>&#43;</button>
             </div>
           </div>
         </div>
@@ -438,14 +453,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
 
       <div>
         <div className="confirm-zone">
-              <a href="#timeline">
-              <button className="button" onClick={confirmOptionsCB}>
-            
+              <button type="submit" className="button" >
               Generate
               </button>
-              </a>
         </div>
-      </div>      
+      </div>
+      </form>    
       <img id="plant" src={plant} alt="plant"/>
     </div>
   );
