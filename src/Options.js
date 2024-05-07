@@ -157,31 +157,34 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           </div>
           {/* Pot Size Options */}
           <div className="options-section">
-          <h2>How large is the pot you wish to plant in?*</h2>
-            <select
-              value={potSize}
-              onChange={(e) => setPotSize(e.target.value)}
-              className="potSize-dropdown"
-            >
-              <option value="any">Select pot size</option>
-              <option value="extra small">X-Small</option>
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-              <option value="extra large">X-Large</option>
-            </select>
-            
-            <div className="tooltip" >
-            <span class="linked-font">Size Guide</span>
-                <span class="tooltiptext">
-                  Diameter range: <br /><br />
-                  X-small: 12-16 cm (1-2 Liter)<br />
-                  Small: 17-20 cm (2-4 Liter)<br />
-                  Medium:21-29 cm (4-10 Liter)<br />
-                  Large: 30-39 cm (10-25 Liter)<br />
-                  X-large: 40-50 cm (25-40 Liter)<br />
-                </span>
-              </div>
+            <div class="sizeguide">
+            <h2>How large is the pot you wish to plant in?*</h2>
+              <select
+                value={potSize}
+                onChange={(e) => setPotSize(e.target.value)}
+                className="potSize-dropdown"
+              >
+                <option value="any">Select pot size</option>
+                <option value="extra small">X-Small</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="extra large">X-Large</option>
+              </select>
+              
+              
+                <div className="tooltip" >
+                  <span class="linked-font">Size Guide</span>
+                  <span class="tooltiptext">
+                    Diameter range: <br /><br />
+                    X-small: 12-16 cm (1-2 Liter)<br />
+                    Small: 17-20 cm (2-4 Liter)<br />
+                    Medium:21-29 cm (4-10 Liter)<br />
+                    Large: 30-39 cm (10-25 Liter)<br />
+                    X-large: 40-50 cm (25-40 Liter)<br />
+                  </span>
+                </div>
+            </div>
           </div>
 
           {/*Light-level*/}

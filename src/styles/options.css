@@ -325,6 +325,14 @@ body {
 
   .light-options .tooltip .tooltiptext{
     width: 130px;
+  }
+
+  .sizeguide .tooltip .tooltiptext{
+    left: -30px;
+    bottom: 20px;
+  }
+
+  .tooltip .tooltiptext{
     font-size: 12px;
   }
 

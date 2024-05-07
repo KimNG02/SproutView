@@ -35,6 +35,7 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
     const fetchData = async () => {
       try {
         //const responseData = {similarity:"0.78",lightComment:"Good job!",soilComment:"Good job!",waterComment:"Instead of watering your plant every 3 days, you should water it every 2 days.",tempComment:"Good job!", potSizeComment:"Good job!",plantCareComment:"Good job!",humidityComment:"Good job!",phComment:"Good job!",sproutTime:"7-14 days",vegetativeTime:"8-12 weeks",floweringTime:"12-14 weeks",matureTime:"14-16 weeks"}
+        //setTimelineData(responseData)
 
         const response = await getTimeline(optionsObj);
 
@@ -44,14 +45,14 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
         const matureResponse = <TimelineImage src={"matureBasic"} />;
 
 
-        console.log(response);
-        console.log(response.data);
+        //console.log(response);
+        //console.log(response.data);
         setTimelineData(response.data);
         
         setTimelineSprout(sproutResponse.data);
-        setTimelineSprout(vegetativeResponse.data);
-        setTimelineSprout(floweringResponse.data);
-        setTimelineSprout(matureResponse.data);
+        setTimelineVegetative(vegetativeResponse.data);
+        setTimelineFlowering(floweringResponse.data);
+        setTimelineMature(matureResponse.data);
 
       } catch (error) {
         console.error("Error fetching timeline data:", error);

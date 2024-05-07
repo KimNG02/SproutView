@@ -24,3 +24,10 @@
   max-width: 60%; /* Ensures the image does not exceed the container */
   max-height: 60%; /* Ensures the image does not exceed the container */
 }
+
+@media only screen and (max-width: 768px) {
+  .healthy-circle-container {
+    width: 35vh;
+    height: 35vh;
+  }
+}

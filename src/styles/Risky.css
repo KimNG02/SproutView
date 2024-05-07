@@ -22,14 +22,13 @@
 }
 
 .risky-circle-container img {
-  max-width: 85%; /* Ensures the image does not exceed the container */
-  max-height: 85%; /* Ensures the image does not exceed the container */
+  max-width: 60%; /* Ensures the image does not exceed the container */
+  max-height: 60%; /* Ensures the image does not exceed the container */
 }
 
 @media only screen and (max-width: 768px) {
-
-  
-
-
-
+  .risky-circle-container {
+    width: 35vh;
+    height: 35vh;
+  }
 }
