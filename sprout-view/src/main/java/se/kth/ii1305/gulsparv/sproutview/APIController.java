@@ -36,6 +36,9 @@ public class APIController {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+
+        System.out.println("Sending to frontend: " + message);
+
         return new ResponseEntity<String>(message, HttpStatusCode.valueOf(code));
     }
 

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./styles/Healthy.css";
 import "./styles/Timeline.css";
 
-function Healthy({ timelineData, selectedPlant}) {
+function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, floweringImage, matureImage}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
   const [sprout, setSprout] = useState(true);
@@ -67,6 +67,7 @@ function Healthy({ timelineData, selectedPlant}) {
         <div>
           <section className = "timeline-section" id="healthy-timeline">
             <h1 classname="growth-title">Healthy Growth</h1>
+
             <h4>
               Your {selectedPlant} plant will grow healthily in the following stages
             </h4>
@@ -74,10 +75,10 @@ function Healthy({ timelineData, selectedPlant}) {
               <button className="arrow left-arrow" onClick={decrementValue}>
                 &lt;
               </button>
-                {sprout && <img src="api/image/sproutBasic" alt="whatever"/>}
-                {vegetative && <img src="api/image/vegetativeBasic" alt="whatever"/>}
-                {flowering && <img src="api/image/floweringBasic" alt="whatever"/>}
-                {mature && <img src="api/image/matureBasic" alt="whatever"/>}
+                {sprout && sproutImage}
+                {vegetative && vegetativeImage}
+                {flowering && floweringImage}
+                {mature && matureImage}
               {/* <img
                 src="https://s3-alpha-sig.figma.com/img/f5fa/dea8/ae7a8dcc084c12df9e01036341062518?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VNxZyqfpWqjUdqFj3zNKZsDDFkwapTlVDHoghvHqxYDW-EtPL6xk64xrdGje0BGAfQyJGrHOlJHso6eNZWDFaxZBg3HdkgjfGCvX5XlJIouSKJv4x7Za~U9yYLP~9aIf2OMYapfAP~zzDlvqHVeEP39PEYE8k9CmfesFqUaqk~dMsyw-g2UxtBiUTPdXmqlZABAb~OtoF4Icf48QitOIvU0uZKGlLWkPqYuZcsX3qY6wOq3hP~d9ly9ILkGyqkk4Mk-oRpyVc0dvJr9ylvThsS~BoK-yNE8bbzByN3NttW052PzoRxCx0TmKBwqkweJEqmvNGrtBz07z2h~u6VCODQ__"
                 alt="Healthy Plant"
