@@ -164,6 +164,7 @@ public class PlantCalculator {
         attributeNamesNewJSON.add("vegetativeTime");
         attributeNamesNewJSON.add("floweringTime");
         attributeNamesNewJSON.add("matureTime");
+        attributeNamesNewJSON.add("botanic_category");
 
         String[] attributeNamesNewJSONArray = new String[attributeNamesNewJSON.size()];
 
@@ -242,6 +243,9 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(queryResult.getValue("vegetative")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("flowering")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("mature")[0]);
+
+        System.out.println("Botanic Category: " + queryResult.getValue("botanic_category")[0]);
+        attributeValuesNewJSON.add(queryResult.getValue("botanic_category")[0]);
 
         String[] outArrayPreliminary = new String[attributeValuesNewJSON.size()];
 

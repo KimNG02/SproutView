@@ -34,25 +34,29 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        //const responseData = {similarity:"0.78",lightComment:"Good job!",soilComment:"Good job!",waterComment:"Instead of watering your plant every 3 days, you should water it every 2 days.",tempComment:"Good job!", potSizeComment:"Good job!",plantCareComment:"Good job!",humidityComment:"Good job!",phComment:"Good job!",sproutTime:"7-14 days",vegetativeTime:"8-12 weeks",floweringTime:"12-14 weeks",matureTime:"14-16 weeks"}
-        //setTimelineData(responseData)
+        const responseData = {similarity:"0.78",lightComment:"Good job!",soilComment:"Good job!",waterComment:"Instead of watering your plant every 3 days, you should water it every 2 days.",tempComment:"Good job!", potSizeComment:"Good job!",plantCareComment:"Good job!",humidityComment:"Good job!",phComment:"Good job!",sproutTime:"7-14 days",vegetativeTime:"8-12 weeks",floweringTime:"12-14 weeks",matureTime:"14-16 weeks"}
+        
+        
+        console.log("Json testing: " + responseData["similarity"]);
 
         const response = await getTimeline(optionsObj);
 
-        const sproutResponse = <TimelineImage src={"sproutBasic"} />;
-        const vegetativeResponse = <TimelineImage src={"vegetativeBasic"} />;
-        const floweringResponse = <TimelineImage src={"floweringBasic"} />;
-        const matureResponse = <TimelineImage src={"matureBasic"} />;
+
+        console.log("Trying to get data from the json: " + Object.keys(response.data) + " ... " + response.data["botanic_category"]);
+        const sproutResponse = <TimelineImage src={"sprout" + response.data["botanic_category"]} />;
+        const vegetativeResponse = <TimelineImage src={"vegetative" + response.data["botanic_category"]} />;
+        const floweringResponse = <TimelineImage src={"flowering" +  response.data["botanic_category"]} />;
+        const matureResponse = <TimelineImage src={"mature" + response.data["botanic_category"]} />;
 
 
         //console.log(response);
         //console.log(response.data);
         setTimelineData(response.data);
         
-        setTimelineSprout(sproutResponse.data);
-        setTimelineVegetative(vegetativeResponse.data);
-        setTimelineFlowering(floweringResponse.data);
-        setTimelineMature(matureResponse.data);
+        setTimelineSprout(sproutResponse);
+        setTimelineVegetative(vegetativeResponse);
+        setTimelineFlowering(floweringResponse);
+        setTimelineMature(matureResponse);
 
       } catch (error) {
         console.error("Error fetching timeline data:", error);
@@ -82,10 +86,19 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
     if (similarity >= 0.9) {
       handleTimelinePage("Healthy");
       timelineComponent = <Healthy timelineData={timelineData} selectedPlant = {selectedPlant}
+        sproutImage = {timelineSprout}
+        vegetativeImage = {timelineVegetative} 
+        floweringImage = {timelineFlowering}
+        matureImage = {timelineMature}
         />;
     } else if (similarity >= 0.5) {
       handleTimelinePage("Risky");
-      timelineComponent = <Risky timelineData={timelineData} selectedPlant = {selectedPlant}/>;
+      timelineComponent = <Risky timelineData={timelineData} selectedPlant = {selectedPlant} 
+        sproutImage = {timelineSprout}
+        vegetativeImage = {timelineVegetative} 
+        floweringImage = {timelineFlowering}
+        matureImage = {timelineMature}
+        />;
     } else {
       handleTimelinePage("Dead");
       timelineComponent = <Dead timelineData={timelineData} selectedPlant = {selectedPlant}/>;

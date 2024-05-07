@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import jakarta.websocket.server.PathParam;
 
@@ -18,6 +19,7 @@ import java.nio.file.Paths;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api")
 public class APIController {
@@ -37,6 +39,9 @@ public class APIController {
             System.out.println(e.toString());
         }
         System.out.println("Sending: " + message);
+
+        System.out.println("Sending to frontend: " + message);
+
         return new ResponseEntity<String>(message, HttpStatusCode.valueOf(code));
     }
 
