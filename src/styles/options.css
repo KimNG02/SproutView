@@ -67,11 +67,11 @@ body {
 }
 
 #plant {
-  bottom: 499px;
+  bottom: 489px;
   height: 441px;
   position: relative;
   right: -80%;
-  width: auto;
+  width: 250px;
 }
 
 #plant img {
