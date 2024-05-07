@@ -54,6 +54,21 @@ public class APIController {
         return new ResponseEntity<String>(message, HttpStatusCode.valueOf(code));
     }
 
+    @GetMapping("resources")
+    public ResponseEntity<String> getResources() {
+        String message = "Internal server error";
+        int code = 500;
+
+        try {
+            JSONObject resources = MainController.getInstance().getResources();
+            code = 200;
+            message = resources.getString(false);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return new ResponseEntity<String>(message, HttpStatusCode.valueOf(code));
+    }
+
     @GetMapping(value = "image/{image:.+}", produces = "image/png")
     public ResponseEntity<Resource> image(@PathVariable("image") String image) throws IOException {
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(

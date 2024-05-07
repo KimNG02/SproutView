@@ -2,11 +2,18 @@ import React, { useRef, useState } from "react";
 import "./styles/Dead.css";
 import "./styles/Timeline.css";
 
-function Dead({ timelineData, selectedPlant}) {
+function Dead({ resourceNames, links, timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
   const scrollToSuggestions = () => {
     suggestionsRef.current.scrollIntoView({ behavior: "smooth" });
   };
+  var pot;
+
+  resourceNames.forEach((name, index) => {
+    if (name === "pot") {
+      pot = links[index];
+    }
+  });
 
   return (
     <div className="dead-container">
@@ -20,7 +27,7 @@ function Dead({ timelineData, selectedPlant}) {
             </h4>
             <div className="dead-circle-container">
               <img
-                src="api/image/dead"
+                src={pot}
                 alt="Pot"
               />
             </div>
