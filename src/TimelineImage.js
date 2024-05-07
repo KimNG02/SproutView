@@ -10,7 +10,8 @@ function TimelineImage({src}) {
         <img id={src} 
         src={`/api/image/${src}`} 
         alt={`${src}`}
-        style={styleOnNotHover}/>
+        //style={styleOnNotHover}
+        />
       );
 }
 

@@ -206,7 +206,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <button type="button"
                 className={`Fullsun ${selectedLight === "full sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("full sun")}
-                required
               >
                 {" "}
                 <div className="tooltip">
@@ -222,7 +221,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <button type="button"
                 className={`Partialsun ${selectedLight === "partial sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("partial sun")}
-                required
               >
                 {" "}
                 <div className="tooltip">
@@ -238,7 +236,6 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <button type="button"
                 className={`Shade ${selectedLight === "shade" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("shade")}
-                required
               >
                 {" "}
                 <div className="tooltip">
