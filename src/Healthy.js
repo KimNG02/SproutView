@@ -3,6 +3,8 @@ import "./styles/Healthy.css";
 import "./styles/Timeline.css";
 import flowerAnimation from "./images/flowerAnimation.mp4";
 import fruitAnimation from "./images/fruitAnimation.mp4";
+import herbAnimation from "./images/herbAnimation.mp4";
+import plantAnimation from "./images/plantAnimation.mp4";
 
 function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
@@ -189,7 +191,7 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
               </div>
               <div className="plant-animation-container">
               <video className="plant-animation" autoPlay controls={false} loop>
-                <source src={fruitAnimation} type="video/mp4"/>
+                <source src={plantAnimation} type="video/mp4"/>
                 Your browser does not support the animation
               </video>
             </div>

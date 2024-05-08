@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.de6433d0.css",
-    "main.js": "/static/js/main.8ac6bcd2.js",
+    "main.css": "/static/css/main.2b1849fa.css",
+    "main.js": "/static/js/main.133122f5.js",
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/leavesmin.png": "/static/media/leavesmin.7752d404c908cd0237f3.png",
-    "static/media/flowerAnimation.mp4": "/static/media/flowerAnimation.c8e7723572ff0a300434.mp4",
+    "static/media/flowerAnimation.mp4": "/static/media/flowerAnimation.9c22935c5a36c22e22d6.mp4",
     "static/media/leaves.webp": "/static/media/leaves.5eff6e0d98c3c1ad40a5.webp",
     "static/media/optimg.png": "/static/media/optimg.8b23e0771d6a4f8accf8.png",
+    "static/media/plantAnimation.mp4": "/static/media/plantAnimation.70768015c7c397c84482.mp4",
+    "static/media/herbAnimation.mp4": "/static/media/herbAnimation.cffe7763d2e1f94c7f9e.mp4",
     "static/media/fruitAnimation.mp4": "/static/media/fruitAnimation.17b2a690af119a856d49.mp4",
     "index.html": "/index.html",
-    "main.de6433d0.css.map": "/static/css/main.de6433d0.css.map",
-    "main.8ac6bcd2.js.map": "/static/js/main.8ac6bcd2.js.map"
+    "main.2b1849fa.css.map": "/static/css/main.2b1849fa.css.map",
+    "main.133122f5.js.map": "/static/js/main.133122f5.js.map"
   },
   "entrypoints": [
-    "static/css/main.de6433d0.css",
-    "static/js/main.8ac6bcd2.js"
+    "static/css/main.2b1849fa.css",
+    "static/js/main.133122f5.js"
   ]
 }
