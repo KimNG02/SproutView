@@ -129,9 +129,13 @@ const App = ({
             </section>
           </div>
           <div>
-            <button className="cta-btn" onClick={scrollToPlantSelection}>
-              Explore Now!
-            </button>
+            <a className="animated-button1" onClick={scrollToPlantSelection}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Start Planting!
+            </a>
           </div>
         </section>
 
