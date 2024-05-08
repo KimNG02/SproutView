@@ -456,7 +456,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         </div>
       </div>
       </form>    
-      <img id="plant" src={plant} alt="plant"/>
+      <img id="plant" src="https://i.imgur.com/T9NhnBE.png" alt="plant"/>
     </div>
   );
 };
