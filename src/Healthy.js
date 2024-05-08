@@ -154,30 +154,42 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
             <div className="rectangle-container">
             <div className="white-rectangle">
               <div className="growth-suggestions">
+                  {timelineData.lightComment ? 
                 <div className="comment">
-                  <strong>Light:</strong>
-                  <span>{timelineData.lightComment}</span>
+                    <strong>Light:</strong>
+                    <span>{timelineData.lightComment}</span> 
                 </div>
+                  : <div></div>}
+                  {timelineData.waterComment ? 
                 <div className="comment">
-                  <strong>Water:</strong>
-                  <span>{timelineData.waterComment}</span>
-                </div>
+                    <strong>Water:</strong>
+                    <span>{timelineData.waterComment}</span>
+                    </div>
+                  : <div></div>}
+                  {timelineData.tempComment ? 
                 <div className="comment">
-                  <strong>Temperature:</strong>
-                  <span>{timelineData.tempComment}</span>
-                </div>
+                    <strong>Temperature:</strong>
+                    <span>{timelineData.tempComment}</span>
+                    </div>
+                  : <div></div>}
+                  {timelineData.potSizeComment ? 
                 <div className="comment">
-                  <strong>Pot Size:</strong>
-                  <span>{timelineData.potSizeComment}</span>
-                </div>
+                    <strong>Pot Size:</strong>
+                    <span>{timelineData.potSizeComment}</span>
+                    </div>
+                  : <div></div>}
+                  {timelineData.soilComment ? 
                 <div className="comment">
-                  <strong>Soil:</strong>
-                  <span>{timelineData.soilComment}</span>
-                </div>
+                    <strong>Soil:</strong>
+                    <span>{timelineData.soilComment}</span>
+                    </div>
+                  : <div></div>}
+                  {timelineData.lightComment ? 
                 <div className="comment">
-                  <strong>Plant Care:</strong>
-                  <span>{timelineData.plantCareComment}</span>
-                </div>
+                    <strong>Plant Care:</strong>
+                    <span>{timelineData.plantCareComment}</span>
+                    </div>
+                  : <div></div>}
                 {timelineData.phComment ? <div className="comment">
                   <strong>pH:</strong>
                   <span>{timelineData.phComment}</span>

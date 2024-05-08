@@ -179,45 +179,45 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(Double.toString(totalSimilarity));
 
         if (lightSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of " + optionsLight + ", your plant needs " + allLights + " instead.");
+            attributeValuesNewJSON.add(allLights);
             
         } else{
-            attributeValuesNewJSON.add("Good job!");
+            attributeValuesNewJSON.add("");
              }
 
         if (soilSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of " +  optionsSoil +", your plant needs " + queryResult.getValue("soil")[0]);
+            attributeValuesNewJSON.add(queryResult.getValue("soil")[0]);
         } else {
-            attributeValuesNewJSON.add("Good job!");
+            attributeValuesNewJSON.add("");
         }
 
         if (waterSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of watering your plant every " + Integer.parseInt(optionsWater)/24 + " days, you should water it every " + Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24 + " days.");
+            attributeValuesNewJSON.add(""+Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24);
         } else {
-            attributeValuesNewJSON.add("Good job!");
+            attributeValuesNewJSON.add("");
         }
 
         if (tempSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of having the room temperature at " + optionsTemp + ", you should have" + queryResult.getValue("preferred_average_temperature")[0] + "." );
+            attributeValuesNewJSON.add(queryResult.getValue("preferred_average_temperature")[0]);
         } else {
-            attributeValuesNewJSON.add("Good job!");
+            attributeValuesNewJSON.add("");
         }
 
         if (potSizeSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of using pot size " + optionsPotsize + ", you should preferably use a " + queryResult.getValue("preferred_pot_size")[0]  + " pot size.");
+            attributeValuesNewJSON.add(queryResult.getValue("preferred_pot_size")[0]);
         } else {
-            attributeValuesNewJSON.add("Good job!");
+            attributeValuesNewJSON.add("");
         }
         
         if(plantCare){
             if (plantCareSimilarity != 1) {
                 if(allPlantCare.equals("") || allPlantCare == null){
-                    attributeValuesNewJSON.add("Instead of using the plantcare no plantcare, use " + resultPlantCare[0] + " instead.");
+                    attributeValuesNewJSON.add("Try " + resultPlantCare[0] + " to take better care of your plant!");
                 } else {
-                    attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+                    attributeValuesNewJSON.add("Try " + resultPlantCare[0] + " to take better care of your plant!");
                 }
             } else {
-                attributeValuesNewJSON.add("Good job!");
+                attributeValuesNewJSON.add("");
             }
         }else{
 
@@ -227,9 +227,9 @@ public class PlantCalculator {
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add("Instead of humidity" + optionsHumidity + ", you should use humidity " + resultHumidity);
+                attributeValuesNewJSON.add(resultHumidity);
             } else {
-                attributeValuesNewJSON.add("Good job!");
+                attributeValuesNewJSON.add("");
             }
         } else {
             attributeValuesNewJSON.add("");
@@ -237,9 +237,9 @@ public class PlantCalculator {
 
         if (ph) {
             if (phSimilarity != 1) {
-                attributeValuesNewJSON.add("Instead of using soil ph " + optionsPh + ", you should use ph " + resultPh);
+                attributeValuesNewJSON.add(resultPh);
             } else {
-                attributeValuesNewJSON.add("Good job!");
+                attributeValuesNewJSON.add("");
             }
         } else {
             attributeValuesNewJSON.add("");
