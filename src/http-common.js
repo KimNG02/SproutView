@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://sprout-view-server-54zqmtijra-lz.a.run.app/api",
+  // baseURL: "/api",
+
   headers: {
     "Content-type": "application/json",
   },

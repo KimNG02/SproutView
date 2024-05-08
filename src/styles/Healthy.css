@@ -5,6 +5,10 @@
   background: #e8f9df;
 }
 
+.rectangle-container {
+  display: flex;
+}
+
 .healthy-circle-container {
   position: relative;
   width: 45vh; /* Adjust the size of the circle */
@@ -29,5 +33,9 @@
   .healthy-circle-container {
     width: 35vh;
     height: 35vh;
+  }
+
+  .white-rectangle {
+    flex-direction: column;
   }
 }

@@ -20,7 +20,7 @@ const App = ({
   const [plantString, setPlantString] = useState(null);
   const plantSelectRef = useRef(null);
   const [plants, setPlants] = useState(null);
-  var imageMap = null;
+  const [images, setImages] = useState(null);
 
   const [text] = useTypewriter({
     words: ["Sprout View", "Your planting adventure"],
@@ -38,9 +38,8 @@ const App = ({
     };
     const fetchPlants = async () => {
       try {
+        console.log("Trying to fetch plants");
         const response = await apiServiceHandler.getPlants();
-        console.log(response);
-        console.log(response.data);
         handleOnFetch(response);
       } catch (error) {
         console.error("Error fetching plant list:", error);
@@ -49,19 +48,25 @@ const App = ({
     plantString ? stuff() : fetchPlants();
   }, [plantString]);
 
-  const doNothing = () => {};
+  const doNothing = () => {console.log("Baby shark do do do do do...");};
   const stuff = () => {
     plants ? doNothing() : parse();
   };
   const parse = () => {
-    var plantData = plantString;
-    console.log("1 " + plantData)
-    plantData = plantData.substring(6,plantData.length - 2);
-    console.log("2 " + plantData)
-    plantData = plantData.replaceAll('"', '');
-    console.log("3 " + plantData)
-    plantData = plantData.split(",");
-    setPlants(plantData);
+    var plantNames = plantString.split("]")[0];
+    var plantImages = plantString.split("]")[1];
+
+    plantImages = plantImages.split("[")[1];
+    plantImages = plantImages.replaceAll('"', '');
+    console.log(plantImages);
+    plantImages = plantImages.split(",");
+    setImages(plantImages);
+
+    plantNames = plantNames.substring(6,plantNames.length - 1);
+    plantNames = plantNames.replaceAll('"', '');
+    console.log(plantNames);
+    plantNames = plantNames.split(",");
+    setPlants(plantNames);
   };
 
   const scrollToPlantSelection = () => {
@@ -161,7 +166,7 @@ const App = ({
                       .sort()
                       .map((plant, index) => (
                         <div className="plant" key={index}>
-                      <Image imageSource={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
+                      <Image imageSource={images[plants.indexOf(plant)]} plant={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
 
                     </div>
                     ))}

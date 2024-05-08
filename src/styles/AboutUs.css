@@ -37,6 +37,22 @@ p {
   color: #666;
 }
 
+.gulsparv-cta-container {
+  padding-top: 4vh;
+}
+
+.gulsparv-cta {
+  font-size: 4vh;
+  color: black;
+  text-decoration: none;
+  transition: font-size 0.3s ease, color 0.3s ease; /* Transition effect for smooth animation */
+}
+
+.gulsparv-cta:hover {
+  font-size: 5vh;
+  color:  #418d3d;
+}
+
 /* Media query for smaller screens */
 @media only screen and (max-width: 768px) {
   .team-member {

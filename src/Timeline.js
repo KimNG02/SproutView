@@ -5,7 +5,10 @@ import { useHref } from "react-router-dom";
 import Healthy from "./Healthy.js";
 import Risky from "./Risky.js";
 import Dead from "./Dead.js";
-import TimelineImage from "./TimelineImage.js";
+
+async function getResources() {
+  return await apiServiceHandler.getResources();
+}
 
 async function getTimeline(optionsObj) {
   const stuff = JSON.stringify(optionsObj)
@@ -17,19 +20,14 @@ async function getTimeline(optionsObj) {
   return await apiServiceHandler.getTimeline(stuff);
 }
 
-async function getTimelineImages(stageAndVariant) {
-  return await apiServiceHandler.getTimelineImages(stageAndVariant);
-}
-
 function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
   const [timelineData, setTimelineData] = useState(null);
 
-  const [timelineSprout, setTimelineSprout] = useState(null);
-  const [timelineVegetative, setTimelineVegetative] = useState(null);
-  const [timelineFlowering, setTimelineFlowering] = useState(null);
-  const [timelineMature, setTimelineMature] = useState(null);
+  var links;
+  var resourceNames;
 
   const [similarityTest, setSimilarityTest] = useState(1.0);
+  const [resources, setResources] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,22 +39,10 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
 
         const response = await getTimeline(optionsObj);
 
+        const resourceResponse = await getResources();
 
-        console.log("Trying to get data from the json: " + Object.keys(response.data) + " ... " + response.data["botanic_category"]);
-        const sproutResponse = <TimelineImage src={"sprout" + response.data["botanic_category"]} />;
-        const vegetativeResponse = <TimelineImage src={"vegetative" + response.data["botanic_category"]} />;
-        const floweringResponse = <TimelineImage src={"flowering" +  response.data["botanic_category"]} />;
-        const matureResponse = <TimelineImage src={"mature" + response.data["botanic_category"]} />;
-
-
-        //console.log(response);
-        //console.log(response.data);
         setTimelineData(response.data);
-        
-        setTimelineSprout(sproutResponse);
-        setTimelineVegetative(vegetativeResponse);
-        setTimelineFlowering(floweringResponse);
-        setTimelineMature(matureResponse);
+        setResources(resourceResponse.data);
 
       } catch (error) {
         console.error("Error fetching timeline data:", error);
@@ -65,43 +51,41 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
     fetchData();
   }, [optionsObj]);
 
+  
+  const parse = () => {
+    var resourceString = resources.split("]")[0];
+    var linksTemp = resources.split("]")[1];
+
+    linksTemp = linksTemp.split("[")[1];
+    linksTemp = linksTemp.replaceAll('"', '');
+    console.log(linksTemp);
+    linksTemp = linksTemp.split(",");
+    links = linksTemp;
+
+    resourceString = resourceString.substring(6,resourceString.length - 1);
+    resourceString = resourceString.replaceAll('"', '');
+    console.log(resourceString);
+    resourceString = resourceString.split(",");
+    resourceNames = resourceString;
+  };
+  
   const handleTimelinePage = (page) => {
     setTimelinePage(page);
+    parse();
   };
-
   
-  /*let timelineComponent;
-  if (timelinePage === 'Healthy') {
-    timelineComponent = <Healthy timelineData={timelineData}/>;
-  } else if (timelinePage === 'Risky') {
-    timelineComponent = <Risky timelineData={timelineData}/>;
-  } else if (timelinePage === 'Dead') {
-    timelineComponent = <Dead timelineData={timelineData}/>;
-  }*/
-  
-
   let timelineComponent;
-  if (timelineData) {
+  if (timelineData && resources) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
       handleTimelinePage("Healthy");
-      timelineComponent = <Healthy timelineData={timelineData} selectedPlant = {selectedPlant}
-        sproutImage = {timelineSprout}
-        vegetativeImage = {timelineVegetative} 
-        floweringImage = {timelineFlowering}
-        matureImage = {timelineMature}
-        />;
+      timelineComponent = <Healthy resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
     } else if (similarity >= 0.5) {
       handleTimelinePage("Risky");
-      timelineComponent = <Risky timelineData={timelineData} selectedPlant = {selectedPlant} 
-        sproutImage = {timelineSprout}
-        vegetativeImage = {timelineVegetative} 
-        floweringImage = {timelineFlowering}
-        matureImage = {timelineMature}
-        />;
+      timelineComponent = <Risky resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
     } else {
       handleTimelinePage("Dead");
-      timelineComponent = <Dead timelineData={timelineData} selectedPlant = {selectedPlant}/>;
+      timelineComponent = <Dead resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
     }
   }
   

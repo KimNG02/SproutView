@@ -545,12 +545,11 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           <div className="confirm-zone">
               <button type="submit" className="button">
               Generate
-              </button>              
-          </div>
+              </button>
         </div>
-      </form>  
-        
-      <img id="plant" src={plant} alt="plant"/>
+      </div>
+      </form>    
+      <img id="plant" src="https://i.imgur.com/T9NhnBE.png" alt="plant"/>
     </div>
   );
 };

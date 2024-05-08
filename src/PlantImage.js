@@ -1,6 +1,6 @@
 import useHover from "./Hover.js"
 
-function PlantImage({src, index, filter, click}) {
+function PlantImage({src, plant, index, filter, click}) {
     const styleOnNotHover = {
         display: 'flex',
         transition: '300ms ease',
@@ -18,10 +18,10 @@ function PlantImage({src, index, filter, click}) {
     }
   const hover = useHover(styleOnHover, styleOnNotHover);
     return (
-        String.fromCharCode(filter) === src[0] && 
+        String.fromCharCode(filter) === plant[0] && 
         <img id={src[0]} 
-        onClick={() => click(src)} 
-        src={`/api/image/${src}`} 
+        onClick={() => click(plant)} 
+        src={`${src}`} 
         alt={`${index + 1}`} 
         key={index}
         {...hover}/>

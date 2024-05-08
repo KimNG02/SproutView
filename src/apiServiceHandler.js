@@ -18,5 +18,9 @@ class ApiServiceHandler {
     getImage(plant) {
       return http.get(`/image/${plant}`);
     }
+
+    getResources() {
+      return http.get('/resources');
+    }
   }
 export default new ApiServiceHandler();

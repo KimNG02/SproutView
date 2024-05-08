@@ -5,7 +5,7 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-05-08 10:14:03
+-- Started on 2024-05-07 10:03:12
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -235,20 +235,6 @@ CREATE VIEW public.plant_info AS
 ALTER VIEW public.plant_info OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 90275)
--- Name: resources; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.resources (
-    name character varying NOT NULL,
-    link character varying NOT NULL,
-    description character varying
-);
-
-
-ALTER TABLE public.resources OWNER TO postgres;
-
---
 -- TOC entry 225 (class 1259 OID 74293)
 -- Name: season_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -294,7 +280,7 @@ ALTER TABLE public.climate_zone ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
 
 
 --
--- TOC entry 4870 (class 0 OID 74227)
+-- TOC entry 4864 (class 0 OID 74227)
 -- Dependencies: 222
 -- Data for Name: climate_zone; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -307,7 +293,7 @@ INSERT INTO public.climate_zone OVERRIDING SYSTEM VALUE VALUES (6, 'polar       
 
 
 --
--- TOC entry 4863 (class 0 OID 74185)
+-- TOC entry 4857 (class 0 OID 74185)
 -- Dependencies: 215
 -- Data for Name: light_level; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -319,7 +305,7 @@ INSERT INTO public.light_level OVERRIDING SYSTEM VALUE VALUES ('artificial light
 
 
 --
--- TOC entry 4872 (class 0 OID 74237)
+-- TOC entry 4866 (class 0 OID 74237)
 -- Dependencies: 224
 -- Data for Name: light_preferrence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -340,25 +326,25 @@ INSERT INTO public.light_preferrence VALUES (11, 'partial sun         ', NULL);
 
 
 --
--- TOC entry 4876 (class 0 OID 74304)
+-- TOC entry 4870 (class 0 OID 74304)
 -- Dependencies: 228
 -- Data for Name: plant; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (9, 'aloe vera                                                       ', '72                                                              ', 'indoor aloe vera plants rarely enter the flowering stage, if they do it takes 2-4 weeks                                                                                                                                                                                                                                                                                                                                                                                                                             ', '13-30                                                           ', 'any                                                             ', '1-3 days                                                        ', '6+ months                                                       ', '2-4 weeks                                                       ', 'several years                           ', '40-60%                                                          ', '5.5-6.5                                                         ', '5 cl                                                            ', 'plant', 'https://i.imgur.com/c16CgmO.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (8, 'garlic                                                          ', '168                                                             ', 'sprouting: 10-15 degree celsius,flowering/vegetative:15-18 , pre-harvest:18-26                                                                                                                                                                                                                                                                                                                                                                                                                                      ', '10-26                                                           ', 'extra small                                                     ', '7-14 days                                                       ', '4-6 months                                                      ', '2-4 weeks                                                       ', '7-8 months                              ', '50-60%                                                          ', '6.0-7.0                                                         ', '2,5 cl                                                          ', NULL, 'https://i.imgur.com/WVg2x5l.png                                                                     ');
 INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (5, 'basil                                                           ', '96                                                              ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '20-22                                                           ', 'extra small                                                     ', '5-10 days                                                       ', '4-6 weeks                                                       ', '8-12 weeks                                                      ', '50-60 days                              ', '70-85%                                                          ', '6.0-7.5                                                         ', 'until soil is wet                                               ', 'herb', 'https://i.imgur.com/q6vOVXO.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (6, 'cactus                                                          ', '360                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '25-30                                                           ', 'any                                                             ', '7-14 days                                                       ', '4-6 weeks                                                       ', '9-12 weeks                                                      ', '14-16 weeks                             ', '40-60%                                                          ', '5.0-6.5                                                         ', '6-12 cl                                                         ', 'plant', 'https://i.imgur.com/ETCovEk.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (9, 'aloe vera                                                       ', '72                                                              ', 'indoor aloe vera plants rarely enter the flowering stage, if they do it takes 2-4 weeks                                                                                                                                                                                                                                                                                                                                                                                                                             ', '13-30                                                           ', 'any                                                             ', '1-3 days                                                        ', '6+ months                                                       ', '2-4 weeks                                                       ', 'several years                           ', '40-60%                                                          ', '5.5-6.5                                                         ', '5 cl                                                            ', NULL, 'https://i.imgur.com/c16CgmO.png                                                                     ');
 INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (3, 'strawberry                                                      ', '48                                                              ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '10-24                                                           ', 'medium                                                          ', '7-14 days                                                       ', '8-12 weeks                                                      ', '12-14 weeks                                                     ', '14-16 weeks                             ', '65-75%                                                          ', '5.5-6.5                                                         ', '2,5 cl                                                          ', 'fruit', 'https://i.imgur.com/AjUJJLT.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (8, 'garlic                                                          ', '168                                                             ', 'sprouting: 10-15 degree celsius,flowering/vegetative:15-18 , pre-harvest:18-26                                                                                                                                                                                                                                                                                                                                                                                                                                      ', '10-26                                                           ', 'extra small                                                     ', '7-14 days                                                       ', '4-6 months                                                      ', '2-4 weeks                                                       ', '7-8 months                              ', '50-60%                                                          ', '6.0-7.0                                                         ', '2,5 cl                                                          ', 'plant', 'https://i.imgur.com/WVg2x5l.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (7, 'cherry tomatoes                                                 ', '168                                                             ', 'cooler during night (17-19) warmer during day (21-29)                                                                                                                                                                                                                                                                                                                                                                                                                                                               ', '21-29                                                           ', 'extra large                                                     ', '7-14 days                                                       ', '4-6 weeks                                                       ', '9-12 weeks                                                      ', '14-16 weeks                             ', '40-60%                                                          ', '5.0-6.5                                                         ', '2,5 cl                                                          ', 'fruit', 'https://i.imgur.com/L2qgBUS.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (13, 'orchid                                                          ', '192                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '15-27                                                           ', 'extra small                                                     ', 'few weeks -several months                                       ', '4-8 months                                                      ', '2-3 months                                                      ', '2-5 years                               ', '40-50%                                                          ', '5.5-6.0                                                         ', '6 cl                                                            ', 'flower', 'https://i.imgur.com/vhdVSB4.jpg                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (10, 'spider plants                                                   ', '48                                                              ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '10-24                                                           ', 'large                                                           ', '1-3 weeks                                                       ', '3 weeks - 2 months                                              ', '2-4 weeks                                                       ', '3+ years                                ', '40-80%                                                          ', '6.0-7.5                                                         ', '2.5-5 cl                                                        ', 'plant', 'https://i.imgur.com/oTRHLlp.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (12, 'lemons                                                          ', '168                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '20-25                                                           ', 'large                                                           ', '14 days                                                         ', '2-5 years                                                       ', '2-4months                                                       ', '4 months                                ', '50%                                                             ', '6.0-7.0                                                         ', 'until soil is moist                                             ', 'fruit', 'https://i.imgur.com/u3bXpMA.png                                                                     ');
-INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (11, 'monstera                                                        ', '216                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '18-30                                                           ', 'extra large                                                     ', '7-14 days                                                       ', '2-3 years                                                       ', '2-5 years                                                       ', '5+ years                                ', '60-70%                                                          ', '5.5-6.5                                                         ', '5-7.5 cl                                                        ', 'plant', 'https://i.imgur.com/oPerfjQ.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (6, 'cactus                                                          ', '360                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '25-30                                                           ', 'any                                                             ', '7-14 days                                                       ', '4-6 weeks                                                       ', '9-12 weeks                                                      ', '14-16 weeks                             ', '40-60%                                                          ', '5.0-6.5                                                         ', '6-12 cl                                                         ', NULL, 'https://i.imgur.com/ETCovEk.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (7, 'cherry tomatoes                                                 ', '168                                                             ', 'cooler during night (17-19) warmer during day (21-29)                                                                                                                                                                                                                                                                                                                                                                                                                                                               ', '21-29                                                           ', 'extra large                                                     ', '7-14 days                                                       ', '4-6 weeks                                                       ', '9-12 weeks                                                      ', '14-16 weeks                             ', '40-60%                                                          ', '5.0-6.5                                                         ', '2,5 cl                                                          ', NULL, 'https://i.imgur.com/L2qgBUS.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (13, 'orchid                                                          ', '192                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '15-27                                                           ', 'extra small                                                     ', 'few weeks -several months                                       ', '4-8 months                                                      ', '2-3 months                                                      ', '2-5 years                               ', '40-50%                                                          ', '5.5-6.0                                                         ', '6 cl                                                            ', NULL, 'https://i.imgur.com/vhdVSB4.jpg                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (12, 'lemons                                                          ', '168                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '20-25                                                           ', 'large                                                           ', '14 days                                                         ', '2-5 years                                                       ', '2-4months                                                       ', '4 months                                ', '50%                                                             ', '6.0-7.0                                                         ', 'until soil is moist                                             ', NULL, 'https://i.imgur.com/u3bXpMA.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (10, 'spider plants                                                   ', '48                                                              ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '10-24                                                           ', 'large                                                           ', '1-3 weeks                                                       ', '3 weeks - 2 months                                              ', '2-4 weeks                                                       ', '3+ years                                ', '40-80%                                                          ', '6.0-7.5                                                         ', '2.5-5 cl                                                        ', NULL, 'https://i.imgur.com/oTRHLlp.png                                                                     ');
+INSERT INTO public.plant OVERRIDING SYSTEM VALUE VALUES (11, 'monstera                                                        ', '216                                                             ', 'NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '18-30                                                           ', 'extra large                                                     ', '7-14 days                                                       ', '2-3 years                                                       ', '2-5 years                                                       ', '5+ years                                ', '60-70%                                                          ', '5.5-6.5                                                         ', '5-7.5 cl                                                        ', NULL, 'https://i.imgur.com/oPerfjQ.png                                                                     ');
 
 
 --
--- TOC entry 4864 (class 0 OID 74197)
+-- TOC entry 4858 (class 0 OID 74197)
 -- Dependencies: 216
 -- Data for Name: plant_care; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -370,7 +356,7 @@ INSERT INTO public.plant_care VALUES ('repotting                     ');
 
 
 --
--- TOC entry 4865 (class 0 OID 74202)
+-- TOC entry 4859 (class 0 OID 74202)
 -- Dependencies: 217
 -- Data for Name: plant_care_preferrence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -391,20 +377,7 @@ INSERT INTO public.plant_care_preferrence VALUES ('pruning                      
 
 
 --
--- TOC entry 4878 (class 0 OID 90275)
--- Dependencies: 231
--- Data for Name: resources; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO public.resources VALUES ('pot', 'https://i.imgur.com/qE2NfVT.png', 'standard image for dead plant');
-INSERT INTO public.resources VALUES ('sprout', 'https://i.imgur.com/A88pfLQ.png', 'standard image for sprout');
-INSERT INTO public.resources VALUES ('vegetative', 'https://i.imgur.com/kP702Ij.png', 'standard image for vegetative plant');
-INSERT INTO public.resources VALUES ('flowering', 'https://i.imgur.com/aAdKX6Z.png', 'standard image for flowering plant');
-INSERT INTO public.resources VALUES ('mature', 'https://i.imgur.com/BDL6MYn.png', 'standard image for mature plant');
-
-
---
--- TOC entry 4866 (class 0 OID 74207)
+-- TOC entry 4860 (class 0 OID 74207)
 -- Dependencies: 218
 -- Data for Name: season; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -425,7 +398,7 @@ INSERT INTO public.season OVERRIDING SYSTEM VALUE VALUES (30, 'autumn           
 
 
 --
--- TOC entry 4867 (class 0 OID 74212)
+-- TOC entry 4861 (class 0 OID 74212)
 -- Dependencies: 219
 -- Data for Name: season_preferrence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -448,7 +421,7 @@ INSERT INTO public.season_preferrence VALUES (28, 11, 1);
 
 
 --
--- TOC entry 4868 (class 0 OID 74217)
+-- TOC entry 4862 (class 0 OID 74217)
 -- Dependencies: 220
 -- Data for Name: soil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -459,7 +432,7 @@ INSERT INTO public.soil OVERRIDING SYSTEM VALUE VALUES (4, 'well draining       
 
 
 --
--- TOC entry 4869 (class 0 OID 74222)
+-- TOC entry 4863 (class 0 OID 74222)
 -- Dependencies: 221
 -- Data for Name: soil_preferrence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -477,7 +450,7 @@ INSERT INTO public.soil_preferrence VALUES (11, 4, 1);
 
 
 --
--- TOC entry 4871 (class 0 OID 74232)
+-- TOC entry 4865 (class 0 OID 74232)
 -- Dependencies: 223
 -- Data for Name: zone_preferrence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -497,7 +470,7 @@ INSERT INTO public.zone_preferrence VALUES (11, 2, 1);
 
 
 --
--- TOC entry 4897 (class 0 OID 0)
+-- TOC entry 4890 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: plant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -506,7 +479,7 @@ SELECT pg_catalog.setval('public.plant_id_seq', 13, true);
 
 
 --
--- TOC entry 4898 (class 0 OID 0)
+-- TOC entry 4891 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: season_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -515,7 +488,7 @@ SELECT pg_catalog.setval('public.season_id_seq', 30, true);
 
 
 --
--- TOC entry 4899 (class 0 OID 0)
+-- TOC entry 4892 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: soil_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -524,7 +497,7 @@ SELECT pg_catalog.setval('public.soil_id_seq', 9, true);
 
 
 --
--- TOC entry 4900 (class 0 OID 0)
+-- TOC entry 4893 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: zone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -533,7 +506,7 @@ SELECT pg_catalog.setval('public.zone_id_seq', 7, true);
 
 
 --
--- TOC entry 4686 (class 2606 OID 74189)
+-- TOC entry 4682 (class 2606 OID 74189)
 -- Name: light_level pk_light_level; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -542,7 +515,7 @@ ALTER TABLE ONLY public.light_level
 
 
 --
--- TOC entry 4704 (class 2606 OID 74241)
+-- TOC entry 4700 (class 2606 OID 74241)
 -- Name: light_preferrence pk_light_preferrence; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -551,7 +524,7 @@ ALTER TABLE ONLY public.light_preferrence
 
 
 --
--- TOC entry 4706 (class 2606 OID 74310)
+-- TOC entry 4702 (class 2606 OID 74310)
 -- Name: plant pk_plant; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -560,7 +533,7 @@ ALTER TABLE ONLY public.plant
 
 
 --
--- TOC entry 4688 (class 2606 OID 74201)
+-- TOC entry 4684 (class 2606 OID 74201)
 -- Name: plant_care pk_plant_care; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -569,7 +542,7 @@ ALTER TABLE ONLY public.plant_care
 
 
 --
--- TOC entry 4690 (class 2606 OID 74206)
+-- TOC entry 4686 (class 2606 OID 74206)
 -- Name: plant_care_preferrence pk_plant_care_preferrence; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -578,7 +551,7 @@ ALTER TABLE ONLY public.plant_care_preferrence
 
 
 --
--- TOC entry 4692 (class 2606 OID 74211)
+-- TOC entry 4688 (class 2606 OID 74211)
 -- Name: season pk_season; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -587,7 +560,7 @@ ALTER TABLE ONLY public.season
 
 
 --
--- TOC entry 4694 (class 2606 OID 74216)
+-- TOC entry 4690 (class 2606 OID 74216)
 -- Name: season_preferrence pk_season_preferrence; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -596,7 +569,7 @@ ALTER TABLE ONLY public.season_preferrence
 
 
 --
--- TOC entry 4696 (class 2606 OID 74221)
+-- TOC entry 4692 (class 2606 OID 74221)
 -- Name: soil pk_soil; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -605,7 +578,7 @@ ALTER TABLE ONLY public.soil
 
 
 --
--- TOC entry 4698 (class 2606 OID 74226)
+-- TOC entry 4694 (class 2606 OID 74226)
 -- Name: soil_preferrence pk_soil_preferrence; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -614,7 +587,7 @@ ALTER TABLE ONLY public.soil_preferrence
 
 
 --
--- TOC entry 4700 (class 2606 OID 74231)
+-- TOC entry 4696 (class 2606 OID 74231)
 -- Name: climate_zone pk_zone; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -623,7 +596,7 @@ ALTER TABLE ONLY public.climate_zone
 
 
 --
--- TOC entry 4702 (class 2606 OID 74236)
+-- TOC entry 4698 (class 2606 OID 74236)
 -- Name: zone_preferrence pk_zone_preferrence; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -632,16 +605,7 @@ ALTER TABLE ONLY public.zone_preferrence
 
 
 --
--- TOC entry 4708 (class 2606 OID 90281)
--- Name: resources resources_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.resources
-    ADD CONSTRAINT resources_pkey PRIMARY KEY (name);
-
-
---
--- TOC entry 4717 (class 2606 OID 74331)
+-- TOC entry 4711 (class 2606 OID 74331)
 -- Name: light_preferrence fk_light_preferrence_0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -650,7 +614,7 @@ ALTER TABLE ONLY public.light_preferrence
 
 
 --
--- TOC entry 4718 (class 2606 OID 74287)
+-- TOC entry 4712 (class 2606 OID 74287)
 -- Name: light_preferrence fk_light_preferrence_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -659,7 +623,7 @@ ALTER TABLE ONLY public.light_preferrence
 
 
 --
--- TOC entry 4709 (class 2606 OID 74242)
+-- TOC entry 4703 (class 2606 OID 74242)
 -- Name: plant_care_preferrence fk_plant_care_preferrence_0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -668,7 +632,7 @@ ALTER TABLE ONLY public.plant_care_preferrence
 
 
 --
--- TOC entry 4710 (class 2606 OID 74311)
+-- TOC entry 4704 (class 2606 OID 74311)
 -- Name: plant_care_preferrence fk_plant_care_preferrence_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -677,7 +641,7 @@ ALTER TABLE ONLY public.plant_care_preferrence
 
 
 --
--- TOC entry 4711 (class 2606 OID 74252)
+-- TOC entry 4705 (class 2606 OID 74252)
 -- Name: season_preferrence fk_season_preferrence_0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -686,7 +650,7 @@ ALTER TABLE ONLY public.season_preferrence
 
 
 --
--- TOC entry 4712 (class 2606 OID 74316)
+-- TOC entry 4706 (class 2606 OID 74316)
 -- Name: season_preferrence fk_season_preferrence_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -695,7 +659,7 @@ ALTER TABLE ONLY public.season_preferrence
 
 
 --
--- TOC entry 4713 (class 2606 OID 74321)
+-- TOC entry 4707 (class 2606 OID 74321)
 -- Name: soil_preferrence fk_soil_preferrence_0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -704,7 +668,7 @@ ALTER TABLE ONLY public.soil_preferrence
 
 
 --
--- TOC entry 4714 (class 2606 OID 74267)
+-- TOC entry 4708 (class 2606 OID 74267)
 -- Name: soil_preferrence fk_soil_preferrence_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -713,7 +677,7 @@ ALTER TABLE ONLY public.soil_preferrence
 
 
 --
--- TOC entry 4715 (class 2606 OID 74326)
+-- TOC entry 4709 (class 2606 OID 74326)
 -- Name: zone_preferrence fk_zone_preferrence_0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -722,7 +686,7 @@ ALTER TABLE ONLY public.zone_preferrence
 
 
 --
--- TOC entry 4716 (class 2606 OID 74277)
+-- TOC entry 4710 (class 2606 OID 74277)
 -- Name: zone_preferrence fk_zone_preferrence_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -731,7 +695,7 @@ ALTER TABLE ONLY public.zone_preferrence
 
 
 --
--- TOC entry 4884 (class 0 OID 0)
+-- TOC entry 4877 (class 0 OID 0)
 -- Dependencies: 5
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pg_database_owner
 --
@@ -740,7 +704,7 @@ GRANT USAGE ON SCHEMA public TO sprout;
 
 
 --
--- TOC entry 4885 (class 0 OID 0)
+-- TOC entry 4878 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: TABLE climate_zone; Type: ACL; Schema: public; Owner: postgres
 --
@@ -749,7 +713,7 @@ GRANT SELECT ON TABLE public.climate_zone TO sprout;
 
 
 --
--- TOC entry 4886 (class 0 OID 0)
+-- TOC entry 4879 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: TABLE light_level; Type: ACL; Schema: public; Owner: postgres
 --
@@ -758,7 +722,7 @@ GRANT SELECT ON TABLE public.light_level TO sprout;
 
 
 --
--- TOC entry 4887 (class 0 OID 0)
+-- TOC entry 4880 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: TABLE light_preferrence; Type: ACL; Schema: public; Owner: postgres
 --
@@ -767,7 +731,7 @@ GRANT SELECT ON TABLE public.light_preferrence TO sprout;
 
 
 --
--- TOC entry 4888 (class 0 OID 0)
+-- TOC entry 4881 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: TABLE plant; Type: ACL; Schema: public; Owner: postgres
 --
@@ -776,7 +740,7 @@ GRANT SELECT ON TABLE public.plant TO sprout;
 
 
 --
--- TOC entry 4889 (class 0 OID 0)
+-- TOC entry 4882 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: TABLE plant_care; Type: ACL; Schema: public; Owner: postgres
 --
@@ -785,7 +749,7 @@ GRANT SELECT ON TABLE public.plant_care TO sprout;
 
 
 --
--- TOC entry 4890 (class 0 OID 0)
+-- TOC entry 4883 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: TABLE plant_care_preferrence; Type: ACL; Schema: public; Owner: postgres
 --
@@ -794,7 +758,7 @@ GRANT SELECT ON TABLE public.plant_care_preferrence TO sprout;
 
 
 --
--- TOC entry 4891 (class 0 OID 0)
+-- TOC entry 4884 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: TABLE season; Type: ACL; Schema: public; Owner: postgres
 --
@@ -803,7 +767,7 @@ GRANT SELECT ON TABLE public.season TO sprout;
 
 
 --
--- TOC entry 4892 (class 0 OID 0)
+-- TOC entry 4885 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: TABLE season_preferrence; Type: ACL; Schema: public; Owner: postgres
 --
@@ -812,7 +776,7 @@ GRANT SELECT ON TABLE public.season_preferrence TO sprout;
 
 
 --
--- TOC entry 4893 (class 0 OID 0)
+-- TOC entry 4886 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: TABLE soil; Type: ACL; Schema: public; Owner: postgres
 --
@@ -821,7 +785,7 @@ GRANT SELECT ON TABLE public.soil TO sprout;
 
 
 --
--- TOC entry 4894 (class 0 OID 0)
+-- TOC entry 4887 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: TABLE soil_preferrence; Type: ACL; Schema: public; Owner: postgres
 --
@@ -830,7 +794,7 @@ GRANT SELECT ON TABLE public.soil_preferrence TO sprout;
 
 
 --
--- TOC entry 4895 (class 0 OID 0)
+-- TOC entry 4888 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: TABLE zone_preferrence; Type: ACL; Schema: public; Owner: postgres
 --
@@ -839,7 +803,7 @@ GRANT SELECT ON TABLE public.zone_preferrence TO sprout;
 
 
 --
--- TOC entry 4896 (class 0 OID 0)
+-- TOC entry 4889 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: TABLE plant_info; Type: ACL; Schema: public; Owner: postgres
 --
@@ -847,7 +811,7 @@ GRANT SELECT ON TABLE public.zone_preferrence TO sprout;
 GRANT SELECT ON TABLE public.plant_info TO sprout;
 
 
--- Completed on 2024-05-08 10:14:03
+-- Completed on 2024-05-07 10:03:13
 
 --
 -- PostgreSQL database dump complete
