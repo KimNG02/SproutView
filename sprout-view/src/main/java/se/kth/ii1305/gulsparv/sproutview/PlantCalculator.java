@@ -103,9 +103,11 @@ public class PlantCalculator {
             }
         }
 
-        if(count != optionsPlantCare.length && count > 0){// man har valt minst ett plantCare val
-            plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
+        if(optionsPlantCare != null){
             plantCare = true;
+            if(count != optionsPlantCare.length && count > 0){// man har valt minst ett plantCare val
+                plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
+            }
         }
 
        
@@ -209,7 +211,11 @@ public class PlantCalculator {
         
         if(plantCare){
             if (plantCareSimilarity != 1) {
-                attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+                if(allPlantCare.equals("") || allPlantCare == null){
+                    attributeValuesNewJSON.add("Instead of using the plantcare no plantcare, use " + resultPlantCare[0] + " instead.");
+                } else {
+                    attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+                }
             } else {
                 attributeValuesNewJSON.add("Good job!");
             }
@@ -231,7 +237,7 @@ public class PlantCalculator {
 
         if (ph) {
             if (phSimilarity != 1) {
-                attributeValuesNewJSON.add("Needs different soil ph.");
+                attributeValuesNewJSON.add("Instead of using soil ph " + optionsPh + ", you should use ph " + resultPh);
             } else {
                 attributeValuesNewJSON.add("Good job!");
             }
@@ -352,11 +358,21 @@ public class PlantCalculator {
         int lowerRange = Integer.valueOf(temp2StringArray[0]);
         int upperRange = Integer.valueOf(temp2StringArray[1]);
 
-        double out = 0.0;
+        double difference = 0.0;
 
         if (lowerRange <= temp1 && temp1 <= upperRange) {
-            out = 1.0;
+            difference = 0;
+        } else {
+            if(temp1 < lowerRange){
+                difference = lowerRange - temp1;
+            }
+
+            if(upperRange < temp1){
+                difference = temp1 - lowerRange;
+            }
         }
+
+        double out = 1 - difference/20;
 
         return out;
     }
@@ -497,11 +513,21 @@ public class PlantCalculator {
         double lowerRange = Double.valueOf(ph2StringArray[0]);
         double upperRange = Double.valueOf(ph2StringArray[1]);
 
-        double out = 0.0;
+        double difference = 0;
 
         if (lowerRange <= ph1 && ph1 <= upperRange) {
-            out = 1.0;
+            difference = 0;
+        } else {
+            if(ph1 < lowerRange){
+                difference = lowerRange - ph1;
+            }
+
+            if(upperRange < ph1){
+                difference = ph1 - upperRange;
+            }
         }
+
+        double out = 1 - difference / 3;
 
         return out;
     }

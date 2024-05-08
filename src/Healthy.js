@@ -134,6 +134,10 @@ function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, fl
                   <span>{timelineData.waterComment}</span>
                 </div>
                 <div className="comment">
+                  <strong>Temperature:</strong>
+                  <span>{timelineData.tempComment}</span>
+                </div>
+                <div className="comment">
                   <strong>Pot Size:</strong>
                   <span>{timelineData.potSizeComment}</span>
                 </div>

@@ -45,6 +45,10 @@ function Dead({ timelineData, selectedPlant}) {
                   <span>{timelineData.waterComment}</span>
                 </div>
                 <div className="comment">
+                  <strong>Temperature:</strong>
+                  <span>{timelineData.tempComment}</span>
+                </div>
+                <div className="comment">
                   <strong>Pot Size:</strong>
                   <span>{timelineData.potSizeComment}</span>
                 </div>

@@ -20,6 +20,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const [pH, setpH] = useState(7.0);
   const [humidity, setHumidity] = useState("");
   const [plantCare, setPlantCare] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -27,6 +28,16 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
       setPlantCare((prevState) => [...prevState, name]);
     } else {
       setPlantCare((prevState) => prevState.filter((item) => item !== name));
+    }
+  };
+
+  const handleDontKnowCheckboxChange = (event) => {
+    const { checked } = event.target;
+    setIsChecked(!isChecked);
+    if(checked) {
+      setpH("");
+    } else {
+      setpH(7.0);
     }
   };
 
@@ -68,6 +79,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
+
 
   /* Options, stored in OptionsObj */
   /* plant, light, water, soil, temp, potSize, plantCare, humidity, pH */
@@ -112,10 +124,10 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         <h1 className="topic">Select Environment Options</h1>
       </div>
       <form onSubmit={confirmOptionsCB}>
-      <div className="square">
+        <div className="square">
         {/* <div className='options-section'>
         <CountrySelector />
-      </div> */}
+        </div> */}
 
         <div className="box2">
           {/*Season Options*/}
@@ -337,68 +349,70 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         <div className="box2">
           {/* Soil Type Options */}
           <div className="options-section">
-            <h2>What type of soil do you plan to use?*</h2>
-            <div className="radio-container">
-              <input
-                type="radio"
-                id="welldr"
-                name="soilType"
-                value="Well-draining Soil"
-                onChange={() => handleSoilTypeChange("well draining")}
-                required
-              />
-              <label htmlFor="welldr">
-                <div className="tooltip">
-                  Well-draining{" "}
-                  <span class="tooltiptext">
-                    Such as Sandy soil, Sandy loam or Gravelly soil. Allows
-                    water to enter the soil at a moderate rate without pooling
-                    or puddling.
-                  </span>
-                </div>
-              </label>
-              <br />
-              <input
-                type="radio"
-                id="loamy"
-                name="soilType"
-                value="Loamy soil"
-                onChange={() => handleSoilTypeChange("loamy soil")}
-                required
-              />
-              <label htmlFor="loamy">
-                <div className="tooltip">
-                  Loamy soil
-                  <span class="tooltiptext">
-                    Such as sandy loam, silt loam, clay loam, and silty clay
-                    loam. Provides good drainage and nutrient retention with a
-                    balanced mix of sand, silt, and clay.
-                  </span>
-                </div>
-              </label>
-              <br />
-              <input
-                type="radio"
-                id="potting"
-                name="soilType"
-                value="Potting mix"
-                onChange={() => handleSoilTypeChange("potting mix")}
-                required
-              />
-              <label htmlFor="potting">
-                <div className="tooltip">
-                  Potting mix
-                  <span class="tooltiptext">
-                    Soil specifically formulated for container gardening,
-                    typically consists of a blend of organic and inorganic
-                    materials that promote good drainage, aeration, and nutrient
-                    retention. Typically for houseplants, vegetables, and
-                    annuals.
-                  </span>
-                </div>
-              </label>
-              <br />
-              {/* Include other soil type radio inputs */}
+            <div className="soil-options">
+              <h2>What type of soil do you plan to use?*</h2>
+              <div className="radio-container">
+                <input
+                  type="radio"
+                  id="welldr"
+                  name="soilType"
+                  value="Well-draining Soil"
+                  onChange={() => handleSoilTypeChange("well draining")}
+                  required
+                />
+                <label htmlFor="welldr">
+                  <div className="tooltip">
+                    Well-draining{" "}
+                    <span class="tooltiptext">
+                      Such as Sandy soil, Sandy loam or Gravelly soil. Allows
+                      water to enter the soil at a moderate rate without pooling
+                      or puddling.
+                    </span>
+                  </div>
+                </label>
+                <br />
+                <input
+                  type="radio"
+                  id="loamy"
+                  name="soilType"
+                  value="Loamy soil"
+                  onChange={() => handleSoilTypeChange("loamy soil")}
+                  required
+                />
+                <label htmlFor="loamy">
+                  <div className="tooltip">
+                    Loamy soil
+                    <span class="tooltiptext">
+                      Such as sandy loam, silt loam, clay loam, and silty clay
+                      loam. Provides good drainage and nutrient retention with a
+                      balanced mix of sand, silt, and clay.
+                    </span>
+                  </div>
+                </label>
+                <br />
+                <input
+                  type="radio"
+                  id="potting"
+                  name="soilType"
+                  value="Potting mix"
+                  onChange={() => handleSoilTypeChange("potting mix")}
+                  required
+                />
+                <label htmlFor="potting">
+                  <div className="tooltip">
+                    Potting mix
+                    <span class="tooltiptext">
+                      Soil specifically formulated for container gardening,
+                      typically consists of a blend of organic and inorganic
+                      materials that promote good drainage, aeration, and nutrient
+                      retention. Typically for houseplants, vegetables, and
+                      annuals.
+                    </span>
+                  </div>
+                </label>
+                <br />
+                {/* Include other soil type radio inputs */}
+              </div>
             </div>
           </div>
           {/* Watering Options */}
@@ -443,19 +457,32 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <button type="button" onClick={decrement}>&#8722;</button>
               <b>{pH}</b>
               <button type="button" onClick={increment}>&#43;</button>
+              
+              <span className="linked-font">
+              <label for="dont-know">
+                <input
+                  type="checkbox"
+                  id="dont-know"
+                  name="dont-know"
+                  checked={isChecked}
+                  onChange={handleDontKnowCheckboxChange}
+                />
+              Don't know</label>
+            </span>
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
-      <div>
-        <div className="confirm-zone">
+        <div>
+          <div className="confirm-zone">
               <button type="submit" className="button" >
               Generate
               </button>
+          </div>
         </div>
-      </div>
-      </form>    
+      </form>  
+        
       <img id="plant" src={plant} alt="plant"/>
     </div>
   );

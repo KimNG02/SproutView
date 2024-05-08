@@ -42,7 +42,7 @@ const teamMembers = [
   {
     name: "Emil",
     role: "Developer",
-    imageUrl: "https://cdn-icons-png.freepik.com/512/6813/6813248.png",
+    imageUrl: "https://st.depositphotos.com/1269378/2159/v/950/depositphotos_21597221-stock-illustration-lime-character.jpg",
   },
   {
     name: "Isac",

@@ -325,10 +325,6 @@ body {
     
   }
 
-  .light-options .tooltip .tooltiptext{
-    width: 130px;
-  }
-
   .sizeguide .tooltip .tooltiptext{
     left: -30px;
     bottom: 20px;
@@ -336,9 +332,25 @@ body {
 
   .tooltip .tooltiptext{
     font-size: 12px;
+    left: 0;
+    width: 200%;
   }
 
   .margin-inline{
     margin-inline: 5px;
   }
+}
+
+@media only screen and (max-width: 344px){
+  .square {
+    flex-direction: column;
+    width: auto;
+  }
+
+  #plant{
+    display: none;
+  }
+
+  
+
 }

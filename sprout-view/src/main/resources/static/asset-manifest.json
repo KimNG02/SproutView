@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.5a2df841.css",
-    "main.js": "/static/js/main.7141015b.js",
+    "main.js": "/static/js/main.36fe0224.js",
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/leavesmin.png": "/static/media/leavesmin.7752d404c908cd0237f3.png",
     "static/media/leaves.webp": "/static/media/leaves.5eff6e0d98c3c1ad40a5.webp",
     "static/media/optimg.png": "/static/media/optimg.8b23e0771d6a4f8accf8.png",
     "index.html": "/index.html",
     "main.5a2df841.css.map": "/static/css/main.5a2df841.css.map",
-    "main.7141015b.js.map": "/static/js/main.7141015b.js.map"
+    "main.36fe0224.js.map": "/static/js/main.36fe0224.js.map"
   },
   "entrypoints": [
     "static/css/main.5a2df841.css",
-    "static/js/main.7141015b.js"
+    "static/js/main.36fe0224.js"
   ]
 }
