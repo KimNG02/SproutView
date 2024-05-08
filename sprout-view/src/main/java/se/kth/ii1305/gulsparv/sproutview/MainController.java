@@ -24,4 +24,9 @@ public class MainController{
     {
         return DBHandler.getInstance().executeQuery(new PlantQuery());
     }
+
+    public JSONObject getResources() throws SQLException, SQLTimeoutException
+    {
+        return DBHandler.getInstance().executeQuery(new ResourceQuery());
+    }
 }

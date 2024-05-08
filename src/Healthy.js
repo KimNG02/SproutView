@@ -3,17 +3,47 @@ import "./styles/Healthy.css";
 import "./styles/Timeline.css";
 import flowerAnimation from "./images/flowerAnimation.mp4";
 
-function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, floweringImage, matureImage}) {
+function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
   const [sprout, setSprout] = useState(true);
   const [vegetative, setVegetative] = useState(false);
   const [flowering, setFlowering] = useState(false);
   const [mature, setMature] = useState(false);
+  var sproutImage;
+  var vegetativeImage;
+  var floweringImage;
+  var matureImage;
+  
+  resourceNames.forEach((name, index) => {
+    switch (name) {
+      case "pot": 
+
+        break;
+      case "sprout":
+        sproutImage = links[index];
+        break;
+      case "vegetative":
+        vegetativeImage = links[index];
+        break;
+      case "flowering":
+        floweringImage = links[index];
+        break;
+      case "mature":
+        matureImage = links[index];
+        break;
+    
+      default:
+        break;
+    }
+  });
+
 
   const scrollToSuggestions = () => {
     suggestionsRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+
 
   const handleChange = (event, num = null) => {
     var valueHere = null;
@@ -76,14 +106,10 @@ function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, fl
               <button className="arrow left-arrow" onClick={decrementValue}>
                 &lt;
               </button>
-                {sprout && sproutImage}
-                {vegetative && vegetativeImage}
-                {flowering && floweringImage}
-                {mature && matureImage}
-              {/* <img
-                src="https://s3-alpha-sig.figma.com/img/f5fa/dea8/ae7a8dcc084c12df9e01036341062518?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VNxZyqfpWqjUdqFj3zNKZsDDFkwapTlVDHoghvHqxYDW-EtPL6xk64xrdGje0BGAfQyJGrHOlJHso6eNZWDFaxZBg3HdkgjfGCvX5XlJIouSKJv4x7Za~U9yYLP~9aIf2OMYapfAP~zzDlvqHVeEP39PEYE8k9CmfesFqUaqk~dMsyw-g2UxtBiUTPdXmqlZABAb~OtoF4Icf48QitOIvU0uZKGlLWkPqYuZcsX3qY6wOq3hP~d9ly9ILkGyqkk4Mk-oRpyVc0dvJr9ylvThsS~BoK-yNE8bbzByN3NttW052PzoRxCx0TmKBwqkweJEqmvNGrtBz07z2h~u6VCODQ__"
-                alt="Healthy Plant"
-              /> */}
+                {sprout && <img src={sproutImage} alt="sprout"/>}
+                {vegetative && <img src={vegetativeImage} alt="vegetative"/>}
+                {flowering && <img src={floweringImage} alt="flowering"/>}
+                {mature && <img src={matureImage} alt="mature"/>}
               <button className="arrow right-arrow" onClick={incrementValue}>
                 &gt;
               </button>

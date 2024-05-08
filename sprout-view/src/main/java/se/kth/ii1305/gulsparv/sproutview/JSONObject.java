@@ -122,7 +122,8 @@ public class JSONObject {
 
         for (int n = 0; n < arrayLength; n++) {
             String name = result.getMetaData().getColumnLabel(n + 1);
-            String value = result.getString(n + 1).trim();
+            String value = result.getString(n + 1);
+            if (value != null) value = value.trim();
 
             attributeNames[n] = name;
             attributeValuesPreliminary[n].add(value);
@@ -131,7 +132,8 @@ public class JSONObject {
 
         while (result.next()) {
             for (int n = 0; n < arrayLength; n++) {
-                String value = result.getString(n + 1).trim();
+                String value = result.getString(n + 1);
+                if (value != null) value = value.trim();
 
                 if (!attributeValuesPreliminary[n].contains(value)) {
                     System.out.println("\nAdding Value: " + value);
