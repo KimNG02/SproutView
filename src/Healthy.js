@@ -156,12 +156,12 @@ function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, fl
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
-            </div>
-            <div className="plant-animation-container">
+              <div className="plant-animation-container">
               <video className="plant-animation" autoPlay controls={false} loop>
                 <source src={flowerAnimation} type="video/mp4"/>
                 Your browser does not support the animation
               </video>
+            </div>
             </div>
             </div>
           </section>

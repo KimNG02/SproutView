@@ -7,9 +7,6 @@
 
 .rectangle-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .healthy-circle-container {
@@ -38,7 +35,7 @@
     height: 35vh;
   }
 
-  .rectangle-container {
+  .white-rectangle {
     flex-direction: column;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./styles/Risky.css";
 import "./styles/Timeline.css";
+import flowerAnimation from "./images/flowerAnimation.mp4";
 
 function Risky({ timelineData, selectedPlant, sproutImage, vegetativeImage, floweringImage, matureImage}) {
   const suggestionsRef = useRef(null);
@@ -152,6 +153,12 @@ function Risky({ timelineData, selectedPlant, sproutImage, vegetativeImage, flow
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
+            </div>
+            <div className="plant-animation-container">
+              <video className="plant-animation" autoPlay controls={false} loop>
+                <source src={flowerAnimation} type="video/mp4"/>
+                Your browser does not support the animation
+              </video>
             </div>
           </section>
         </div>

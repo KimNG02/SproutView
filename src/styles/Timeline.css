@@ -89,11 +89,15 @@
 }
 
 .white-rectangle {
-  width: 60%;
-  height: 50vh; /* Adjust the height as needed */
-  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  background-color: #f8f8f8;
   /* Add any other styling properties as needed */
   border-radius: 18px;
+  border: 1px solid #59af5e;
 }
 
 .growth-suggestions {
@@ -118,19 +122,6 @@
   max-width: 90%; /* Ensures text doesn't get too wide */
 }
 
-@media only screen and (max-width: 768px) {
-  .left-arrow {
-    left: -30px; /* Adjust distance from the left side */
-  }
-  
-  .right-arrow {
-    right: -30px; /* Adjust distance from the right side */
-  }
-
-  .timeline-section {
-    margin:10px;
-  }
-}
 
 
 #helpbuttoncontainer {
@@ -161,4 +152,30 @@
 .plant-animation-container {
   width: max-content;
   height: max-content;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .left-arrow {
+    left: -30px; /* Adjust distance from the left side */
+  }
+  
+  .right-arrow {
+    right: -30px; /* Adjust distance from the right side */
+  }
+
+  .timeline-section {
+    margin:10px;
+    height: fit-content;
+  }
+
+  .plant-animation {
+    width: 240px;
+    height: 240px;
+  }
+
+  .plant-animation-container {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
