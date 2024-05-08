@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./styles/Healthy.css";
 import "./styles/Timeline.css";
+import flowerAnimation from "./images/flowerAnimation.mp4";
 
 function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, floweringImage, matureImage}) {
   const suggestionsRef = useRef(null);
@@ -123,6 +124,7 @@ function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, fl
             id="growth-suggestions"
           >
             <h1>Growth Suggestions</h1>
+            <div className="rectangle-container">
             <div className="white-rectangle">
               <div className="growth-suggestions">
                 <div className="comment">
@@ -154,6 +156,13 @@ function Healthy({ timelineData, selectedPlant, sproutImage, vegetativeImage, fl
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
+            </div>
+            <div className="plant-animation-container">
+              <video className="plant-animation" autoPlay controls={false} loop>
+                <source src={flowerAnimation} type="video/mp4"/>
+                Your browser does not support the animation
+              </video>
+            </div>
             </div>
           </section>
         </div>
