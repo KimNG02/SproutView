@@ -67,8 +67,8 @@ const AboutUs = ({ setTimelinePage }) => {
               alt={member.name}
               className="profile-picture"
             />
-            <h2>{member.name}</h2>
-            <p>{member.role}</p>
+            <h2 className="about-h2">{member.name}</h2>
+            <p className="about-p">{member.role}</p>
           </div>
         ))}
       </div>
