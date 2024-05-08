@@ -38,3 +38,9 @@
   font-size: 32px; /* Larger font size for section headings */
   text-align: left; /* Center-align text */
 }
+
+@media only screen and (max-width: 768px) {
+  .letter{
+    font-size: 16px;
+  }
+}

@@ -21,6 +21,9 @@ public class PlantCalculator {
 
     }
 
+    boolean plantCare = false;
+    int count = 0;
+
     int indexValueOfMatchingElements = -1;
 
     public JSONObject calculateTimeline(JSONObject options, JSONObject queryResult) {
@@ -53,7 +56,6 @@ public class PlantCalculator {
         String allLights = joiner.toString();
 
        
-          
 
         String optionsSoil = options.getValue("soil")[0];
         String[] resultSoil = queryResult.getValue("soil");
@@ -91,7 +93,22 @@ public class PlantCalculator {
 
         String[] optionsPlantCare = options.getValue("plant_care");
         String[] resultPlantCare = queryResult.getValue("plant_care");
-        double plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
+        double plantCareSimilarity = 1.0;
+        
+    
+        for (int i = 0; i < optionsPlantCare.length; i++){
+            if (optionsPlantCare[i].equals(" ")) {
+                count++;
+ 
+            }
+        }
+
+        if(count != optionsPlantCare.length && count > 0){// man har valt minst ett plantCare val
+            plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
+            plantCare = true;
+        }
+
+       
                        
 
         StringJoiner plantCareJoiner = new StringJoiner(" & ");
@@ -147,6 +164,7 @@ public class PlantCalculator {
         attributeNamesNewJSON.add("vegetativeTime");
         attributeNamesNewJSON.add("floweringTime");
         attributeNamesNewJSON.add("matureTime");
+        attributeNamesNewJSON.add("botanic_category");
 
         String[] attributeNamesNewJSONArray = new String[attributeNamesNewJSON.size()];
 
@@ -188,13 +206,17 @@ public class PlantCalculator {
         } else {
             attributeValuesNewJSON.add("Good job!");
         }
+        
+        if(plantCare){
+            if (plantCareSimilarity != 1) {
+                attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
+            } else {
+                attributeValuesNewJSON.add("Good job!");
+            }
+        }else{
 
-        if (plantCareSimilarity != 1) {
-            attributeValuesNewJSON.add("Instead of using the plantcare " + allPlantCare + ", use " + resultPlantCare[0] + " instead.");
-        } else if( plantCareSimilarity == 0) {
             attributeValuesNewJSON.add("");
-        }else {
-            attributeValuesNewJSON.add("Good job!");
+
         }
 
         if (humidity) {
@@ -221,6 +243,9 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(queryResult.getValue("vegetative")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("flowering")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("mature")[0]);
+
+        System.out.println("Botanic Category: " + queryResult.getValue("botanic_category")[0]);
+        attributeValuesNewJSON.add(queryResult.getValue("botanic_category")[0]);
 
         String[] outArrayPreliminary = new String[attributeValuesNewJSON.size()];
 

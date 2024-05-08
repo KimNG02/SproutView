@@ -1,38 +1,64 @@
-/* fonts.css */
+/* toolbar.css */
 
+/* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=VT323&display=swap");
 
+/* General styles */
 .toolContainer {
   background: inherit;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 }
 
 .toolbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Add padding to the toolbar */
 }
 
-.logo .sprout-view {
+.tool-logo {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.tool-logo .tool-icon {
+  width: 40px; /* Set the width of the icon */
+  height: 40px; /* Set the height of the icon */
+  margin-right: 10px; /* Add spacing between icon and text */
+  margin-left: 5px;
+}
+
+.sprout-view,
+.about-us {
   font-family: VT323;
-  color: #000000;
+  color: #000000; /* Set the text color */
+  font-size: 20px; /* Set the font size */
+  text-decoration: none; /* Remove default link underline */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row;
+  align-items: center; /* Center text vertically */
 }
 
 .lolo {
   text-decoration: none; /* Remove default link underline */
-  text-align: center;
 }
 
-.logo:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+.tool-logo:hover .sprout-view,
+.about:hover .about-us {
+  transform: scale(1.1); /* Scale the text on hover */
 }
 
-.logo .about-us {
-  font-family: VT323;
-  color: #000000;
-  position: relative;
-  top: 0px;
-  font-size: 22px;
-  margin-right: 2rem;
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .toolbar {
+    padding: 5px 10px;
+  }
+  .tool-logo .tool-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .sprout-view,
+  .about-us {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
 }

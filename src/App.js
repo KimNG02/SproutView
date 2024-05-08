@@ -157,6 +157,20 @@ const App = ({
                   id={String.fromCharCode(97 + i)}
                   className="letter-section"
                 >
+                 <div className="plant-info">
+                  <span className="alphabet-letter">{String.fromCharCode(65 + i)}</span> {/* Display the alphabet letter */}
+                  <div className="plants"> 
+                    {plants && plants
+                      .filter(plant => plant.toLowerCase().charCodeAt(0) === (97 + i))
+                      .sort()
+                      .map((plant, index) => (
+                        <div className="plant" key={index}>
+                      <Image imageSource={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
+
+                    </div>
+                    ))}
+                  </div>
+                </div>
                   {String.fromCharCode(65 + i)}
                   {plants ? <Image imageSources={images} plants={plants} filter={97+i} click={handleImageClick} /> : <div/>}
                 </div>

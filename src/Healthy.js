@@ -97,6 +97,7 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
         <div>
           <section className = "timeline-section" id="healthy-timeline">
             <h1 classname="growth-title">Healthy Growth</h1>
+
             <h4>
               Your {selectedPlant} plant will grow healthily in the following stages
             </h4>
