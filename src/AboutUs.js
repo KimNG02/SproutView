@@ -72,6 +72,9 @@ const AboutUs = ({ setTimelinePage }) => {
           </div>
         ))}
       </div>
+      <div className="gulsparv-cta-container">
+        <a className="gulsparv-cta" href="https://www.gulsparv.site">Meet Team Gulsparv!</a>
+      </div>
     </div>
   );
 };
