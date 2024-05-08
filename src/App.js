@@ -38,6 +38,7 @@ const App = ({
     };
     const fetchPlants = async () => {
       try {
+        console.log("Trying to fetch plants");
         const response = await apiServiceHandler.getPlants();
         handleOnFetch(response);
       } catch (error) {
@@ -47,7 +48,7 @@ const App = ({
     plantString ? stuff() : fetchPlants();
   }, [plantString]);
 
-  const doNothing = () => {};
+  const doNothing = () => {console.log("Baby shark do do do do do...");};
   const stuff = () => {
     plants ? doNothing() : parse();
   };
@@ -165,14 +166,12 @@ const App = ({
                       .sort()
                       .map((plant, index) => (
                         <div className="plant" key={index}>
-                      <Image imageSource={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
+                      <Image imageSource={images[plants.indexOf(plant)]} plant={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
 
                     </div>
                     ))}
                   </div>
                 </div>
-                  {String.fromCharCode(65 + i)}
-                  {plants ? <Image imageSources={images} plants={plants} filter={97+i} click={handleImageClick} /> : <div/>}
                 </div>
               ))}
             </div>
