@@ -154,10 +154,10 @@
   font-weight: 700;
   color: #313133;
   background: #f5f6f5;
-background: linear-gradient(90deg, rgb(191, 242, 190) 0%, rgb(146, 186, 146) 100%);
+background: linear-gradient(90deg, #ffffff 0%, #c6ffc6 100%);
   border: none;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(111, 205, 122, 0.64);
+  box-shadow: 12px 12px 24px #666;
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
