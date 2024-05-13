@@ -33,7 +33,7 @@ const Footer = ({ timelinePage }) => {
         </div>
         <div className="footer-column">
           <h3>Contact Us</h3>
-          <p>Site: <a href="gulsparv.site">gulsparv.site</a></p>
+          <p>Site: <a href="https://gulsparv.site">gulsparv.site</a></p>
         </div>
       </div>
       <div className="footer-bottom">

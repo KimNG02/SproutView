@@ -21,24 +21,6 @@
   margin-top: 50px;
 }
 
-.dead-circle-container::after {
-  background-color: #f4979700;
-  content: "Help!";
-  position: absolute;
-  top: -20px;
-  right: -40px;
-  width: 100px;
-  height: 100px; /* Set the height to match the dimensions of the speech bubble image */
-  background-image: url("https://s3-alpha-sig.figma.com/img/1dcc/77c0/7c319b87c46939d565024072974f03fd?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Yy5gJ6CdiiFw8jO85JHik7PoIbrut2keBlXJoayUVF2pPb0Xn9Djx1bXef5XnagXSkbfzxb3XqCkQNZkdfBu41MdM83yb-PwqWpjwttGmO3SX3OwPbbyi27K2kNNK1RjlQY6IaZH3S5yuD9GjopcZjG0L8Emwiv39P1E34mo4ph3SZiFdbxILa8R7EkhpJhr2la0Epsg-oc9d1eVl137Vf6Vj2-bHNlfu1HTlcjMtnmX0NDtgGwzpXyCWxOpWjgw6-kZYMPEtn-YxyduR4xHYuJ-ZIRt8raK75h~u-vbZv14QQvoThMJ2ZsNU5ZTC-je7RqS5AwFx8RvdECPVkVqew__"); /* Set the image as background */
-  background-size: contain; /* Make sure the image fits inside the speech bubble */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  color: black; /* Text color */
-  font-size: 25px; /* Adjust font size */
-  text-align: center; /* Center the text */
-  line-height: 80px; /* Vertical centering */
-  z-index: 1;
-}
-
 .dead-circle-container img {
   max-width: 85%; /* Ensures the image does not exceed the container */
   max-height: 85%; /* Ensures the image does not exceed the container */

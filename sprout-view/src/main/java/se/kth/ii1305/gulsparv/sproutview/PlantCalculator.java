@@ -179,36 +179,41 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(Double.toString(totalSimilarity));
 
         if (lightSimilarity != 1) {
-            attributeValuesNewJSON.add(allLights + ", you selected: " +  optionsLight);
+            attributeValuesNewJSON.add("The best option is " + allLights + ", you selected: " +  optionsLight);
             
         } else{
             attributeValuesNewJSON.add("");
              }
 
         if (soilSimilarity != 1) {
-            attributeValuesNewJSON.add(queryResult.getValue("soil")[0] + ", you selected: " + optionsSoil);
+            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("soil")[0] + ", you selected: " + optionsSoil);
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (waterSimilarity != 1) {
-            attributeValuesNewJSON.add("Every "+(Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24)+" day(s)" + ", you selected: " + optionsWater);
+            int preferredFreq = (Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24);
+            System.out.println(preferredFreq);
+            int selectedFreq = (Integer.parseInt(optionsWater)/24);
+            System.out.println(selectedFreq);
+            attributeValuesNewJSON.add("The best option is every "+preferredFreq+" day(s)" + ", you selected: every " + selectedFreq + "day(s)");
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (tempSimilarity != 1) {
-            attributeValuesNewJSON.add(queryResult.getValue("preferred_average_temperature")[0]+"C" + ", you selected: " + optionsTemp);
+            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("preferred_average_temperature")[0]+"C" + ", you selected: " + optionsTemp);
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (potSizeSimilarity != 1) {
-            attributeValuesNewJSON.add(queryResult.getValue("preferred_pot_size")[0] + ", you selected: " + optionsPotsize);
+            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("preferred_pot_size")[0] + ", you selected: " + optionsPotsize);
         } else {
             attributeValuesNewJSON.add("");
         }
         
+        System.out.println("plantCare is: " + plantCare + " and plantCareSimilarity is " + plantCareSimilarity);
         if(plantCare){
             if (plantCareSimilarity != 1) {
                 if(allPlantCare.equals("") || allPlantCare == null){
@@ -227,7 +232,7 @@ public class PlantCalculator {
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add(resultHumidity+"%" + ", you selected: " + optionsHumidity);
+                attributeValuesNewJSON.add("The best option is " + resultHumidity + "%" + ", you selected: " + optionsHumidity);
             } else {
                 attributeValuesNewJSON.add("");
             }
@@ -237,7 +242,7 @@ public class PlantCalculator {
 
         if (ph) {
             if (phSimilarity != 1) {
-                attributeValuesNewJSON.add(resultPh + ", you selected: " + optionsPh);
+                attributeValuesNewJSON.add("The best option is " + resultPh + ", you selected: " + optionsPh);
             } else {
                 attributeValuesNewJSON.add("");
             }
@@ -250,7 +255,6 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(queryResult.getValue("flowering")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("mature")[0]);
 
-        System.out.println("Botanic Category: " + queryResult.getValue("botanic_category")[0]);
         attributeValuesNewJSON.add(queryResult.getValue("botanic_category")[0]);
 
         String[] outArrayPreliminary = new String[attributeValuesNewJSON.size()];
@@ -319,19 +323,11 @@ public class PlantCalculator {
         try {
             double waterRatio = Double.valueOf(water1) / Double.valueOf(water2);
 
-            System.out.println("Waterratio: " + waterRatio);
-
             if (waterRatio > 1) {
                 waterRatio = 1 / waterRatio;
             }
 
-            System.out.println("Waterratio: " + waterRatio);
-
-            System.out.println(Math.pow(waterRatio - 1, 2));
-
             double out = 1 - Math.pow(waterRatio - 1, 2) * 2;
-
-            System.out.println("Out: " + out);
 
             if (out < 0) {
                 out = 0;
