@@ -136,25 +136,91 @@
 
 }
 
-#helpbuttoncontainer {
+/* Tips Button */
+
+.helpbuttoncontainer {
+  padding-top: 4vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
 }
 
-#helpbutton {
-  background-color: #bfdb9d;
-  font-family: ABeeZee;
-  font-size: 16px;
-  margin-top: 20px;
-  padding: 5px 18px;
-  text-align: center;
+.helpbutton {
+  min-width: 300px;
+  min-height: 60px;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4fd15e;
+background: linear-gradient(90deg, rgb(132, 230, 129) 0%, rgb(79, 209, 81) 100%);
   border: none;
-  border-radius: 18px;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79, 209, 94, 0.64);
+  transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+.helpbutton::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #04ff00;
+  box-shadow: 0 0 60px rgba(0, 255, 17, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
 }
+
+.helpbutton:hover, .helpbutton:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.helpbutton:hover::before, .helpbutton:focus::before {
+  opacity: 1;
+}
+
+.helpbutton::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #37ff00;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.helpbutton:hover::after, .helpbutton:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+
 
 .plant-animation {
   width: 320px;

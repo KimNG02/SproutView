@@ -143,8 +143,8 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
             </div>
 
             
-            <div id="helpbuttoncontainer">
-              <button id="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
+            <div className="helpbuttoncontainer">
+              <button className="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
             </div>
           </section>
           <section
