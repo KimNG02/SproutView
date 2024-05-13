@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/options.css";
 import ApiServiceHandler from "./apiServiceHandler.js";
 import CountrySelector from "./CountrySelector.js";
@@ -26,6 +26,17 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const [modalOpenLight, setModalOpenLight] = useState(false);
   const [modalOpenPlantCare, setModalOpenPlantCare] = useState(false);
   const [modalOpenSoil, setModalOpenSoil] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+
+  const invisible = {
+    color: '#bfdb9d00'
+  }
+
+  useEffect(() => {
+    if (potSize != "" && selectedLight != "" && soilType != "" && waterFrequency != "") {
+      setDisabled(false);
+    } else {setDisabled(true)}
+  }, [potSize, selectedLight, soilType, waterFrequency])
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -47,6 +58,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   };
 
   function increment() {
+    if (pH === "") {
+      return;
+    }
     setpH(function (prevCount) {
       if (prevCount === 14) {
         return (prevCount = 0);
@@ -55,6 +69,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   }
 
   function decrement() {
+    if (pH === "") {
+      return;
+    }
     setpH(function (prevCount) {
       if (prevCount === 0) {
         return (prevCount = 14);
@@ -236,9 +253,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 <option value="extra large">X-Large</option>
               </select>
               
-              <section className="linked-font" onClick={handleOpenModalPotSize}>
+              <a className="linked-font" onClick={handleOpenModalPotSize}>
                 Size Guide
-              </section>
+              </a>
 
               {modalOpenPotSize && (
               <div className="modal">
@@ -247,12 +264,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                     &times;
                   </span>
                   <p>
-                    <h2>Pot size guide (diameter ranges): <br /><br /></h2> 
-                    X-small: 12-16 cm (1-2 Liter)<br />
-                    Small: 17-20 cm (2-4 Liter)<br />
-                    Medium:21-29 cm (4-10 Liter)<br />
-                    Large: 30-39 cm (10-25 Liter)<br />
-                    X-large: 40-50 cm (25-40 Liter)<br />
+                    <h2>Pot size guide (diameter ranges) </h2> 
+                    <p>X-small: 12-16 cm (1-2 Liter)</p>
+                    <p>Small: 17-20 cm (2-4 Liter)</p>
+                    <p>Medium:21-29 cm (4-10 Liter)</p>
+                    <p>Large: 30-39 cm (10-25 Liter)</p>
+                    <p>X-large: 40-50 cm (25-40 Liter)</p>
                   </p>
                 </div>
               </div>
@@ -269,6 +286,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 How much light will the plant recieve over the course of the
                 day?*
               </h2>
+
+              <div className="flex-row">
               <button type="button"
                 className={`Fullsun ${selectedLight === "full sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("full sun")}
@@ -303,7 +322,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               </button>
 
               <a className="linked-font" onClick={handleOpenModalLight}>
-                ?
+                Sunlight description
               </a>
               
               {modalOpenLight && (
@@ -313,21 +332,44 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                     &times;
                   </span>
                   <p>
-                    <h2>Sunlight amount description <br /><br /></h2> 
-                    Full Sun: When your plant is in direct sunlight for most of the day. <br />
-                    Partial Sun: When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.<br />
-                    Shade: When your plant is in a shaded area with minimum sunlight. <br />
+                    <h2>Sunlight amount descriptions </h2> 
+                    <p>Full Sun: When your plant is in direct sunlight for most of the day. </p>
+                    <p>Partial Sun: When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.</p>
+                    <p>Shade: When your plant is in a shaded area with minimum sunlight. </p>
                   </p>
                 </div>
               </div>
               )}
             </div>
+            </div>
           </div>
 
           {/* Plant-care Options */}
           <div className="options-section">
-            <h2>How are you willing to care for your plant?</h2>
-            <div>
+            <div className="flex-row">
+              <h2>How are you willing to care for your plant?</h2>
+                <a className="linked-font" onClick={handleOpenModalPlantCare}>
+                    Plant care description
+                </a>
+
+                {modalOpenPlantCare && (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span className="close" onClick={handleCloseModalPlantCare}>
+                      &times;
+                    </span>
+                    <p>
+                      <h2>Plant care descriptions</h2> 
+                      <p> Repotting: Moving the plant from one pot to another. </p>
+                      <p>Trimming: Trimming typically involves cutting back plant material for reasons other than health concerns. </p>
+                      <p> Pruning: Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant. </p>
+                      <p> Fertilizer: Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</p>
+                    </p>
+                  </div>
+                </div>
+                )}
+            </div>
+            <div className="checkboxes">
               <input
                 type="checkbox"
                 id="repotting"
@@ -377,32 +419,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <br />
               {/* Add more checkboxes as needed */}
             </div>
-
-            <a className="linked-font" onClick={handleOpenModalPlantCare}>
-                Plant-care description
-            </a>
-
-              {modalOpenPlantCare && (
-              <div className="modal">
-                <div className="modal-content">
-                  <span className="close" onClick={handleCloseModalPlantCare}>
-                    &times;
-                  </span>
-                  <p>
-                    <h2>Plant-care descriptions <br /><br /></h2> 
-                    Repotting: Moving the plant from one pot to another. <br />
-                    Trimming: Trimming typically involves cutting back plant material for reasons other than health concerns. <br />
-                    Pruning: Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant. <br />
-                    Fertilizer: Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.<br />
-                  </p>
-                </div>
-              </div>
-              )}
           </div>
           {/* Humidity Options */}
           <div className="options-section">
             <h2>What is the room humidity?</h2>
             <input
+              type="number"
               placeholder="%"
               value={humidity}
               onChange={handleHumidityChange}
@@ -413,6 +435,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           {/* Soil Type Options */}
           <div className="options-section">
             <div className="soil-options">
+            <div className="flex-row">
               <h2>What type of soil do you plan to use?*</h2>
 
               <a className="linked-font" onClick={handleOpenModalSoil}>
@@ -426,23 +449,24 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                     &times;
                   </span>
                   <p>
-                    <h2>Soil type description <br /><br /></h2> 
-                    Well-draining: Such as Sandy soil, Sandy loam or Gravelly soil. Allows
+                    <h2>Soil type descriptions</h2> 
+                    <p>Well-draining: Such as Sandy soil, Sandy loam or Gravelly soil. Allows
                       water to enter the soil at a moderate rate without pooling
-                      or puddling. <br />
-                    Loamy Soil:  Such as sandy loam, silt loam, clay loam, and silty clay
+                      or puddling.  </p>
+                    <p> Loamy Soil:  Such as sandy loam, silt loam, clay loam, and silty clay
                       loam. Provides good drainage and nutrient retention with a
-                      balanced mix of sand, silt, and clay. <br />
-                    Potting mix: Soil specifically formulated for container gardening,
+                      balanced mix of sand, silt, and clay. </p>
+                    <p>Potting mix: Soil specifically formulated for container gardening,
                       typically consists of a blend of organic and inorganic
                       materials that promote good drainage, aeration, and nutrient
                       retention. Typically for houseplants, vegetables, and
-                      annuals. <br />
+                      annuals. </p>
                   </p>
                 </div>
               </div>
               )}
-              <div className="radio-container">
+              </div>
+              <div className="radio-container, checkboxes">
                 <input
                   type="radio"
                   id="welldr"
@@ -541,6 +565,13 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
         </div>
         </div>
 
+        <div>
+          <div>
+              {disabled ? <div className="confirm-zone"><button type="submit" className="button" disabled>
+              Generate
+              </button> * Fill all obligatory options </div> : <div className="confirm-zone"><button styel="" type="submit" className="button">
+              Generate
+              </button><div style={invisible}>.</div></div>}
         <div className="confirm-wrapper">
           <div className="confirm-link-wrapper">
               <button type="submit">Generate</button>

@@ -91,6 +91,9 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnima
     handleChange(event, newValue);
   };
 
+  const data = (timelineData.lightComment || timelineData.waterComment || timelineData.potSizeComment || timelineData.tempComment || timelineData.soilComment || timelineData.plantCareComment || timelineData.phComment || timelineData.humidityComment) ? true : false;
+
+
   return (
     <div className="healthy-container">
       {timelineData ? (
@@ -152,30 +155,31 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnima
             <div className="rectangle-container">
             <div className="white-rectangle">
               <div className="growth-suggestions">
-                <div className="comment">
-                  <strong>Light: <br/></strong>
-                  <span>{timelineData.lightComment}</span>
-                </div>
-                <div className="comment">
-                  <strong>Water: <br/></strong>
-                  <span>{timelineData.waterComment}</span>
-                </div>
-                <div className="comment">
-                  <strong>Temperature: <br/></strong>
-                  <span>{timelineData.tempComment}</span>
-                </div>
-                <div className="comment">
-                  <strong>Pot Size: <br/></strong>
-                  <span>{timelineData.potSizeComment}</span>
-                </div>
-                <div className="comment">
-                  <strong>Soil: <br/></strong>
-                  <span>{timelineData.soilComment}</span>
-                </div>
-                <div className="comment">
-                  <strong>Plant Care: <br/></strong>
-                  <span>{timelineData.plantCareComment}</span>
-                </div>
+              {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
+                {timelineData.lightComment ? <div className="comment">
+                  <strong>Light:</strong>
+                  <span>{timelineData.lightComment}</span> 
+                </div> : <div></div>}
+                {timelineData.waterComment ? <div className="comment">
+                  <strong>Water:</strong>
+                  <span>{timelineData.waterComment}</span> 
+                </div> : <div></div>}
+                {timelineData.tempComment ? <div className="comment">
+                  <strong>Temperature:</strong>
+                  <span>{timelineData.tempComment}</span> 
+                </div> : <div></div>}
+                {timelineData.potSizeComment ? <div className="comment">
+                  <strong>Pot Size:</strong>
+                  <span>{timelineData.potSizeComment}</span> 
+                </div> : <div></div>}
+                {timelineData.soilComment ? <div className="comment">
+                  <strong>Soil:</strong>
+                  <span>{timelineData.soilComment}</span> 
+                </div> : <div></div>}
+                {timelineData.plantCareComment ? <div className="comment">
+                  <strong>Plant Care:</strong>
+                  <span>{timelineData.plantCareComment}</span> 
+                </div> : <div></div>}
                 {timelineData.phComment ? <div className="comment">
                   <strong>pH: <br/></strong>
                   <span>{timelineData.phComment}</span>
