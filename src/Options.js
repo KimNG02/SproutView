@@ -570,7 +570,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 </svg>
               </div>
               </div>
-          ) : (<p>* Fill all obligatory options</p>) }
+          ) : (<p className="obligatory-text">* Fill all obligatory options</p>
+                  ) }
       </div>
       </form>    
       <img id="plant" src="https://i.imgur.com/T9NhnBE.png" alt="plant"/>
