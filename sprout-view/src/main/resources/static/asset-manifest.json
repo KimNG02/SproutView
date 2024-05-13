@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3633d488.css",
-    "main.js": "/static/js/main.d7316b6e.js",
+    "main.css": "/static/css/main.b1369efe.css",
+    "main.js": "/static/js/main.0594d99c.js",
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/leavesmin.png": "/static/media/leavesmin.7752d404c908cd0237f3.png",
     "static/media/flowerAnimation.mp4": "/static/media/flowerAnimation.9c22935c5a36c22e22d6.mp4",
@@ -11,11 +11,11 @@
     "static/media/herbAnimation.mp4": "/static/media/herbAnimation.cffe7763d2e1f94c7f9e.mp4",
     "static/media/fruitAnimation.mp4": "/static/media/fruitAnimation.be28d9d13bf24d20ef18.mp4",
     "index.html": "/index.html",
-    "main.3633d488.css.map": "/static/css/main.3633d488.css.map",
-    "main.d7316b6e.js.map": "/static/js/main.d7316b6e.js.map"
+    "main.b1369efe.css.map": "/static/css/main.b1369efe.css.map",
+    "main.0594d99c.js.map": "/static/js/main.0594d99c.js.map"
   },
   "entrypoints": [
-    "static/css/main.3633d488.css",
-    "static/js/main.d7316b6e.js"
+    "static/css/main.b1369efe.css",
+    "static/js/main.0594d99c.js"
   ]
 }
