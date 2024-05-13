@@ -90,6 +90,9 @@ function Risky({ resourceNames, links, timelineData, selectedPlant}) {
     handleChange(event, newValue);
   };
 
+  const data = (timelineData.lightComment || timelineData.waterComment || timelineData.potSizeComment || timelineData.tempComment || timelineData.soilComment || timelineData.plantCareComment || timelineData.phComment || timelineData.humidityComment) ? true : false;
+
+
   return (
     <div className="risky-container">
       {timelineData ? (
@@ -97,7 +100,7 @@ function Risky({ resourceNames, links, timelineData, selectedPlant}) {
           <section className="timeline-section" id="risky-timeline">
             <h1 className="growth-title">Risky Growth</h1>
             <h4>
-              Your {selectedPlant} plant will grow relaitvely well, 
+              Your {selectedPlant} plant will grow relatively well, 
               but you can do even better!
             </h4>
             <div className="risky-circle-container">
@@ -148,30 +151,31 @@ function Risky({ resourceNames, links, timelineData, selectedPlant}) {
             <h1>Growth Suggestions</h1>
             <div className="white-rectangle">
               <div className="growth-suggestions">
-                <div className="comment">
+              {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
+                {timelineData.lightComment ? <div className="comment">
                   <strong>Light:</strong>
-                  <span>{timelineData.lightComment}</span>
-                </div>
-                <div className="comment">
+                  <span>{timelineData.lightComment}</span> 
+                </div> : <div></div>}
+                {timelineData.waterComment ? <div className="comment">
                   <strong>Water:</strong>
-                  <span>{timelineData.waterComment}</span>
-                </div>
-                <div className="comment">
+                  <span>{timelineData.waterComment}</span> 
+                </div> : <div></div>}
+                {timelineData.tempComment ? <div className="comment">
                   <strong>Temperature:</strong>
-                  <span>{timelineData.tempComment}</span>
-                </div>
-                <div className="comment">
+                  <span>{timelineData.tempComment}</span> 
+                </div> : <div></div>}
+                {timelineData.potSizeComment ? <div className="comment">
                   <strong>Pot Size:</strong>
-                  <span>{timelineData.potSizeComment}</span>
-                </div>
-                <div className="comment">
+                  <span>{timelineData.potSizeComment}</span> 
+                </div> : <div></div>}
+                {timelineData.soilComment ? <div className="comment">
                   <strong>Soil:</strong>
-                  <span>{timelineData.soilComment}</span>
-                </div>
-                <div className="comment">
+                  <span>{timelineData.soilComment}</span> 
+                </div> : <div></div>}
+                {timelineData.plantCareComment ? <div className="comment">
                   <strong>Plant Care:</strong>
-                  <span>{timelineData.plantCareComment}</span>
-                </div>
+                  <span>{timelineData.plantCareComment}</span> 
+                </div> : <div></div>}
                 {timelineData.phComment ? <div className="comment">
                   <strong>pH:</strong>
                   <span>{timelineData.phComment}</span>

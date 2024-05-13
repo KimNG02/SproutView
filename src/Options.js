@@ -58,6 +58,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   };
 
   function increment() {
+    if (pH === "") {
+      return;
+    }
     setpH(function (prevCount) {
       if (prevCount === 14) {
         return (prevCount = 0);
@@ -66,6 +69,9 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   }
 
   function decrement() {
+    if (pH === "") {
+      return;
+    }
     setpH(function (prevCount) {
       if (prevCount === 0) {
         return (prevCount = 14);
@@ -280,6 +286,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 How much light will the plant recieve over the course of the
                 day?*
               </h2>
+
+              <div className="flex-row">
               <button type="button"
                 className={`Fullsun ${selectedLight === "full sun" ? "chosen-color" : ""}`}
                 onClick={() => handleLightClick("full sun")}
@@ -324,7 +332,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                     &times;
                   </span>
                   <p>
-                    <h2>Sunlight amount description </h2> 
+                    <h2>Sunlight amount descriptions </h2> 
                     <p>Full Sun: When your plant is in direct sunlight for most of the day. </p>
                     <p>Partial Sun: When your plant is in a shaded area within an area that receives direct sunlight or when the light is direct only during certain times of the day.</p>
                     <p>Shade: When your plant is in a shaded area with minimum sunlight. </p>
@@ -333,12 +341,35 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               </div>
               )}
             </div>
+            </div>
           </div>
 
           {/* Plant-care Options */}
           <div className="options-section">
-            <h2>How are you willing to care for your plant?</h2>
-            <div>
+            <div className="flex-row">
+              <h2>How are you willing to care for your plant?</h2>
+                <a className="linked-font" onClick={handleOpenModalPlantCare}>
+                    Plant care description
+                </a>
+
+                {modalOpenPlantCare && (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span className="close" onClick={handleCloseModalPlantCare}>
+                      &times;
+                    </span>
+                    <p>
+                      <h2>Plant care descriptions</h2> 
+                      <p> Repotting: Moving the plant from one pot to another. </p>
+                      <p>Trimming: Trimming typically involves cutting back plant material for reasons other than health concerns. </p>
+                      <p> Pruning: Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant. </p>
+                      <p> Fertilizer: Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</p>
+                    </p>
+                  </div>
+                </div>
+                )}
+            </div>
+            <div className="checkboxes">
               <input
                 type="checkbox"
                 id="repotting"
@@ -388,32 +419,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <br />
               {/* Add more checkboxes as needed */}
             </div>
-
-            <a className="linked-font" onClick={handleOpenModalPlantCare}>
-                Plant-care description
-            </a>
-
-              {modalOpenPlantCare && (
-              <div className="modal">
-                <div className="modal-content">
-                  <span className="close" onClick={handleCloseModalPlantCare}>
-                    &times;
-                  </span>
-                  <p>
-                    <h2>Plant-care descriptions</h2> 
-                    <p> Repotting: Moving the plant from one pot to another. </p>
-                    <p>Trimming: Trimming typically involves cutting back plant material for reasons other than health concerns. </p>
-                    <p> Pruning: Pruning typically involves removing dead or diseased wood and thinning out stems and branches to improve the overall health and appearance of a plant. </p>
-                    <p> Fertilizer: Typically contains a combination of essential nutrients such as nitrogen, phosphorus, and pottasium.</p>
-                  </p>
-                </div>
-              </div>
-              )}
           </div>
           {/* Humidity Options */}
           <div className="options-section">
             <h2>What is the room humidity?</h2>
             <input
+              type="number"
               placeholder="%"
               value={humidity}
               onChange={handleHumidityChange}
@@ -424,6 +435,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
           {/* Soil Type Options */}
           <div className="options-section">
             <div className="soil-options">
+            <div className="flex-row">
               <h2>What type of soil do you plan to use?*</h2>
 
               <a className="linked-font" onClick={handleOpenModalSoil}>
@@ -437,7 +449,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                     &times;
                   </span>
                   <p>
-                    <h2>Soil type description</h2> 
+                    <h2>Soil type descriptions</h2> 
                     <p>Well-draining: Such as Sandy soil, Sandy loam or Gravelly soil. Allows
                       water to enter the soil at a moderate rate without pooling
                       or puddling.  </p>
@@ -453,7 +465,8 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                 </div>
               </div>
               )}
-              <div className="radio-container">
+              </div>
+              <div className="radio-container, checkboxes">
                 <input
                   type="radio"
                   id="welldr"

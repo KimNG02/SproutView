@@ -33,7 +33,7 @@ const Footer = ({ timelinePage }) => {
         </div>
         <div className="footer-column">
           <h3>Contact Us</h3>
-          <p>Email: info@example.com</p>
+          <p>Site: <a href="gulsparv.site">gulsparv.site</a></p>
         </div>
       </div>
       <div className="footer-bottom">
@@ -41,6 +41,7 @@ const Footer = ({ timelinePage }) => {
           Back to Top
         </button>
         <p>&copy; 2024 Sprout View. Gulsparv Inc. All Rights Reserved.</p>
+        <div className="credit">Credit:<a href="https://www.flaticon.com/free-icons/sprout" title="sprout icons">Sprout icons created by Freepik - Flaticon</a></div>
       </div>
     </footer>
   );
