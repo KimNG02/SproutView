@@ -26,16 +26,12 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
   const [modalOpenLight, setModalOpenLight] = useState(false);
   const [modalOpenPlantCare, setModalOpenPlantCare] = useState(false);
   const [modalOpenSoil, setModalOpenSoil] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-
-  const invisible = {
-    color: '#bfdb9d00'
-  }
+  const [generate, setGenerate] = useState(false);
 
   useEffect(() => {
     if (potSize != "" && selectedLight != "" && soilType != "" && waterFrequency != "") {
-      setDisabled(false);
-    } else { setDisabled(true) }
+      setGenerate(true);
+    } else {setGenerate(false)}
   }, [potSize, selectedLight, soilType, waterFrequency])
 
   const handleCheckboxChange = (event) => {
@@ -564,27 +560,21 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
             </div>
           </div>
         </div>
-
-        <div>
-          <div>
-            {disabled ? <div className="confirm-zone"><button type="submit" className="button" disabled>
-              Generate
-            </button> * Fill all obligatory options </div> : <div className="confirm-zone"><button styel="" type="submit" className="button">
-              Generate
-            </button><div style={invisible}>.</div></div>}
-            {/* <div className="confirm-wrapper">
-              <div className="confirm-link-wrapper">
-                <button type="submit">Generate</button>
-                <div class="confirm-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
-                    <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z" />
-                  </svg>
-                </div>
-              </div> */}
-          </div>
-        </div>
-      </form>
-      <img id="plant" src="https://i.imgur.com/T9NhnBE.png" alt="plant" />
+        <div className="confirm-wrapper">
+        {generate ? (
+          <div className="confirm-link-wrapper">
+              <button type="submit">Generate</button>
+              <div className="confirm-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+                <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+                </svg>
+              </div>
+              </div>
+          ) : (<p className="obligatory-text">* Fill all obligatory options</p>
+                  ) }
+      </div>
+      </form>    
+      <img id="plant" src="https://i.imgur.com/T9NhnBE.png" alt="plant"/>
     </div>
   );
 };
