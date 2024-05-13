@@ -93,7 +93,7 @@ public class PlantCalculator {
 
         String[] optionsPlantCare = options.getValue("plant_care");
         String[] resultPlantCare = queryResult.getValue("plant_care");
-        double plantCareSimilarity = 1.0;
+        //double plantCareSimilarity = 1.0;
         
     
         for (int i = 0; i < optionsPlantCare.length; i++){
@@ -103,15 +103,7 @@ public class PlantCalculator {
             }
         }
 
-        if(optionsPlantCare != null){
-            plantCare = true;
-            if(count != optionsPlantCare.length && count > 0){// man har valt minst ett plantCare val
-                plantCareSimilarity = plantCareCompareSeveral(optionsPlantCare, resultPlantCare);
-            }
-        }
-
-       
-                       
+        double plantCareSimilarity = plantCareCompareSeveralNew(optionsPlantCare, resultPlantCare);
 
         StringJoiner plantCareJoiner = new StringJoiner(" & ");
         for(int k = 0; k < optionsPlantCare.length; k++){
@@ -213,21 +205,17 @@ public class PlantCalculator {
             attributeValuesNewJSON.add("");
         }
         
-        System.out.println("plantCare is: " + plantCare + " and plantCareSimilarity is " + plantCareSimilarity);
-        if(plantCare){
-            if (plantCareSimilarity != 1) {
-                if(allPlantCare.equals("") || allPlantCare == null){
-                    attributeValuesNewJSON.add("Try " + resultPlantCare[0] + " to take better care of your plant!");
-                } else {
-                    attributeValuesNewJSON.add("Try " + resultPlantCare[0] + " to take better care of your plant!");
-                }
+
+
+        System.out.println("plantCareSimilarity is " + plantCareSimilarity);
+        if (plantCareSimilarity != 1.1) {
+            if(optionsPlantCare[0] != "" && optionsPlantCare != null){
+                attributeValuesNewJSON.add("Instead of using the plantcare choice(s) " + stringArrayToString(options.getValue("plant_care")) + ", consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
             } else {
-                attributeValuesNewJSON.add("");
+                attributeValuesNewJSON.add("Instead of using no plantcare, consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
             }
-        }else{
-
+        } else {
             attributeValuesNewJSON.add("");
-
         }
 
         if (humidity) {
@@ -273,6 +261,16 @@ public class PlantCalculator {
         JSONObject outJSON = new JSONObject(attributeNamesNewJSONArray, outArrayFinal);
 
         return outJSON;
+    }
+
+    private String stringArrayToString(String[] array){
+        String out = "";
+        for(int n = 0; n < array.length; n++){
+            out += array[n] + ", ";
+        }
+
+        out = out.substring(0, out.length()-2);
+        return out;
     }
 
     public double lightCompare(String light1, String light2) {
@@ -433,32 +431,55 @@ public class PlantCalculator {
 
 
  
+    public double plantCareCompareSeveralNew(String[] care1, String[] care2){
+        //Provided both strings have elements
+        if(care1 != null && care1[0] != "" && care2 != null && care2[0] != ""){
+                double matchCount = 0;
 
-    public double plantCareCompareSeveral(String[] care1, String[] care2) {
-        double res = 1;
-        int length1 = care1.length;
-        int length2 = care2.length;
-
-        if(length1 != length2){
-            for (int n = 0; n < care1.length; n++) { 
-                
-                if(!care1[n].equals(care2[0])){
-                    res = res - 0.05;
-                }else{
-                    indexValueOfMatchingElements = n;
+                for(int n = 0; n < care1.length; n++){
+                    for(int i = 0; i < care2.length; i++){
+                        if(care1[n].equals(care2[i])){
+                            matchCount++;
+                        }
+                    }
                 }
+
+                System.out.println("MATCHCOUNT: " + matchCount);
+
+                double matchRatio = matchCount / care2.length;
+
+                return 1 + matchRatio/10;
+            } else {
+                return 1;
             }
         }
 
-        if(length1 == length2){
-            if((care1[0].equals(care2[0]))){
-                return res;
+
+        public double plantCareCompareSeveral(String[] care1, String[] care2) {
+            double res = 1;
+            int length1 = care1.length;
+            int length2 = care2.length;
+
+            if(length1 != length2){
+                for (int n = 0; n < care1.length; n++) { 
+                    
+                    if(!care1[n].equals(care2[0])){
+                        res = res - 0.05;
+                    }else{
+                        indexValueOfMatchingElements = n;
+                    }
+                }
             }
-            else{
-                res = res - 0.05;
+
+            if(length1 == length2){
+                if((care1[0].equals(care2[0]))){
+                    return res;
+                }
+                else{
+                    res = res - 0.05;
+                }
             }
-            }
-       return res;
+        return res;
     }
     
            

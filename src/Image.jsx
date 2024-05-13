@@ -1,4 +1,3 @@
-import { createElement, useEffect, useState } from "react"
 import PlantImage from "./PlantImage";
 
 function Image({imageSource, plant, index, filter, click}) {

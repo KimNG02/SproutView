@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./styles/Timeline.css";
-import apiServiceHandler from "./apiServiceHandler.js";
-import { useHref } from "react-router-dom";
-import Healthy from "./Healthy.js";
-import Risky from "./Risky.js";
-import Dead from "./Dead.js";
+import apiServiceHandler from "./apiServiceHandler.jsx";
+import Healthy from "./Healthy.jsx";
+import Risky from "./Risky.jsx";
+import Dead from "./Dead.jsx";
 import flowerAnimation from "./images/flowerAnimation.mp4";
 import fruitAnimation from "./images/fruitAnimation.mp4";
 import herbAnimation from "./images/herbAnimation.mp4";

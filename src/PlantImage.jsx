@@ -1,4 +1,4 @@
-import useHover from "./Hover.js"
+import useHover from "./Hover.jsx"
 
 function PlantImage({src, plant, index, filter, click}) {
     const styleOnNotHover = {

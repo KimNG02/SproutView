@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./styles/options.css";
-import ApiServiceHandler from "./apiServiceHandler.js";
-import CountrySelector from "./CountrySelector.js";
-import envPageImage from "./images/leavesmin.png";
-import leavesImage from "./images/leaves.webp";
-import plant from "./images/optimg.png";
-import Toolbar from "./Toolbar.js";
-import { useHref } from "react-router-dom";
 
 
 const Options = ({ selectedPlant, handleOptionsObject }) => {

@@ -4,10 +4,8 @@ import "./styles/App.css";
 import Alphabet from "./Alphabet";
 import frontpageImage from "./images/fornt.png";
 import icon from "./images/icon.png";
-import { type } from "@testing-library/user-event/dist/type";
 import apiServiceHandler from "./apiServiceHandler";
 import Image from "./Image";
-import { renderIntoDocument } from "react-dom/test-utils";
 
 const App = ({
   onConfirmPlanting,

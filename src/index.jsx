@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
-import App from "./App";
-import Options from "./Options";
-import Timeline from "./Timeline";
-import AboutUs from "./AboutUs";
-import Toolbar from "./Toolbar";
-import Healthy from "./Healthy";
-import Risky from "./Risky";
-import Dead from "./Dead";
-import Footer from "./Footer";
+import App from "./App.jsx";
+import Options from "./Options.jsx";
+import Timeline from "./Timeline.jsx";
+import AboutUs from "./AboutUs.jsx";
+import Toolbar from "./Toolbar.jsx";
+import Healthy from "./Healthy.jsx";
+import Risky from "./Risky.jsx";
+import Dead from "./Dead.jsx";
+import Footer from "./Footer.jsx";
 
 // Define handleRouteChange outside the Root component
 const handleRouteChange = () => {
