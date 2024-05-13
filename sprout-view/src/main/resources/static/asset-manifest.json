@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.d290f442.css",
+    "main.css": "/static/css/main.50d606d3.css",
     "main.js": "/static/js/main.bf443821.js",
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/leavesmin.png": "/static/media/leavesmin.7752d404c908cd0237f3.png",
@@ -11,11 +11,11 @@
     "static/media/herbAnimation.mp4": "/static/media/herbAnimation.cffe7763d2e1f94c7f9e.mp4",
     "static/media/fruitAnimation.mp4": "/static/media/fruitAnimation.be28d9d13bf24d20ef18.mp4",
     "index.html": "/index.html",
-    "main.d290f442.css.map": "/static/css/main.d290f442.css.map",
+    "main.50d606d3.css.map": "/static/css/main.50d606d3.css.map",
     "main.bf443821.js.map": "/static/js/main.bf443821.js.map"
   },
   "entrypoints": [
-    "static/css/main.d290f442.css",
+    "static/css/main.50d606d3.css",
     "static/js/main.bf443821.js"
   ]
 }
