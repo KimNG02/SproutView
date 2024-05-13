@@ -3,7 +3,7 @@ import "./styles/Risky.css";
 import "./styles/Timeline.css";
 import flowerAnimation from "./images/flowerAnimation.mp4";
 
-function Risky({ resourceNames, links, timelineData, selectedPlant}) {
+function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimation}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
   const [sprout, setSprout] = useState(true);
@@ -136,8 +136,8 @@ function Risky({ resourceNames, links, timelineData, selectedPlant}) {
                 </span>
               </div>
             </div>
-            <div id="helpbuttoncontainer">
-              <button id="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
+            <div className="helpbuttoncontainer">
+              <button className="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
             </div>
           </section>
           <section
@@ -184,7 +184,7 @@ function Risky({ resourceNames, links, timelineData, selectedPlant}) {
             </div>
             <div className="plant-animation-container">
               <video className="plant-animation" autoPlay controls={false} loop>
-                <source src={flowerAnimation} type="video/mp4"/>
+                <source src={plantAnimation} type="video/mp4"/>
                 Your browser does not support the animation
               </video>
             </div>

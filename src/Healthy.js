@@ -1,12 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./styles/Healthy.css";
 import "./styles/Timeline.css";
-import flowerAnimation from "./images/flowerAnimation.mp4";
-import fruitAnimation from "./images/fruitAnimation.mp4";
-import herbAnimation from "./images/herbAnimation.mp4";
-import plantAnimation from "./images/plantAnimation.mp4";
 
-function Healthy({ resourceNames, links, timelineData, selectedPlant}) {
+function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnimation}) {
   const suggestionsRef = useRef(null);
   const [value, setValue] = useState(1);
   const [sprout, setSprout] = useState(true);

@@ -5,6 +5,10 @@ import { useHref } from "react-router-dom";
 import Healthy from "./Healthy.js";
 import Risky from "./Risky.js";
 import Dead from "./Dead.js";
+import flowerAnimation from "./images/flowerAnimation.mp4";
+import fruitAnimation from "./images/fruitAnimation.mp4";
+import herbAnimation from "./images/herbAnimation.mp4";
+import defaultAnimation from "./images/plantAnimation.mp4";
 
 async function getResources() {
   return await apiServiceHandler.getResources();
@@ -73,19 +77,32 @@ function Timeline({ optionsObj, timelinePage, setTimelinePage, selectedPlant}) {
     setTimelinePage(page);
     parse();
   };
+
+    let plantAnimation = defaultAnimation;
+    if(timelineData && resources) {
+      if(timelineData.botanic_category == 'fruit') {
+        plantAnimation = fruitAnimation;
+      }
+      if(timelineData.botanic_category == 'herb') {
+        plantAnimation = herbAnimation;
+      }
+      if(timelineData.botanic_category == 'flower') {
+        plantAnimation = flowerAnimation;
+      }
+    }
   
   let timelineComponent;
   if (timelineData && resources) {
     const similarity = parseFloat(timelineData.similarity);
     if (similarity >= 0.9) {
       handleTimelinePage("Healthy");
-      timelineComponent = <Healthy resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
+      timelineComponent = <Healthy resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant} plantAnimation={plantAnimation}/>;
     } else if (similarity >= 0.5) {
       handleTimelinePage("Risky");
-      timelineComponent = <Risky resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
+      timelineComponent = <Risky resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant} plantAnimation={plantAnimation}/>;
     } else {
       handleTimelinePage("Dead");
-      timelineComponent = <Dead resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant}/>;
+      timelineComponent = <Dead resourceNames={resourceNames} links={links} timelineData={timelineData} selectedPlant = {selectedPlant} plantAnimation={plantAnimation}/>;
     }
   }
   

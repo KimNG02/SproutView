@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./styles/Dead.css";
 import "./styles/Timeline.css";
 
-function Dead({ resourceNames, links, timelineData, selectedPlant}) {
+function Dead({ resourceNames, links, timelineData, selectedPlant, plantAnimation}) {
   const suggestionsRef = useRef(null);
   const scrollToSuggestions = () => {
     suggestionsRef.current.scrollIntoView({ behavior: "smooth" });
@@ -31,8 +31,8 @@ function Dead({ resourceNames, links, timelineData, selectedPlant}) {
                 alt="Pot"
               />
             </div>
-            <div id="helpbuttoncontainer">
-              <button id="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
+            <div className="helpbuttoncontainer">
+              <button className="helpbutton" onClick={scrollToSuggestions}>Tips!</button>
             </div>
           </section>
           <section
@@ -76,6 +76,12 @@ function Dead({ resourceNames, links, timelineData, selectedPlant}) {
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
+              <div className="plant-animation-container">
+              <video className="plant-animation" autoPlay controls={false} loop>
+                <source src={plantAnimation} type="video/mp4"/>
+                Your browser does not support the animation
+              </video>
+            </div>
             </div>
           </section>
         </div>
