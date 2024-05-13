@@ -119,7 +119,7 @@
 
 .comment span {
   display: inline-block;
-  max-width: 60%; /* Ensures text doesn't get too wide */
+  max-width: 95%; /* Ensures text doesn't get too wide */
 }
 
 

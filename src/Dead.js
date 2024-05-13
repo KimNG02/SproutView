@@ -44,35 +44,35 @@ function Dead({ resourceNames, links, timelineData, selectedPlant, plantAnimatio
             <div className="white-rectangle">
               <div className="growth-suggestions">
                 <div className="comment">
-                  <strong>Light:</strong>
+                  <strong>Light: <br/></strong>
                   <span>{timelineData.lightComment}</span>
                 </div>
                 <div className="comment">
-                  <strong>Water:</strong>
+                  <strong>Water: <br/></strong>
                   <span>{timelineData.waterComment}</span>
                 </div>
                 <div className="comment">
-                  <strong>Temperature:</strong>
+                  <strong>Temperature: <br/></strong>
                   <span>{timelineData.tempComment}</span>
                 </div>
                 <div className="comment">
-                  <strong>Pot Size:</strong>
+                  <strong>Pot Size: <br/></strong>
                   <span>{timelineData.potSizeComment}</span>
                 </div>
                 <div className="comment">
-                  <strong>Soil:</strong>
+                  <strong>Soil: <br/></strong>
                   <span>{timelineData.soilComment}</span>
                 </div>
                 <div className="comment">
-                  <strong>Plant Care:</strong>
+                  <strong>Plant Care: <br/></strong>
                   <span>{timelineData.plantCareComment}</span>
                 </div>
                 {timelineData.phComment ? <div className="comment">
-                  <strong>pH:</strong>
+                  <strong>pH: <br/></strong>
                   <span>{timelineData.phComment}</span>
                 </div> : <div></div>}
                 {timelineData.humidityComment ? <div className="comment">
-                  <strong>Humidity:</strong>
+                  <strong>Humidity: <br/></strong>
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
