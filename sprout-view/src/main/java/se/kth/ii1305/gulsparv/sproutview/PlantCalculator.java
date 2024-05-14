@@ -210,9 +210,9 @@ public class PlantCalculator {
         System.out.println("plantCareSimilarity is " + plantCareSimilarity);
         if (plantCareSimilarity != 1.1) {
             if(optionsPlantCare[0] != "" && optionsPlantCare != null){
-                attributeValuesNewJSON.add("Instead of using the plant care choice(s) " + stringArrayToString(options.getValue("plant_care")) + ", consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
+                attributeValuesNewJSON.add("Instead of using the plant care choice(s) " + stringArrayToString(options.getValue("plant_care")) + ", consider using the plantcare choice(s) " + stringArrayToString(queryResult.getValue("plant_care")) + ".");
             } else {
-                attributeValuesNewJSON.add("Instead of using no plant care, consider using the plant care choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
+                attributeValuesNewJSON.add("Instead of using no plant care, consider using the plant care choice(s) " + stringArrayToString(queryResult.getValue("plant_care")) + ".");
             }
         } else {
             attributeValuesNewJSON.add("");
@@ -220,7 +220,7 @@ public class PlantCalculator {
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add("The best humidity value is " + resultHumidity + "%" + ", you selected " + optionsHumidity + "%.");
+                attributeValuesNewJSON.add("The best humidity level is inbetween " + resultHumidity + "%" + ", you selected " + optionsHumidity + "%.");
             } else {
                 attributeValuesNewJSON.add("");
             }
