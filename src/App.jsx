@@ -99,6 +99,10 @@ const App = ({
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  
   return (
     <div>
       {plantString ? (
@@ -168,6 +172,9 @@ const App = ({
                 </div>
               ))}
             </div>
+            <button className="back-to-top-btn" onClick={scrollToTop}>
+          Back to Top
+        </button>
           </div>
         </section>
         {modalOpen && (
