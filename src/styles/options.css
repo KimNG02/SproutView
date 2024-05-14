@@ -14,16 +14,6 @@ body {
   flex-direction: column;
 }
 
-.selected{
-  background-color: #bfdb9d;
-  color: #799655;
-}
-
-.chosen-color{
-  background-color: #bfdb9d;
-  color: #799655;
-}
-
 .options-section button,
 .season-options button, .confirm-zone button {
   background-color: #bfdb9d;
@@ -36,8 +26,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 5px;
-
 }
+
 
 .options-section button:hover,
 .season-options button:hover, .confirm-zone button:hover {
@@ -47,6 +37,16 @@ body {
 .options-section button:checked,
 .season-options button:checked, .confirm-zone button:checked {
   background-color: rgb(138, 165, 118);
+}
+
+.selected{
+  background-color: #15671a !important;
+  color: #ccceca !important;
+}
+
+.chosen-color{
+  background-color: #15671a !important;
+  color: #ccceca !important;
 }
 
 .confirm-zone button {
