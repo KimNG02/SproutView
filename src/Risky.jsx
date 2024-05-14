@@ -17,9 +17,6 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
   
   resourceNames.forEach((name, index) => {
     switch (name) {
-      case "pot": 
-
-        break;
       case "sprout":
         sproutImage = links[index];
         break;
@@ -30,6 +27,26 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
         floweringImage = links[index];
         break;
       case "mature":
+        matureImage = links[index];
+        break;
+    
+      default:
+        break;
+    }
+  });
+  
+  resourceNames.forEach((name, index) => {
+    switch (name) {
+      case "sprout" + timelineData.botanic_category:
+        sproutImage = links[index];
+        break;
+      case "vegetative" + timelineData.botanic_category:
+        vegetativeImage = links[index];
+        break;
+      case "flowering" + timelineData.botanic_category:
+        floweringImage = links[index];
+        break;
+      case "mature" + timelineData.botanic_category:
         matureImage = links[index];
         break;
     
@@ -99,8 +116,7 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
           <section className="timeline-section" id="risky-timeline">
             <h1 className="growth-title">Risky Growth</h1>
             <h4>
-              Your {selectedPlant} plant will grow relatively well, 
-              but you can do even better!
+              Your {selectedPlant} plant will grow relatively well, but you can do even better! <br /> A healthy growth would result in the following timeline
             </h4>
             <div className="risky-circle-container">
               <button className="arrow left-arrow" onClick={decrementValue}>
@@ -152,35 +168,35 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
               <div className="growth-suggestions">
               {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
                 {timelineData.lightComment ? <div className="comment">
-                  <strong>Light:</strong>
+                <strong>Light<br/></strong>
                   <span>{timelineData.lightComment}</span> 
                 </div> : <div></div>}
                 {timelineData.waterComment ? <div className="comment">
-                  <strong>Water:</strong>
+                <strong>Water<br/></strong>
                   <span>{timelineData.waterComment}</span> 
                 </div> : <div></div>}
                 {timelineData.tempComment ? <div className="comment">
-                  <strong>Temperature:</strong>
+                <strong>Temperature<br/></strong>
                   <span>{timelineData.tempComment}</span> 
                 </div> : <div></div>}
                 {timelineData.potSizeComment ? <div className="comment">
-                  <strong>Pot Size:</strong>
+                <strong>Pot Size<br/></strong>
                   <span>{timelineData.potSizeComment}</span> 
                 </div> : <div></div>}
                 {timelineData.soilComment ? <div className="comment">
-                  <strong>Soil:</strong>
+                  <strong>Soil<br/></strong>
                   <span>{timelineData.soilComment}</span> 
                 </div> : <div></div>}
                 {timelineData.plantCareComment ? <div className="comment">
-                  <strong>Plant Care:</strong>
+                  <strong>Plant Care<br/></strong>
                   <span>{timelineData.plantCareComment}</span> 
                 </div> : <div></div>}
                 {timelineData.phComment ? <div className="comment">
-                  <strong>pH: <br/></strong>
+                  <strong>pH<br/></strong>
                   <span>{timelineData.phComment}</span>
                 </div> : <div></div>}
                 {timelineData.humidityComment ? <div className="comment">
-                  <strong>Humidity: <br/></strong>
+                <strong>Humidity<br/></strong>
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>

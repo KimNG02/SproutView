@@ -29,7 +29,9 @@ const Footer = ({ timelinePage }) => {
           <a href="#aboutus">
             <h3>About Us</h3>
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>We are team Gulsparv with equal enthusiasm for both </p>
+          <p> planting and coding. We have decided to use our coding</p>
+          <p> capabilities to help you in your planting journey. </p>
         </div>
         <div className="footer-column">
           <h3>Contact Us</h3>

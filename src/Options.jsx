@@ -272,7 +272,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
               <div className="light-options">
                 <h2>
                   {" "}
-                  How much light will the plant recieve over the course of the
+                  How much light will the plant recieve over the course of a
                   day?*
                 </h2>
 
@@ -439,7 +439,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                         </span>
                         <p>
                           <h2>Soil type descriptions</h2>
-                          <p>Well-draining: Such as Sandy soil, Sandy loam or Gravelly soil. Allows
+                          <p>Well-draining: Such as Sandy soil or Gravelly soil. Allows
                             water to enter the soil at a moderate rate without pooling
                             or puddling.  </p>
                           <p> Loamy Soil:  Such as sandy loam, silt loam, clay loam, and silty clay
@@ -448,8 +448,7 @@ const Options = ({ selectedPlant, handleOptionsObject }) => {
                           <p>Potting mix: Soil specifically formulated for container gardening,
                             typically consists of a blend of organic and inorganic
                             materials that promote good drainage, aeration, and nutrient
-                            retention. Typically for houseplants, vegetables, and
-                            annuals. </p>
+                            retention.</p>
                         </p>
                       </div>
                     </div>

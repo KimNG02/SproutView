@@ -220,7 +220,7 @@ public class PlantCalculator {
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add("The best option is " + resultHumidity + "%" + ", you selected: " + optionsHumidity);
+                attributeValuesNewJSON.add("The best humidity is " + resultHumidity + "%" + ", you selected " + optionsHumidity + "%.");
             } else {
                 attributeValuesNewJSON.add("");
             }
@@ -230,7 +230,7 @@ public class PlantCalculator {
 
         if (ph) {
             if (phSimilarity != 1) {
-                attributeValuesNewJSON.add("The best option is " + resultPh + ", you selected: " + optionsPh);
+                attributeValuesNewJSON.add("The best pH is " + resultPh + ", you selected " + optionsPh);
             } else {
                 attributeValuesNewJSON.add("");
             }

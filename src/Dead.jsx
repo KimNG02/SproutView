@@ -47,35 +47,35 @@ function Dead({ resourceNames, links, timelineData, selectedPlant, plantAnimatio
               <div className="growth-suggestions">
                 {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
                 {timelineData.lightComment ? <div className="comment">
-                  <strong>Light:</strong>
+                <strong>Light<br/></strong>
                   <span>{timelineData.lightComment}</span> 
                 </div> : <div></div>}
                 {timelineData.waterComment ? <div className="comment">
-                  <strong>Water:</strong>
+                <strong>Water<br/></strong>
                   <span>{timelineData.waterComment}</span> 
                 </div> : <div></div>}
                 {timelineData.tempComment ? <div className="comment">
-                  <strong>Temperature:</strong>
+                <strong>Temperature<br/></strong>
                   <span>{timelineData.tempComment}</span> 
                 </div> : <div></div>}
                 {timelineData.potSizeComment ? <div className="comment">
-                  <strong>Pot Size:</strong>
+                <strong>Pot Size<br/></strong>
                   <span>{timelineData.potSizeComment}</span> 
                 </div> : <div></div>}
                 {timelineData.soilComment ? <div className="comment">
-                  <strong>Soil:</strong>
+                <strong>Soil<br/></strong>
                   <span>{timelineData.soilComment}</span> 
                 </div> : <div></div>}
                 {timelineData.plantCareComment ? <div className="comment">
-                  <strong>Plant Care:</strong>
+                <strong>Plant Care<br/></strong>
                   <span>{timelineData.plantCareComment}</span> 
                 </div> : <div></div>}
                 {timelineData.phComment ? <div className="comment">
-                  <strong>pH: <br/></strong>
+                <strong>pH <br/></strong>
                   <span>{timelineData.phComment}</span>
                 </div> : <div></div>}
                 {timelineData.humidityComment ? <div className="comment">
-                  <strong>Humidity: <br/></strong>
+                <strong>Humidity <br/></strong>
                   <span>{timelineData.humidityComment}</span>
                 </div> : <div></div>}
               </div>
