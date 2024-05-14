@@ -200,7 +200,7 @@ public class PlantCalculator {
         }
 
         if (potSizeSimilarity != 1) {
-            attributeValuesNewJSON.add("The best pot size is " + queryResult.getValue("preferred_pot_size")[0] + ", you selected: " + optionsPotsize + ".");
+            attributeValuesNewJSON.add("The best pot size is " + queryResult.getValue("preferred_pot_size")[0] + ", you selected " + optionsPotsize + ".");
         } else {
             attributeValuesNewJSON.add("");
         }
