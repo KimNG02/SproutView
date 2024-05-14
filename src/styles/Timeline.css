@@ -112,6 +112,7 @@
 .timeline-section h1 {
   font-family: VT323;
   font-size: 200%;
+  margin-bottom: 0px;
 }
 
 .comment {
@@ -128,7 +129,7 @@
 
 .comment span {
   display: inline-block;
-  max-width: 95%; /* Ensures text doesn't get too wide */
+  max-width: 100%; /* Ensures text doesn't get too wide */
 }
 
 /*galaxy Z fold 5*/
@@ -230,7 +231,6 @@ content: '';
 }
 
 
-
 .plant-animation {
   width: 320px;
   height: 320px;
@@ -240,6 +240,7 @@ content: '';
   width: max-content;
   height: max-content;
   margin-right: 20px;
+  margin-top: auto;
 }
 
 @media only screen and (max-width: 768px) {

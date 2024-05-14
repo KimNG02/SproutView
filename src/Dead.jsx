@@ -23,10 +23,10 @@ function Dead({ resourceNames, links, timelineData, selectedPlant, plantAnimatio
         <div>
           <section className="timeline-section" id="dead-timeline">
             <h1 className="growth-title">Oh no!!!</h1>
-            <h4>
+            <h3>
               Your {selectedPlant} plant is unlikely to grow in your current
               environment
-            </h4>
+            </h3>
             <div className="dead-circle-container">
               <img
                 src={pot}
@@ -43,9 +43,10 @@ function Dead({ resourceNames, links, timelineData, selectedPlant, plantAnimatio
             id="growth-suggestions"
           >
             <h1>Growth Suggestions</h1>
+            <h4>Here are some suggestions for how you can improve the conditions for your plant </h4>
             <div className="white-rectangle">
               <div className="growth-suggestions">
-                {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
+                {/*{data ? <div className="comment"></div> : <div></div>}*/}
                 {timelineData.lightComment ? <div className="comment">
                 <strong>Light<br/></strong>
                   <span>{timelineData.lightComment}</span> 

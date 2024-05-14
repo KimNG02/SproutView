@@ -171,36 +171,36 @@ public class PlantCalculator {
         attributeValuesNewJSON.add(Double.toString(totalSimilarity));
 
         if (lightSimilarity != 1) {
-            attributeValuesNewJSON.add("The best option is " + allLights + ", you selected: " +  optionsLight);
+            attributeValuesNewJSON.add("The best light option is " + allLights + ", you selected " +  optionsLight + ".");
             
         } else{
             attributeValuesNewJSON.add("");
              }
 
         if (soilSimilarity != 1) {
-            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("soil")[0] + ", you selected: " + optionsSoil);
+            attributeValuesNewJSON.add("The best soil is " + queryResult.getValue("soil")[0] + ", you selected " + optionsSoil + ".");
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (waterSimilarity != 1) {
-            int preferredFreq = (Integer.parseInt(queryResult.getValue("preferred_watering_frequency")[0])/24);
+            int preferredFreq = (int)(Double.parseDouble(queryResult.getValue("preferred_watering_frequency")[0])/24);
             System.out.println(preferredFreq);
-            int selectedFreq = (Integer.parseInt(optionsWater)/24);
+            int selectedFreq = (int)(Double.parseDouble(optionsWater)/24);
             System.out.println(selectedFreq);
-            attributeValuesNewJSON.add("The best option is every "+preferredFreq+" day(s)" + ", you selected: every " + selectedFreq + "day(s)");
+            attributeValuesNewJSON.add("The best watering frequency is every " + preferredFreq + " day(s)" + ", you selected every " + selectedFreq + " day(s).");
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (tempSimilarity != 1) {
-            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("preferred_average_temperature")[0]+"C" + ", you selected: " + optionsTemp);
+            attributeValuesNewJSON.add("The best temperature is inbetween " + queryResult.getValue("preferred_average_temperature")[0]+"C" + ", you selected " + optionsTemp + ".");
         } else {
             attributeValuesNewJSON.add("");
         }
 
         if (potSizeSimilarity != 1) {
-            attributeValuesNewJSON.add("The best option is " + queryResult.getValue("preferred_pot_size")[0] + ", you selected: " + optionsPotsize);
+            attributeValuesNewJSON.add("The best pot size is " + queryResult.getValue("preferred_pot_size")[0] + ", you selected: " + optionsPotsize + ".");
         } else {
             attributeValuesNewJSON.add("");
         }
@@ -210,9 +210,9 @@ public class PlantCalculator {
         System.out.println("plantCareSimilarity is " + plantCareSimilarity);
         if (plantCareSimilarity != 1.1) {
             if(optionsPlantCare[0] != "" && optionsPlantCare != null){
-                attributeValuesNewJSON.add("Instead of using the plantcare choice(s) " + stringArrayToString(options.getValue("plant_care")) + ", consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
+                attributeValuesNewJSON.add("Instead of using the plant care choice(s) " + stringArrayToString(options.getValue("plant_care")) + ", consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
             } else {
-                attributeValuesNewJSON.add("Instead of using no plantcare, consider using the plantcare choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
+                attributeValuesNewJSON.add("Instead of using no plant care, consider using the plant care choice(s): " + stringArrayToString(queryResult.getValue("plant_care")));
             }
         } else {
             attributeValuesNewJSON.add("");
@@ -220,7 +220,7 @@ public class PlantCalculator {
 
         if (humidity) {
             if (humiditySimilarity != 1) {
-                attributeValuesNewJSON.add("The best humidity is " + resultHumidity + "%" + ", you selected " + optionsHumidity + "%.");
+                attributeValuesNewJSON.add("The best humidity value is " + resultHumidity + "%" + ", you selected " + optionsHumidity + "%.");
             } else {
                 attributeValuesNewJSON.add("");
             }
@@ -230,7 +230,7 @@ public class PlantCalculator {
 
         if (ph) {
             if (phSimilarity != 1) {
-                attributeValuesNewJSON.add("The best pH is " + resultPh + ", you selected " + optionsPh);
+                attributeValuesNewJSON.add("The best soil pH is " + resultPh + ", you selected " + optionsPh + ".");
             } else {
                 attributeValuesNewJSON.add("");
             }

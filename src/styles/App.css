@@ -6,6 +6,7 @@
 .plants {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 /* plant name + image */
 .plant {
@@ -13,11 +14,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-size: 1.6rem;
 }
-
-
-
-
 
 #app-main {
   background-color: #f8fbfc;
@@ -454,5 +452,14 @@ body {
 
   .image-section p {
     font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  /* plant name + image */
+  .plant {
+    padding-right: 3vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.2rem;
   }
 }

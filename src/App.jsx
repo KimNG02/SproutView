@@ -136,15 +136,6 @@ const App = ({
             </a>
           </div>
         </section>
-
-        {/*<section className="vision-section">
-          <div className="vision-text">
-            <p>
-                blablablibli
-            </p>
-          </div>
-        </section>*/}
-
         <section className="plant-section" ref={plantSelectRef}>
           <div className="flex">
             <img className="icon" alt="icon" src={icon}></img>
@@ -168,7 +159,7 @@ const App = ({
                       .sort()
                       .map((plant, index) => (
                         <div className="plant" key={index}>
-                      <Image imageSource={images[plants.indexOf(plant)]} plant={plant} index={index} filter={97+i} click={handleImageClick} /> {plant} <div/>
+                      <Image imageSource={images[plants.indexOf(plant)]} plant={plant} index={index} filter={97+i} click={handleImageClick} /> {plant[0].toUpperCase() + plant.substring(1, plant.length)} <div/>
 
                     </div>
                     ))}
