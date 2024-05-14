@@ -512,11 +512,21 @@ public class PlantCalculator {
         int lowerRange = Integer.valueOf(humidity2StringArray[0]);
         int upperRange = Integer.valueOf(humidity2StringArray[1]);
 
-        double out = 0.9;
+        double difference = 0;
 
         if (lowerRange <= humidity1 && humidity1 <= upperRange) {
-            out = 1.0;
+            difference = 0;
+        } else {
+            if(humidity1 < lowerRange){
+                difference = lowerRange - humidity1;
+            }
+
+            if(upperRange < humidity1){
+                difference = humidity1 - upperRange;
+            }
         }
+
+        double out = 1 - difference / 500;
 
         return out;
     }
