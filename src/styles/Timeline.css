@@ -83,8 +83,9 @@
 }
 
 .labels span {
-  font-size: 12px;
+  font-size: 14px;
   transition: font-weight 0.2s ease;
+  text-align: center;
 }
 
 .labels span.active {

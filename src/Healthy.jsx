@@ -145,16 +145,16 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnima
               />
               <div className="labels">
                 <span className={value === 1 ? "active" : ""}>
-                  Sprout {timelineData.sproutTime}
+                  Sprout <br></br> {timelineData.sproutTime}
                 </span>
                 <span className={value === 2 ? "active" : ""}>
-                  Vegetative {timelineData.vegetativeTime}
+                  Vegetative <br></br> {timelineData.vegetativeTime}
                 </span>
                 <span className={value === 3 ? "active" : ""}>
-                  Flowering {timelineData.floweringTime}
+                  Flowering <br></br> {timelineData.floweringTime}
                 </span>
                 <span className={value === 4 ? "active" : ""}>
-                  Mature/Ripe {timelineData.matureTime}
+                  Mature/Ripe <br></br> {timelineData.matureTime}
                 </span>
               </div>
             </div>
@@ -170,10 +170,10 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnima
             id="growth-suggestions"
           >
             <h1>Growth Suggestions</h1>
+            <h4>Here are some suggestions for how you can improve the conditions for your plant </h4>
             <div className="rectangle-container">
             <div className="white-rectangle">
               <div className="growth-suggestions">
-              {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
                 {timelineData.lightComment ? <div className="comment">
                   <strong>Light<br /></strong>
                   <span>{timelineData.lightComment}</span> 
@@ -205,7 +205,7 @@ function Healthy({ resourceNames, links, timelineData, selectedPlant, plantAnima
                 {timelineData.humidityComment ? <div className="comment">
                   <strong>Humidity <br/></strong>
                   <span>{timelineData.humidityComment}</span>
-                </div> : <div></div>}
+                </div> : <strong>Good job and happy planting!</strong>}
               </div>
               <div className="plant-animation-container">
               <video className="plant-animation" autoPlay controls={false} loop>

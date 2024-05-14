@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.b94ec6b2.css",
-    "main.js": "/static/js/main.8ba6801c.js",
+    "main.css": "/static/css/main.28dd482b.css",
+    "main.js": "/static/js/main.05e4410a.js",
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/flowerAnimation.mp4": "/static/media/flowerAnimation.9c22935c5a36c22e22d6.mp4",
     "static/media/plantAnimation.mp4": "/static/media/plantAnimation.70768015c7c397c84482.mp4",
     "static/media/herbAnimation.mp4": "/static/media/herbAnimation.cffe7763d2e1f94c7f9e.mp4",
     "static/media/fruitAnimation.mp4": "/static/media/fruitAnimation.be28d9d13bf24d20ef18.mp4",
     "index.html": "/index.html",
-    "main.b94ec6b2.css.map": "/static/css/main.b94ec6b2.css.map",
-    "main.8ba6801c.js.map": "/static/js/main.8ba6801c.js.map"
+    "main.28dd482b.css.map": "/static/css/main.28dd482b.css.map",
+    "main.05e4410a.js.map": "/static/js/main.05e4410a.js.map"
   },
   "entrypoints": [
-    "static/css/main.b94ec6b2.css",
-    "static/js/main.8ba6801c.js"
+    "static/css/main.28dd482b.css",
+    "static/js/main.05e4410a.js"
   ]
 }

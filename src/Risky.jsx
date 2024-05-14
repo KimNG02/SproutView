@@ -141,16 +141,16 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
               />
               <div className="labels">
                 <span className={value === 1 ? "active" : ""}>
-                  Sprout {timelineData.sproutTime}
+                  Sprout<br /> {timelineData.sproutTime}
                 </span>
                 <span className={value === 2 ? "active" : ""}>
-                  Vegetative {timelineData.vegetativeTime}
+                  Vegetative<br /> {timelineData.vegetativeTime}
                 </span>
                 <span className={value === 3 ? "active" : ""}>
-                  Flowering {timelineData.floweringTime}
+                  Flowering<br /> {timelineData.floweringTime}
                 </span>
                 <span className={value === 4 ? "active" : ""}>
-                  Mature/Ripe {timelineData.matureTime}
+                  Mature/Ripe<br /> {timelineData.matureTime}
                 </span>
               </div>
             </div>
@@ -164,9 +164,10 @@ function Risky({ resourceNames, links, timelineData, selectedPlant, plantAnimati
             id="growth-suggestions"
           >
             <h1>Growth Suggestions</h1>
+            <h4>Here are some suggestions for how you can improve the conditions for your plant </h4>
+
             <div className="white-rectangle">
               <div className="growth-suggestions">
-              {data ? <div className="comment">Here are some suggestions for how you can improve the conditions for your plant:</div> : <div></div>}
                 {timelineData.lightComment ? <div className="comment">
                 <strong>Light<br/></strong>
                   <span>{timelineData.lightComment}</span> 
