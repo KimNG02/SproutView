@@ -1,18 +1,32 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.28dd482b.css",
     "main.js": "/static/js/main.05e4410a.js",
+=======
+    "main.css": "/static/css/main.1e5a0b74.css",
+    "main.js": "/static/js/main.99e89a97.js",
+>>>>>>> 037dad9d5ee0da43aba5ab090bd98b0b73b5e2d2
     "static/media/fornt.png": "/static/media/fornt.d225cde5717e1478ba05.png",
     "static/media/flowerAnimation.mp4": "/static/media/flowerAnimation.9c22935c5a36c22e22d6.mp4",
     "static/media/plantAnimation.mp4": "/static/media/plantAnimation.70768015c7c397c84482.mp4",
     "static/media/herbAnimation.mp4": "/static/media/herbAnimation.cffe7763d2e1f94c7f9e.mp4",
     "static/media/fruitAnimation.mp4": "/static/media/fruitAnimation.be28d9d13bf24d20ef18.mp4",
     "index.html": "/index.html",
+<<<<<<< HEAD
     "main.28dd482b.css.map": "/static/css/main.28dd482b.css.map",
     "main.05e4410a.js.map": "/static/js/main.05e4410a.js.map"
   },
   "entrypoints": [
     "static/css/main.28dd482b.css",
     "static/js/main.05e4410a.js"
+=======
+    "main.1e5a0b74.css.map": "/static/css/main.1e5a0b74.css.map",
+    "main.99e89a97.js.map": "/static/js/main.99e89a97.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e5a0b74.css",
+    "static/js/main.99e89a97.js"
+>>>>>>> 037dad9d5ee0da43aba5ab090bd98b0b73b5e2d2
   ]
 }

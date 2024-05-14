@@ -2,9 +2,6 @@ import React from "react";
 import "./styles/Footer.css";
 
 const Footer = ({ timelinePage }) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   let background;
   switch (timelinePage) {
@@ -39,9 +36,6 @@ const Footer = ({ timelinePage }) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <button className="back-to-top-btn" onClick={scrollToTop}>
-          Back to Top
-        </button>
         <p>&copy; 2024 Sprout View. Gulsparv Inc. All Rights Reserved.</p>
         <div className="credit">Credit:<a href="https://www.flaticon.com/free-icons/sprout" title="sprout icons">Sprout icons created by Freepik - Flaticon</a></div>
       </div>
