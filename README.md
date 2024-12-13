@@ -1,3 +1,29 @@
+# 🌱 Welcome to Sproutview
+
+**Discover How Your Favorite Plants Thrive!**
+
+Sproutview is an interactive web app designed for plant enthusiasts, gardeners, and curious minds. Explore how different plants grow under various conditions and learn how to give them the best care possible.
+
+---
+
+## 🌿 What Can You Do with Sproutview?
+
+- **Choose Your Favorite Plants:**  
+  Select from a wide range of plants to explore.
+
+- **Simulate Growth Conditions:**  
+  Experiment with different environments, lighting, weather, temperature, and soil types.
+
+- **Visualize Growth:**  
+  See how each condition affects plant growth and health.
+
+- **Learn and Adapt:**  
+  Get insights to help your plants thrive in real life.
+
+---
+
+Start exploring your plant journey with **Sproutview** today! 🌱
+
 Required:
  - A local or hosted PostgreSQL database. (Add connection info in DBHandler.java)
  - node.js with local node_modules install.
